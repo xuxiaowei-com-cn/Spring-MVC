@@ -8,6 +8,7 @@
             http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--  Automatically Detecting Classes and Registering Bean Definitions -->
+    <!-- 自动检测类和注册Bean定义 -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-scanning-autodetection -->
     <context:component-scan base-package="cn.com.xuxiaowei"/>
 
