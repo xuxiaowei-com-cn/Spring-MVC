@@ -27,6 +27,7 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <!-- 交付 Spring MVC 处理的 URL -->
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
