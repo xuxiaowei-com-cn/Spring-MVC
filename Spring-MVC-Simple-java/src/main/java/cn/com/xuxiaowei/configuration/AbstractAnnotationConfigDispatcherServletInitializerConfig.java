@@ -22,9 +22,13 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * 注册{@code DispatcherServlet}并使用基于Java的Spring配置
  * <p>
  * web.xml
+ * <p>
+ * 在Servlet 3.0之前的环境中，只能继承 {@link org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer}
+ * 在Servlet 3.0+环境中，可实现 {@link org.springframework.web.WebApplicationInitializer}，二者选一
  *
  * @author xuxiaowei
- * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet-context-hierarchy">Context Hierarchy</a>
+ * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet-context-hierarchy">Context Hierarchy</a>上下文层次结构
+ * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-container-config">Servlet Config</a>Servlet配置
  */
 public class AbstractAnnotationConfigDispatcherServletInitializerConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
