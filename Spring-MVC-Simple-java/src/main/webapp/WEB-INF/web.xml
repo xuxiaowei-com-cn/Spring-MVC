@@ -4,6 +4,32 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- Using Log4j 2 in Web Applications -->
+    <!-- 在Web应用程序中使用Log4j 2 -->
+    <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>classpath:log4j2.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>log4jServletFilter</filter-name>
+        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log4jServletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+        <!--<dispatcher>ASYNC</dispatcher>--><!-- Servlet 3.0 w/ 仅禁用自动初始化; 不支持 2.5 -->
+    </filter-mapping>
+    <!-- Using Log4j 2 in Web Applications -->
+
     <!-- 首页 -->
     <welcome-file-list>
         <welcome-file>/</welcome-file>

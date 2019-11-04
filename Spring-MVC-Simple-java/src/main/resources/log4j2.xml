@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出-->
+<!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身，设置间隔秒数-->
+<Configuration monitorInterval="30">
+
+    <properties>
+        <!-- 日志路径 -->
+        <property name="LOG_HOME">/log4j2/logs/</property>
+        <property name="PATTERN_FORMAT">[%d] %-5p (%class{1}#%M:%L) - %m%n</property>
+        <!-- 日志文件名称 -->
+        <property name="FATAL_NAME">fatal</property>
+        <property name="ERROR_NAME">error</property>
+        <property name="WARN_NAME">warn</property>
+        <property name="INFO_NAME">info</property>
+        <property name="DEBUG_NAME">debug</property>
+        <property name="TRACE_NAME">trace</property>
+        <property name="ALL_NAME">all</property>
+    </properties>
+
+    <Appenders>
+
+        <!-- 控制台打印日志 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--
+                -5：宽度（5个空格）
+                %d：2019-07-10 22:45:06,988
+                %p：日志等级
+                %F：文件名，IndexController.java
+                %class{1}：类名，IndexController
+                %M：方法名，index
+                %L：行号
+            -->
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+        </Console>
+
+        <RollingRandomAccessFile name="FatalLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${FATAL_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${FATAL_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <!--<Filters></Filters>使用后，向下兼容-->
+            <ThresholdFilter level="fatal" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy 指定的size是1，结合起来就是1天生成一个新文件。 -->
+                <!-- 如果filePattern改成%d{yyyy-MM-dd HH}.gz,此时最小粒度为小时，则每一个小时生成一个文件。 -->
+                <TimeBasedTriggeringPolicy/>
+                <!-- 指定当文件体积大于size指定的值时，触发 Rolling -->
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <!-- 指定最多保存的文件个数 -->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="ErrorLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${ERROR_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${ERROR_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="WarnLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${WARN_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${WARN_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="InfoLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${INFO_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${INFO_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="DebugLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${DEBUG_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${DEBUG_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="TraceLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${TRACE_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${TRACE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${PATTERN_FORMAT}"/>
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- 扫描的包以及日志等级 -->
+        <Logger name="cn.com.xuxiaowei" level="debug">
+            <AppenderRef ref="FatalLog"/>
+            <AppenderRef ref="ErrorLog"/>
+            <AppenderRef ref="WarnLog"/>
+            <AppenderRef ref="InfoLog"/>
+            <AppenderRef ref="DebugLog"/>
+            <AppenderRef ref="TraceLog"/>
+        </Logger>
+
+        <!--<Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FatalLog"/>
+            <AppenderRef ref="ErrorLog"/>
+            <AppenderRef ref="WarnLog"/>
+            <AppenderRef ref="InfoLog"/>
+            <AppenderRef ref="DebugLog"/>
+            <AppenderRef ref="TraceLog"/>
+        </Root>-->
+
+    </Loggers>
+</Configuration>
