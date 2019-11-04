@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/Spring-MVC-Simple-java/classes
+/Spring-MVC-Simple-xml/classes
