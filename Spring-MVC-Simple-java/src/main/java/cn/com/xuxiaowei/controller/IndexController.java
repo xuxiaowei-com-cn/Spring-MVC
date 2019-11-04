@@ -15,6 +15,8 @@
  */
 package cn.com.xuxiaowei.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +32,17 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class IndexController {
 
+    private final static Log logger = LogFactory.getLog(IndexController.class);
+
     /**
      * Index
      */
     @RequestMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("Index IndexController debug 日志测试。");
+        }
 
         return "index";
     }
