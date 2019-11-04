@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>5.1.8.RELEASE</spring.version>
+        <spring.version>5.2.1.RELEASE</spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.12.0</log4j-web.version>
