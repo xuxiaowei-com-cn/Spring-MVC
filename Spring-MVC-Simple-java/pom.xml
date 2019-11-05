@@ -16,8 +16,20 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.1.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <mybatis.version>3.5.3</mybatis.version>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+        <mybatis-spring.version>2.0.3</mybatis-spring.version>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <mysql.version>8.0.18</mysql.version>
+
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.12.0</log4j-web.version>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <lombok.version>1.18.10</lombok.version>
 
     </properties>
 
@@ -28,6 +40,42 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
