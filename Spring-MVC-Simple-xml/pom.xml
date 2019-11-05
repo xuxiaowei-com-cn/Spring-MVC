@@ -25,6 +25,9 @@
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.12.0</log4j-web.version>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <lombok.version>1.18.10</lombok.version>
+
     </properties>
 
     <dependencies>
@@ -55,6 +58,14 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
