@@ -12,4 +12,7 @@
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-scanning-autodetection -->
     <context:component-scan base-package="cn.com.xuxiaowei"/>
 
+    <!-- 导入 MyBatis-Spring 配置 -->
+    <import resource="classpath:mybatis-spring.xml"/>
+
 </beans>
