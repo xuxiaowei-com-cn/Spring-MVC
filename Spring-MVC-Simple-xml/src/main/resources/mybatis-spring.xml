@@ -2,10 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 导入 JDBC 配置文件 -->
     <!-- 通过在应用程序上下文中注册PropertySourcesPlaceholderConfigurer来激活 ${...} 占位符的替换。 -->
@@ -68,6 +66,8 @@
     <!-- 通过使用逗号或分号分隔，你可以设置多个包。 -->
     <!-- 并且会在你所指定的包中递归搜索映射器。 -->
     <!-- 参见：http://mybatis.org/spring/zh/mappers.html -->
-    <mybatis:scan base-package="cn.com.xuxiaowei.mapper"/>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.com.xuxiaowei.mapper"/>
+    </bean>
 
 </beans>
