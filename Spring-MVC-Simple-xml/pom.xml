@@ -16,6 +16,9 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.1.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <mybatis.version>3.5.3</mybatis.version>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <mybatis-spring.version>2.0.3</mybatis-spring.version>
 
@@ -37,6 +40,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
