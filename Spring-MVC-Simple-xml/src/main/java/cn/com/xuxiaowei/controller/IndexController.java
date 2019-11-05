@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * Index Controller
  *
  * @author xuxiaowei
+ * @since 0.0.1
  */
 @Controller
 public class IndexController {
