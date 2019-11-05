@@ -15,8 +15,11 @@
  */
 package cn.com.xuxiaowei.controller;
 
+import cn.com.xuxiaowei.entity.User;
+import cn.com.xuxiaowei.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
  * Index Controller
  *
  * @author xuxiaowei
+ * @since 0.0.1
  */
 @Controller
 public class IndexController {
@@ -35,14 +39,26 @@ public class IndexController {
     private final static Log logger = LogFactory.getLog(IndexController.class);
 
     /**
+     * 用户 Service 服务
+     */
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    /**
      * Index
      */
     @RequestMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Index IndexController debug 日志测试。");
-        }
+        logger.debug(this.getClass() + "debug 日志测试。");
+
+        User user = userService.selectByUsername("徐晓伟");
+
+        logger.debug(user);
 
         return "index";
     }
