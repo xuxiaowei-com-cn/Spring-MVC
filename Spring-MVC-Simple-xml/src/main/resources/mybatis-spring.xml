@@ -45,8 +45,16 @@
         <!-- mapperLocations 属性接受多个资源位置。 -->
         <!-- 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。 -->
         <!-- 属性的值是一个 Ant 风格的字符串，可以指定加载一个目录中的所有文件，或者从一个目录开始递归搜索所有目录。 -->
+        <!-- <property name="mapperLocations" value="classpath:mapper/*.xml"/> -->
         <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
-        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mapper/*.xml</value>
+                <!-- 多包 xml 扫描 -->
+                <!-- <value>classpath:Module/mapper/*.xml</value> -->
+            </array>
+        </property>
+
     </bean>
 
     <!-- 事务 -->
