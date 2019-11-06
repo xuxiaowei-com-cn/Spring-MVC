@@ -37,7 +37,7 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfig extends 
      */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{SpringContextConfig.class};
+        return new Class[]{SpringContextConfiguration.class};
     }
 
     /**
@@ -45,7 +45,7 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfig extends 
      */
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebMvcConfigurerConfig.class};
+        return new Class[]{WebMvcConfigurerConfiguration.class};
     }
 
     /**
