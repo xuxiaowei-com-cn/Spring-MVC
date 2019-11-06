@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = "cn.com.xuxiaowei")
-public class SpringContextConfig {
+public class SpringContextConfiguration {
 
 
 }
