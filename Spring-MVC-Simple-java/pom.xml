@@ -26,7 +26,7 @@
         <mysql.version>8.0.18</mysql.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
-        <log4j-web.version>2.12.0</log4j-web.version>
+        <log4j-web.version>2.12.1</log4j-web.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <lombok.version>1.18.10</lombok.version>
