@@ -22,6 +22,12 @@
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <mybatis-spring.version>2.0.3</mybatis-spring.version>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
+        <spring-data-redis.version>2.2.2.RELEASE</spring-data-redis.version>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <jedis.version>3.1.0</jedis.version>
+
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.18</mysql.version>
 
@@ -64,6 +70,20 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${spring-data-redis.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
