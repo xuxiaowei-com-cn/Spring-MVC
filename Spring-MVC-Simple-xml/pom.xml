@@ -44,6 +44,9 @@
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.12</junit.version>
 
+        <!-- 待测试 -->
+        <dao.target.dir>src/main/java</dao.target.dir>
+
     </properties>
 
     <dependencies>
@@ -152,5 +155,16 @@
         </dependency>
 
     </dependencies>
+
+    <!-- 待测试 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
