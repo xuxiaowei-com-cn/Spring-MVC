@@ -31,6 +31,10 @@
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.18</mysql.version>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
+        <mybatis-generator.version>1.4.0</mybatis-generator.version>
+
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.12.1</log4j-web.version>
 
@@ -91,6 +95,21 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator</artifactId>
+            <version>${mybatis-generator.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>${mybatis-generator.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
