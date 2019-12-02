@@ -10,6 +10,16 @@
     <!-- 参见：http://www.springframework.org/schema/context/spring-context.xsd -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
+    <!-- 或者使用： -->
+    <!-- https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.html -->
+    <!--<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>-->
+
     <!-- 配置数据库连接池 -->
     <!-- 推荐使用：org.springframework.jdbc.datasource.DriverManagerDataSource -->
     <!-- 或者选用：org.springframework.jdbc.datasource.SimpleDriverDataSource -->
