@@ -54,6 +54,8 @@ public class IndexController {
     @RequestMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
 
+        request.getSession();
+
         logger.debug(this.getClass() + "debug 日志测试。");
 
         User user = userService.selectByUsername("徐晓伟");
