@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 基于 Redis XML 的配置 -->
+    <!-- https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession-xml-spring-configuration -->
+    <!-- Spring Session 由 Redis 支持 -->
+    <context:annotation-config/>
+    <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
+    <!-- 创建一个 RedisConnectionFactory 将 Spring Session 连接到 Redis Server -->
+    <!-- 将连接配置为在默认端口（6379）上连接到 localhost。有关配置 Spring Data Redis 的更多信息，请参见参考文档 -->
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/2.2.0.RELEASE/reference/html/ -->
+    <bean class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"/>
+
+    <!-- 通过 RedisTemplate 处理对象 -->
+    <!-- 字符串 -->
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:template -->
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:string -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:use-pool="true"/>
+    <!-- Redis 模板定义 -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+          p:connection-factory-ref="jedisConnectionFactory"/>
+
+</beans>
