@@ -25,6 +25,9 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
         <spring-data-redis.version>2.2.2.RELEASE</spring-data-redis.version>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
+        <spring-session-data-redis.version>2.2.0.RELEASE</spring-session-data-redis.version>
+
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <jedis.version>3.1.0</jedis.version>
 
@@ -90,7 +93,7 @@
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
-            <version>2.2.0.RELEASE</version>
+            <version>${spring-session-data-redis.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
