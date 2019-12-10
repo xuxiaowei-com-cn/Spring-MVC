@@ -34,6 +34,19 @@
     </servlet-mapping>
     <!-- DispatcherServlet -->
 
+    <!-- 将 Session 交付给 Redis  -->
+    <!-- 基于 Redis XML 的配置：https://docs.spring.io/spring-session/docs/current/reference/html5/#xml-servlet-container-initialization -->
+    <filter>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
     <!-- 静态资源不拦截 -->
     <!-- 参见： -->
     <servlet-mapping>
