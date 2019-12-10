@@ -34,10 +34,6 @@
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
         <lettuce-core.version>5.2.1.RELEASE</lettuce-core.version>
 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
-        <jackson.version>2.10.1</jackson.version>
-
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.18</mysql.version>
 
@@ -53,9 +49,6 @@
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <junit.version>4.12</junit.version>
-
-        <!-- 待测试 -->
-        <dao.target.dir>src/main/java</dao.target.dir>
 
     </properties>
 
@@ -115,27 +108,6 @@
             <groupId>io.lettuce</groupId>
             <artifactId>lettuce-core</artifactId>
             <version>${lettuce-core.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.testcontainers/testcontainers -->
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <version>1.12.4</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-parameter-names</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -199,37 +171,8 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.13</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-
     </dependencies>
 
-    <!-- 待测试 -->
     <build>
         <plugins>
             <plugin>
