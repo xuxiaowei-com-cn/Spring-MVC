@@ -7,9 +7,10 @@
     <!-- Convenient ApplicationContext Instantiation for Web Applications -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#context-create -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet -->
+    <!-- https://docs.spring.io/spring-session/docs/current/reference/html5/#xml-servlet-container-initialization -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-context.xml</param-value>
+        <param-value>classpath:spring-context.xml,classpath:redis-spring.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
