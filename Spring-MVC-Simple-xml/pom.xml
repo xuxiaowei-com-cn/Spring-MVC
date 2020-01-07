@@ -13,6 +13,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <!-- MyBatis Generator 配置文件位置 -->
+        <mybatis.generator.configurationFile>
+            ${basedir}/src/main/resources/mybatis/generatorConfig.xml
+        </mybatis.generator.configurationFile>
+
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.1.RELEASE</spring.version>
 
@@ -175,10 +180,24 @@
 
     <build>
         <plugins>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
+            <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>${mybatis-generator.version}</version>
+
+                <dependencies>
+
+                    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+
+                </dependencies>
             </plugin>
         </plugins>
     </build>
