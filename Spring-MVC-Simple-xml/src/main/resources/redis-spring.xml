@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -27,10 +28,8 @@
     <!-- 将连接配置为在默认端口（6379）上连接到 localhost。有关配置 Spring Data Redis 的更多信息，请参见参考文档 -->
     <!-- https://docs.spring.io/spring-data/data-redis/docs/2.2.0.RELEASE/reference/html/ -->
     <bean id="lettuceConnectionFactory"
-          class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory">
-        <!-- 可使用 c:configuration-ref -->
-        <constructor-arg name="configuration" ref="redisStandaloneConfiguration"/>
-    </bean>
+          class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"
+          c:configuration-ref="redisStandaloneConfiguration"/>
 
     <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:template -->
     <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:string -->
