@@ -12,6 +12,7 @@
     <!-- Spring Session 由 Redis 支持 -->
     <context:annotation-config/>
 
+    <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
 
     <!-- 连接配置 -->
