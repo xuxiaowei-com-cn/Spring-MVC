@@ -42,6 +42,24 @@
     <!-- Redis 模板定义 -->
     <!-- p:connection-factory-ref：根据连接池配置 -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-          p:connection-factory-ref="lettuceConnectionFactory"/>
+          p:connection-factory-ref="lettuceConnectionFactory"
+          p:keySerializer-ref="keySerializer"
+          p:hashKeySerializer-ref="hashKeySerializer"
+          p:valueSerializer-ref="valueSerializer"
+          p:hashValueSerializer-ref="hashValueSerializer"/>
+
+    <!--  -->
+    <bean id="keySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+
+    <!--  -->
+    <bean id="hashKeySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+
+    <!--  -->
+    <bean id="valueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
+          c:type="java.lang.Object"/>
+
+    <!--  -->
+    <bean id="hashValueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
+          c:type="java.lang.Object"/>
 
 </beans>
