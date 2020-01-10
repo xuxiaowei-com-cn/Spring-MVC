@@ -18,11 +18,13 @@
             ${basedir}/src/main/resources/mybatis/generatorConfig.xml
         </mybatis.generator.configurationFile>
 
+        <!-- JDK 6 最高支持 spring 版本为：4.3.25.RELEASE -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>5.2.1.RELEASE</spring.version>
+        <spring.version>4.3.25.RELEASE</spring.version>
 
+        <!-- JDK 6 最高支持 mybatis 版本为：3.4.6 -->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis.version>3.4.6</mybatis.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <mybatis-spring.version>2.0.3</mybatis-spring.version>
@@ -33,8 +35,9 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
         <spring-session-data-redis.version>2.2.0.RELEASE</spring-session-data-redis.version>
 
+        <!-- JDK 6 最高正常编译 jedis 版本为：2.9.0 -->
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-        <jedis.version>3.1.0</jedis.version>
+        <jedis.version>2.9.0</jedis.version>
 
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
         <lettuce-core.version>5.2.1.RELEASE</lettuce-core.version>
@@ -50,8 +53,9 @@
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
 
+        <!-- JDK 6 最高支持 log4j-web 版本为：2.3 -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
-        <log4j-web.version>2.12.1</log4j-web.version>
+        <log4j-web.version>2.3</log4j-web.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <lombok.version>1.18.10</lombok.version>
@@ -170,11 +174,12 @@
             <version>${log4j-web.version}</version>
         </dependency>
 
+        <!-- JDK 6 最高支持 servlet 版本为：3.0.1 -->
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -217,6 +222,16 @@
 
                 </dependencies>
             </plugin>
+
+            <!-- 默认 JDK -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
