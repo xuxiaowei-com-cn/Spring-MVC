@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Index Controller
@@ -53,6 +54,8 @@ public class IndexController {
      */
     @RequestMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        request.getSession();
 
         logger.debug(this.getClass() + "debug 日志测试。");
 

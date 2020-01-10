@@ -4,6 +4,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- 将 Session 交付给 Redis  -->
+    <!-- https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession-redis -->
+    <filter>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSessionRepositoryFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
     <!-- Using Log4j 2 in Web Applications -->
     <!-- 在Web应用程序中使用Log4j 2 -->
     <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->

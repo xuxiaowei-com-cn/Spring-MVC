@@ -13,6 +13,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <!-- MyBatis Generator 配置文件位置 -->
+        <mybatis.generator.configurationFile>
+            ${basedir}/src/main/resources/mybatis/generatorConfig.xml
+        </mybatis.generator.configurationFile>
+
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.1.RELEASE</spring.version>
 
@@ -36,6 +41,10 @@
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.18</mysql.version>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
+        <jackson-datatype.version>2.10.1</jackson-datatype.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
@@ -117,6 +126,20 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-datatype.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-parameter-names</artifactId>
+            <version>${jackson-datatype.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
@@ -175,10 +198,24 @@
 
     <build>
         <plugins>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
+            <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>${mybatis-generator.version}</version>
+
+                <dependencies>
+
+                    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+
+                </dependencies>
             </plugin>
         </plugins>
     </build>

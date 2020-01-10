@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- MyBatis Generator配置文件的根元素：http://mybatis.org/generator/configreference/generatorConfiguration.html -->
+<generatorConfiguration>
+
+    <!--
+        id：唯一标识符
+        targetRuntime：
+     -->
+    <!-- http://mybatis.org/generator/configreference/context.html -->
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+
+        <!--
+            driverClass：连接数据库驱动，依赖在 pom.xml 中的 <build><plugins><plugin><dependencies></dependencies></plugin></plugins></build>
+            userId：数据库用户名
+            password：数据库密码
+            connectionURL：数据库连接地址
+         -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&amp;serverTimezone=GMT%2B8"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- 数据库类型 与 Java类型 对照关系 http://mybatis.org/generator/configreference/javaTypeResolver.html -->
+        <javaTypeResolver>
+            <!-- forceBigDecimals：默认值为 false，java.math.BigDecimal 相关 -->
+            <property name="forceBigDecimals" value="false"/>
+            <!-- useJSR310Types：日期相关 -->
+        </javaTypeResolver>
+
+        <!--
+            实体类：http://mybatis.org/generator/configreference/javaModelGenerator.html
+            targetProject：包相对于项目的路径
+            targetPackage：包名
+         -->
+        <javaModelGenerator targetProject="src/main/java" targetPackage="cn.com.xuxiaowei.entity">
+            <!-- enableSubPackages： -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- trimStrings： -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- Mapper XML 文件：http://mybatis.org/generator/configreference/sqlMapGenerator.html -->
+        <sqlMapGenerator targetProject="src/main" targetPackage="resources/mapper">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- Mapper 接口：http://mybatis.org/generator/configreference/javaClientGenerator.html -->
+        <javaClientGenerator type="XMLMAPPER" targetProject="src/main/java" targetPackage="cn.com.xuxiaowei.mapper">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--
+            表：http://mybatis.org/generator/configreference/table.html
+            tableName：数据库表名
+            domainObjectName：实体类相关类名
+        -->
+        <table tableName="user" domainObjectName="TestUser">
+
+        </table>
+
+    </context>
+</generatorConfiguration>
