@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `users`  (
+CREATE TABLE `user`  (
   `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
