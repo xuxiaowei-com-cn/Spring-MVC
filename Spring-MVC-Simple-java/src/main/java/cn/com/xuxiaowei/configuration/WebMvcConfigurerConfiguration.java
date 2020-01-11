@@ -21,12 +21,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * 启用MVC配置
  * <p>
  * spring-mvc.xml
+ * <p>
+ * 在使用 JDK 6 时，推荐使用 {@link WebMvcConfigurer} 的抽象类 {@link WebMvcConfigurerAdapter} 来代替 {@link WebMvcConfigurer}
  *
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-stereotype-annotations">@Component and Further Stereotype Annotations</a>@Component、@Service、@Controller、@Repository
@@ -35,7 +38,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "cn.com.xuxiaowei")
-public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
+public class WebMvcConfigurerConfiguration extends WebMvcConfigurerAdapter {
 
     /**
      * 默认Servlet
