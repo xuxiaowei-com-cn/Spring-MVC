@@ -19,7 +19,7 @@
             password：数据库密码
             connectionURL：数据库连接地址
          -->
-        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&amp;serverTimezone=GMT%2B8"
                         userId="root"
                         password="root">
