@@ -87,8 +87,8 @@ public class MyBatisConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&serverTimezone=GMT%2B8");
-        dataSource.setDriverClassName(com.mysql.cj.jdbc.Driver.class.getName());
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&characterEncoding=utf8");
+        dataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;
