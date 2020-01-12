@@ -22,7 +22,8 @@
     <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="dataSource"
-          p:typeAliasesPackage="cn.com.xuxiaowei.entity">
+          p:typeAliasesPackage="cn.com.xuxiaowei.entity"
+          p:configLocation="classpath:mybatis-config.xml">
 
         <!-- SqlSessionFactory 有一个唯一的必要属性：用于 JDBC 的 DataSource。 -->
         <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
@@ -35,7 +36,7 @@
         <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
         <!-- SqlSessionFactory 一个常用的属性是 configLocation，它用来指定 MyBatis 的 XML 配置文件路径。 -->
         <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
-        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!-- p:configLocation="classpath:mybatis-config.xml" -->
 
         <!-- mapperLocations 属性接受多个资源位置。 -->
         <!-- 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。 -->
