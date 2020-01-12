@@ -12,9 +12,15 @@
     <!-- 或者选用：org.springframework.jdbc.datasource.SimpleDriverDataSource -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/datasource/SimpleDriverDataSource.html -->
     <!-- 参见（配置两个数据源）：https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/html/howto-data-access.html#howto-two-datasources -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
           p:driverClassName="${jdbc.driverClassName}"
           p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"/>-->
+    <!-- 推荐使用 -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:jdbcUrl="${jdbc.url}"
           p:username="${jdbc.username}"
           p:password="${jdbc.password}"/>
 
