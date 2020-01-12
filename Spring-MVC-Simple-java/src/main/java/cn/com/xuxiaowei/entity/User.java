@@ -17,6 +17,8 @@ package cn.com.xuxiaowei.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 用户 实体类
  *
@@ -24,7 +26,9 @@ import lombok.Data;
  * @since 0.0.1
  */
 @Data
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -1476784879155085411L;
 
     /**
      * 用户 id，主键
