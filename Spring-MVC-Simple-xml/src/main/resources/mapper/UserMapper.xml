@@ -8,6 +8,7 @@
         <result column="password" property="password"/>
     </resultMap>
 
+    <!-- 根据用户名查询用户 -->
     <select id="selectByUsername" resultMap="BaseResultMap">
         select u.*
         from user as u
