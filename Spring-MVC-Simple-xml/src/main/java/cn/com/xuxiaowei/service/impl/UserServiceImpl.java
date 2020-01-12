@@ -45,4 +45,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByUsername(username);
     }
 
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回是否保存成功
+     */
+    @Override
+    public boolean save(User user) {
+        return userMapper.insert(user) == 1;
+    }
 }
