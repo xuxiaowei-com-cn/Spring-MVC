@@ -21,6 +21,9 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.1.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <HikariCP.version>3.4.1</HikariCP.version>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <mybatis.version>3.5.3</mybatis.version>
 
@@ -89,6 +92,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${HikariCP.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
