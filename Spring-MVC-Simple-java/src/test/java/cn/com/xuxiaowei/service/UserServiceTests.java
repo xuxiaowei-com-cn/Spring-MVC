@@ -26,8 +26,8 @@ public class UserServiceTests {
     private UserService userService;
 
     @Test
-    public void selectByUsername() {
-        User user = userService.selectByUsername("徐晓伟");
+    public void getByUsername() {
+        User user = userService.getByUsername("徐晓伟");
         System.out.println(user);
     }
 

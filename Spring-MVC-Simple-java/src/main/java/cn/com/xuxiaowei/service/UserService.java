@@ -31,6 +31,6 @@ public interface UserService {
      * @param username 用户名，唯一
      * @return 用户信息，可为空，非 List
      */
-    User selectByUsername(String username);
+    User getByUsername(String username);
 
 }
