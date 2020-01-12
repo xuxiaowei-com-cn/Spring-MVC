@@ -4,8 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- 基于 Redis XML 的配置 -->
     <!-- https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession-xml-spring-configuration -->
@@ -17,11 +19,11 @@
 
     <!-- 连接配置 -->
     <bean id="redisStandaloneConfiguration"
-          class="org.springframework.data.redis.connection.RedisStandaloneConfiguration">
-        <property name="hostName" value="${redis.host-name}"/>
-        <property name="port" value="${redis.port}"/>
-        <property name="database" value="${redis.database}"/>
-    </bean>
+          class="org.springframework.data.redis.connection.RedisStandaloneConfiguration"
+          p:hostName="${redis.host-name}"
+          p:port="${redis.port}"
+          p:database="${redis.database}"/>
+
 
     <!-- 连接池：LettuceConnectionFactory、JedisConnectionFactory 二选一 -->
 
