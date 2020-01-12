@@ -9,6 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.UUID;
+
 /**
  * user 服务测试类
  *
@@ -42,4 +44,10 @@ public class UserServiceTests {
         System.out.println(save);
         System.out.println(user);
     }
+
+    @Test
+    public void testTransactional() {
+        userService.testTransactional();
+    }
+
 }
