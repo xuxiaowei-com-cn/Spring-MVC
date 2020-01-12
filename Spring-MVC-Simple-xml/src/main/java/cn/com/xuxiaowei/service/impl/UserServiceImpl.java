@@ -34,6 +34,12 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 根据用户名查询用户
+     *
+     * @param username 用户名，唯一
+     * @return 用户信息，可为空，非 List
+     */
     @Override
     public User getByUsername(String username) {
         return userMapper.selectByUsername(username);
