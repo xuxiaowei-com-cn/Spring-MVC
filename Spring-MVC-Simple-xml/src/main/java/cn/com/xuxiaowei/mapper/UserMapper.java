@@ -34,4 +34,12 @@ public interface UserMapper {
      */
     User selectByUsername(@Param("username") String username);
 
+    /**
+     * 插入用户数据
+     *
+     * @param user 用户信息
+     * @return 返回插入条数
+     */
+    int insert(@Param("user") User user);
+
 }
