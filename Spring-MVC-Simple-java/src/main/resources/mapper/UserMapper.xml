@@ -15,4 +15,14 @@
         where u.username = #{username}
     </select>
 
+    <!-- 插入用户数据 -->
+    <!--
+        useGeneratedKeys：是否开启主键返回
+        keyColumn：数据库主键字段名
+        keyProperty：实体类主键属性名
+     -->
+    <insert id="insert" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+        INSERT INTO user (user_id, username, password) VALUES (#{user.userId}, #{user.username}, #{user.password})
+    </insert>
+
 </mapper>
