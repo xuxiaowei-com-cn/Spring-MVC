@@ -31,4 +31,15 @@ public class UserServiceTests {
         System.out.println(user);
     }
 
+    @Test
+    public void save() {
+        User user = new User();
+        user.setUsername("xxw" + System.currentTimeMillis());
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+
+        boolean save = userService.save(user);
+
+        System.out.println(save);
+        System.out.println(user);
+    }
 }

@@ -33,4 +33,11 @@ public interface UserService {
      */
     User getByUsername(String username);
 
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回是否保存成功
+     */
+    boolean save(User user);
 }
