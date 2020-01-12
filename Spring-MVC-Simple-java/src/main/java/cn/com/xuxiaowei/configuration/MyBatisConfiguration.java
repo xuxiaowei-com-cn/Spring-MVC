@@ -60,8 +60,10 @@ public class MyBatisConfiguration {
         // 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。
         // 属性的值是一个 Ant 风格的字符串，可以指定加载一个目录中的所有文件，或者从一个目录开始递归搜索所有目录。
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
-        sqlSessionFactory.setMapperLocations(resources);
+
+        // 加载、配置 Mapper XML
+        Resource[] mapperLocations = resolver.getResources("classpath:mapper/*.xml");
+        sqlSessionFactory.setMapperLocations(mapperLocations);
 
         return sqlSessionFactory;
     }
