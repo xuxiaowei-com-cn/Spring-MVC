@@ -77,6 +77,10 @@ public class MyBatisConfiguration {
         Resource[] mapperLocations = resolver.getResources("classpath:mapper/*.xml");
         sqlSessionFactory.setMapperLocations(mapperLocations);
 
+        // 加载、配置 MyBatis 配置文件
+        Resource configLocation = resolver.getResource("classpath:mybatis-config.xml");
+        sqlSessionFactory.setConfigLocation(configLocation);
+
         return sqlSessionFactory;
     }
 
