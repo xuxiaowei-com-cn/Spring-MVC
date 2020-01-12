@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.UUID;
+
 /**
  * user 服务测试类
  *
@@ -23,6 +25,18 @@ public class UserServiceTests {
     @Test
     public void getByUsername() {
         User user = userService.getByUsername("徐晓伟");
+        System.out.println(user);
+    }
+
+    @Test
+    public void save() {
+        User user = new User();
+        user.setUsername("xxw" + System.currentTimeMillis());
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+
+        boolean save = userService.save(user);
+
+        System.out.println(save);
         System.out.println(user);
     }
 
