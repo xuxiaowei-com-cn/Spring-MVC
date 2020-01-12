@@ -4,13 +4,25 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- 基于 Redis XML 的配置 -->
     <!-- https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession-xml-spring-configuration -->
     <!-- Spring Session 由 Redis 支持 -->
     <context:annotation-config/>
+
+
+    <!-- 使用注解驱动，其中属性 cache-manager：默认值为：cacheManager，参见：http://www.springframework.org/schema/cache/spring-cache.xsd -->
+    <!-- 如果名称相同，可缺省 -->
+    <cache:annotation-driven cache-manager="redisCacheManager"/>
+
+    <!-- 缓存管理器 -->
+    <bean id="redisCacheManager"
+          class="org.springframework.data.redis.cache.RedisCacheManager"
+          c:template-ref="redisTemplate"/>
 
     <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
