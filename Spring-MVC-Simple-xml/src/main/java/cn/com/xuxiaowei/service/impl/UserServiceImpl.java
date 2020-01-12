@@ -15,7 +15,6 @@
  */
 package cn.com.xuxiaowei.service.impl;
 
-import cn.com.xuxiaowei.controller.IndexController;
 import cn.com.xuxiaowei.entity.User;
 import cn.com.xuxiaowei.mapper.UserMapper;
 import cn.com.xuxiaowei.service.UserService;
@@ -35,7 +34,7 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final static Log logger = LogFactory.getLog(IndexController.class);
+    private final static Log logger = LogFactory.getLog(UserServiceImpl.class);
 
     @Resource
     private UserMapper userMapper;
