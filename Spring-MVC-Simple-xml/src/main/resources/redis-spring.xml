@@ -14,6 +14,23 @@
     <!-- Spring Session 由 Redis 支持 -->
     <context:annotation-config/>
 
+
+    <!-- 使用注解驱动，其中属性 cache-manager：默认值为：cacheManager，参见：http://www.springframework.org/schema/cache/spring-cache.xsd -->
+    <!-- 如果名称相同，可缺省 -->
+    <cache:annotation-driven cache-manager="redisCacheManager"/>
+
+    <!-- 使用 RedisCacheManager 的内部类 RedisCacheManagerBuilder 创建缓存管理器 -->
+    <!-- Java：RedisCacheManager.RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(new LettuceConnectionFactory()); -->
+    <bean id="redisCacheManagerBuilder"
+          class="org.springframework.data.redis.cache.RedisCacheManager$RedisCacheManagerBuilder"
+          factory-method="fromConnectionFactory"
+          c:connectionFactory-ref="lettuceConnectionFactory"/>
+
+    <!-- 从 RedisCacheManagerBuilder 中获取 缓存管理器 -->
+    <!-- Java：RedisCacheManager build = redisCacheManagerBuilder.build(); -->
+    <bean id="redisCacheManager" factory-bean="redisCacheManagerBuilder" factory-method="build"/>
+
+
     <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
 
