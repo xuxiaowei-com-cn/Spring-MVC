@@ -16,6 +16,7 @@
 package cn.com.xuxiaowei.configuration;
 
 import cn.com.xuxiaowei.properties.JdbcProperties;
+import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
@@ -110,6 +110,13 @@ public class MyBatisConfiguration implements TransactionManagementConfigurer {
 
     /**
      * 数据库连接池
+     * <p>
+     * JDBC 连接池：
+     * DriverManagerDataSource dataSource = new DriverManagerDataSource();
+     * dataSource.setUrl(jdbcProperties.getUrl());
+     * dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
+     * dataSource.setUsername(jdbcProperties.getUsername());
+     * dataSource.setPassword(jdbcProperties.getPassword());
      *
      * @see org.springframework.jdbc.datasource.DriverManagerDataSource
      * @see org.springframework.jdbc.datasource.SimpleDriverDataSource
@@ -118,8 +125,8 @@ public class MyBatisConfiguration implements TransactionManagementConfigurer {
      */
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(jdbcProperties.getUrl());
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(jdbcProperties.getUrl());
         dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
         dataSource.setUsername(jdbcProperties.getUsername());
         dataSource.setPassword(jdbcProperties.getPassword());
