@@ -22,6 +22,9 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>4.3.25.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
+        <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
+
         <!-- JDK 6 最高支持 mybatis 版本为：3.4.6，最好使用：3.4.5 -->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <mybatis.version>3.4.5</mybatis.version>
@@ -104,6 +107,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP-java6</artifactId>
+            <version>${HikariCP-java6.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
