@@ -15,8 +15,10 @@
  */
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.properties.JdbcProperties;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
@@ -42,6 +44,15 @@ import java.io.IOException;
 @Configuration
 @MapperScan("cn.com.xuxiaowei.mapper")
 public class MyBatisConfiguration {
+    /**
+     * JDBC 属性文件
+     */
+    private JdbcProperties jdbcProperties;
+
+    @Autowired
+    public void setJdbcProperties(JdbcProperties jdbcProperties) {
+        this.jdbcProperties = jdbcProperties;
+    }
 
     /**
      * 连接工厂
@@ -93,10 +104,10 @@ public class MyBatisConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&characterEncoding=utf8");
-        dataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setUrl(jdbcProperties.getUrl());
+        dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
+        dataSource.setUsername(jdbcProperties.getUsername());
+        dataSource.setPassword(jdbcProperties.getPassword());
         return dataSource;
     }
 
