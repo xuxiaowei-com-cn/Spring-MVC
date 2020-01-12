@@ -25,6 +25,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -36,6 +39,8 @@ import java.io.IOException;
  * base-package 属性允许你设置映射器接口文件的基础包。
  * 通过使用逗号或分号分隔，你可以设置多个包。
  * 并且会在你所指定的包中递归搜索映射器。
+ * <p>
+ * EnableTransactionManagement 使用事务驱动管理器
  *
  * @author xuxiaowei
  * @see <a href="http://mybatis.org/spring/zh/mappers.html">注入映射器</a>
@@ -43,7 +48,9 @@ import java.io.IOException;
  */
 @Configuration
 @MapperScan("cn.com.xuxiaowei.mapper")
-public class MyBatisConfiguration {
+@EnableTransactionManagement
+public class MyBatisConfiguration implements TransactionManagementConfigurer {
+
     /**
      * JDBC 属性文件
      */
@@ -52,6 +59,14 @@ public class MyBatisConfiguration {
     @Autowired
     public void setJdbcProperties(JdbcProperties jdbcProperties) {
         this.jdbcProperties = jdbcProperties;
+    }
+
+    @Bean
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource());
+        return dataSourceTransactionManager;
     }
 
     /**
