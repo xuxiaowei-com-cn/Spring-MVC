@@ -41,4 +41,9 @@ public interface UserService {
      */
     boolean save(User user);
 
+    /**
+     * 测试 事务
+     */
+    void testTransactional();
+
 }
