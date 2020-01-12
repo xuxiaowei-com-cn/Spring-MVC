@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Index Controller
@@ -59,7 +58,7 @@ public class IndexController {
 
         logger.debug(this.getClass() + "debug 日志测试。");
 
-        User user = userService.selectByUsername("徐晓伟");
+        User user = userService.getByUsername("徐晓伟");
 
         logger.debug(user);
 
