@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.UUID;
+
 /**
  * user 服务测试类
  *
@@ -37,4 +39,10 @@ public class UserServiceTests {
         System.out.println(save);
         System.out.println(user);
     }
+
+    @Test
+    public void testTransactional() {
+        userService.testTransactional();
+    }
+
 }

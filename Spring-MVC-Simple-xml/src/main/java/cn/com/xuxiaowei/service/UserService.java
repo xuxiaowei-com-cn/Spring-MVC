@@ -40,4 +40,10 @@ public interface UserService {
      * @return 返回是否保存成功
      */
     boolean save(User user);
+
+    /**
+     * 测试 事务
+     */
+    void testTransactional();
+
 }
