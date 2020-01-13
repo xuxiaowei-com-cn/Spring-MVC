@@ -6,6 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 /**
  * user 服务测试类
@@ -21,9 +24,26 @@ public class UserServiceTests {
     private UserService userService;
 
     @Test
-    public void selectByUsername() {
-        User user = userService.selectByUsername("徐晓伟");
+    public void getByUsername() {
+        User user = userService.getByUsername("徐晓伟");
         System.out.println(user);
+    }
+
+    @Test
+    public void save() {
+        User user = new User();
+        user.setUsername("xxw" + System.currentTimeMillis());
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+
+        boolean save = userService.save(user);
+
+        System.out.println(save);
+        System.out.println(user);
+    }
+
+    @Test
+    public void testTransactional() {
+        userService.testTransactional();
     }
 
 }

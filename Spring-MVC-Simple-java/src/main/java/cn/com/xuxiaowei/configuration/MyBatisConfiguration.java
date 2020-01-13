@@ -15,14 +15,19 @@
  */
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.properties.JdbcProperties;
+import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -34,6 +39,8 @@ import java.io.IOException;
  * base-package 属性允许你设置映射器接口文件的基础包。
  * 通过使用逗号或分号分隔，你可以设置多个包。
  * 并且会在你所指定的包中递归搜索映射器。
+ * <p>
+ * EnableTransactionManagement 使用事务驱动管理器
  *
  * @author xuxiaowei
  * @see <a href="http://mybatis.org/spring/zh/mappers.html">注入映射器</a>
@@ -41,7 +48,26 @@ import java.io.IOException;
  */
 @Configuration
 @MapperScan("cn.com.xuxiaowei.mapper")
-public class MyBatisConfiguration {
+@EnableTransactionManagement
+public class MyBatisConfiguration implements TransactionManagementConfigurer {
+
+    /**
+     * JDBC 属性文件
+     */
+    private JdbcProperties jdbcProperties;
+
+    @Autowired
+    public void setJdbcProperties(JdbcProperties jdbcProperties) {
+        this.jdbcProperties = jdbcProperties;
+    }
+
+    @Override
+    @Bean
+    public TransactionManager annotationDrivenTransactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource());
+        return dataSourceTransactionManager;
+    }
 
     /**
      * 连接工厂
@@ -60,8 +86,14 @@ public class MyBatisConfiguration {
         // 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。
         // 属性的值是一个 Ant 风格的字符串，可以指定加载一个目录中的所有文件，或者从一个目录开始递归搜索所有目录。
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
-        sqlSessionFactory.setMapperLocations(resources);
+
+        // 加载、配置 Mapper XML
+        Resource[] mapperLocations = resolver.getResources("classpath:mapper/*.xml");
+        sqlSessionFactory.setMapperLocations(mapperLocations);
+
+        // 加载、配置 MyBatis 配置文件
+        Resource configLocation = resolver.getResource("classpath:mybatis-config.xml");
+        sqlSessionFactory.setConfigLocation(configLocation);
 
         return sqlSessionFactory;
     }
@@ -78,6 +110,13 @@ public class MyBatisConfiguration {
 
     /**
      * 数据库连接池
+     * <p>
+     * JDBC 连接池：
+     * DriverManagerDataSource dataSource = new DriverManagerDataSource();
+     * dataSource.setUrl(jdbcProperties.getUrl());
+     * dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
+     * dataSource.setUsername(jdbcProperties.getUsername());
+     * dataSource.setPassword(jdbcProperties.getPassword());
      *
      * @see org.springframework.jdbc.datasource.DriverManagerDataSource
      * @see org.springframework.jdbc.datasource.SimpleDriverDataSource
@@ -86,11 +125,11 @@ public class MyBatisConfiguration {
      */
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&serverTimezone=GMT%2B8");
-        dataSource.setDriverClassName(com.mysql.cj.jdbc.Driver.class.getName());
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(jdbcProperties.getUrl());
+        dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
+        dataSource.setUsername(jdbcProperties.getUsername());
+        dataSource.setPassword(jdbcProperties.getPassword());
         return dataSource;
     }
 

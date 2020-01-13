@@ -18,7 +18,10 @@ package cn.com.xuxiaowei.service.impl;
 import cn.com.xuxiaowei.entity.User;
 import cn.com.xuxiaowei.mapper.UserMapper;
 import cn.com.xuxiaowei.service.UserService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -31,12 +34,54 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final static Log logger = LogFactory.getLog(UserServiceImpl.class);
+
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 根据用户名查询用户
+     *
+     * @param username 用户名，唯一
+     * @return 用户信息，可为空，非 List
+     */
     @Override
-    public User selectByUsername(String username) {
+    public User getByUsername(String username) {
         return userMapper.selectByUsername(username);
+    }
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回是否保存成功
+     */
+    @Override
+    public boolean save(User user) {
+        return userMapper.insert(user) == 1;
+    }
+
+    /**
+     * 测试 事务
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void testTransactional() {
+
+        User user1 = new User();
+        user1.setUsername("user1");
+
+        User user2 = new User();
+        user2.setUsername("user2");
+
+        boolean save1 = save(user1);
+        logger.debug("抛异常前：save1：" + save1);
+
+        int i = 1 / 0;
+
+        boolean save2 = save(user2);
+        logger.debug("抛异常后：save2：" + save2);
+
     }
 
 }

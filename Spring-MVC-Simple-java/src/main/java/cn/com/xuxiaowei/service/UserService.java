@@ -31,6 +31,19 @@ public interface UserService {
      * @param username 用户名，唯一
      * @return 用户信息，可为空，非 List
      */
-    User selectByUsername(String username);
+    User getByUsername(String username);
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回是否保存成功
+     */
+    boolean save(User user);
+
+    /**
+     * 测试 事务
+     */
+    void testTransactional();
 
 }
