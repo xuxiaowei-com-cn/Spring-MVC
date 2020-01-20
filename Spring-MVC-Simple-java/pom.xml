@@ -54,7 +54,7 @@
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
-        <log4j-web.version>2.12.1</log4j-web.version>
+        <log4j-web.version>2.13.0</log4j-web.version>
 
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
