@@ -62,6 +62,9 @@ public class IndexController {
 
         logger.debug(user);
 
+        // 仅支持 info 及以上等级的日志
+        logger.info(user);
+
         return "index";
     }
 
