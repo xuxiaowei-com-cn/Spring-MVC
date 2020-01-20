@@ -19,7 +19,7 @@
         </mybatis.generator.configurationFile>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>5.2.1.RELEASE</spring.version>
+        <spring.version>5.2.3.RELEASE</spring.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
         <HikariCP.version>3.4.1</HikariCP.version>
