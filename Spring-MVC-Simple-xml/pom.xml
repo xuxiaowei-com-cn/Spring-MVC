@@ -31,7 +31,7 @@
         <mybatis-spring.version>2.0.3</mybatis-spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
-        <spring-data-redis.version>2.2.2.RELEASE</spring-data-redis.version>
+        <spring-data-redis.version>2.2.4.RELEASE</spring-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
         <spring-session-data-redis.version>2.2.0.RELEASE</spring-session-data-redis.version>
