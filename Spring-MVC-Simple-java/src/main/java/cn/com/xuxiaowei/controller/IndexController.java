@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.controller;
 
 import cn.com.xuxiaowei.entity.User;
 import cn.com.xuxiaowei.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -61,9 +63,10 @@ public class IndexController {
         User user = userService.getByUsername("徐晓伟");
 
         logger.debug(user);
+        log.debug(user.toString());
 
-        // 仅支持 info 及以上等级的日志
         logger.info(user);
+        log.info(user.toString());
 
         return "index";
     }
