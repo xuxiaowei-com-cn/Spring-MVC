@@ -48,6 +48,18 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
+
+    <!-- 日志 过滤器 -->
+    <filter>
+        <filter-name>logHttpFilter</filter-name>
+        <filter-class>cn.com.xuxiaowei.filter.LogHttpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>logHttpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <!-- 静态资源不拦截 -->
     <!-- 参见： -->
     <servlet-mapping>
