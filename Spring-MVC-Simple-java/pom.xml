@@ -22,7 +22,7 @@
         <spring.version>5.2.3.RELEASE</spring.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <HikariCP.version>3.4.1</HikariCP.version>
+        <HikariCP.version>3.4.2</HikariCP.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <mybatis.version>3.5.3</mybatis.version>
