@@ -22,26 +22,29 @@ public class RedisTests {
         // 记录操作次数
         int i = 0;
 
-        try (Jedis jedis = new Jedis("localhost", 6379)) {
-            // jedis.auth("密码");
+        Jedis jedis = new Jedis("localhost", 6379);
 
-            long start = System.currentTimeMillis();
+        // jedis.auth("密码");
 
-            while (true) {
+        long start = System.currentTimeMillis();
 
-                long end = System.currentTimeMillis();
+        while (true) {
 
-                if (end - start >= 1000) {
-                    break;
-                } else {
-                    i++;
+            long end = System.currentTimeMillis();
 
-                    jedis.set("test_" + i, i + "");
-                }
+            if (end - start >= 1000) {
+                break;
+            } else {
+                i++;
+
+                jedis.set("test_" + i, i + "");
             }
         }
 
         System.out.println("Redis每秒操作次数：" + i + "次");
+
+        jedis.close();
+
     }
 
 }
