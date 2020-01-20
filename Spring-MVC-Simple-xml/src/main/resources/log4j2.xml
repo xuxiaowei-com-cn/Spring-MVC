@@ -5,7 +5,7 @@
 <Configuration monitorInterval="30">
 
     <properties>
-        <!-- 日志路径 -->
+        <!-- 日志路径：默认为 D: 盘 -->
         <property name="LOG_HOME">/log4j2/logs/</property>
         <property name="PATTERN_FORMAT">[%d] %-5p (%class{1}#%M:%L) - %m%n</property>
         <!-- 日志文件名称 -->
