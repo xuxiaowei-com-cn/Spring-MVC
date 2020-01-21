@@ -77,9 +77,9 @@
         <slf4j-api.version>1.7.30</slf4j-api.version>
 
         <!-- 用于支持：@Slf4j -->
-        <!-- JDK 6 最高支持（由于依赖原因，非编译原因） log4j-slf4j-impl 版本为：2.5 -->
+        <!-- JDK 6 最高支持 log4j-slf4j-impl 版本为：2.3 -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
-        <log4j-slf4j-impl.version>2.5</log4j-slf4j-impl.version>
+        <log4j-slf4j-impl.version>2.3</log4j-slf4j-impl.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <lombok.version>1.18.10</lombok.version>
