@@ -18,6 +18,9 @@
             ${basedir}/src/main/resources/mybatis/generatorConfig.xml
         </mybatis.generator.configurationFile>
 
+        <!-- Spring MVC -->
+        <!-- Java 消息服务 -->
+        <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.3.RELEASE</spring.version>
 
@@ -79,6 +82,22 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Java 消息服务 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- 缓存、邮件、定时器、UI等等 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
