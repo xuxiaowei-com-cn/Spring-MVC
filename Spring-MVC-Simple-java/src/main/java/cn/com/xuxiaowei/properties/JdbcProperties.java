@@ -7,6 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 
 /**
  * 加载 JDBC 属性文件
+ * <p>
+ * 由于 {@link PropertySource} 使用了 Java 8 的 @Repeatable 注解，构建编译时，使用 JDK 6 可能会出现警告
  *
  * @author xuxiaowei
  * @since 0.0.1
