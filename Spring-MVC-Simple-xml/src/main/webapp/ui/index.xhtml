@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: xuxiaowei
+  Date: 2019/12/11
+  Time: 23:49
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Index</title>
+</h:head>
+
+<h:body>
+    <h:outputLabel value="Hello World"/>
+    <h:form id="indexForm">
+        <h:outputText id="indexNow" value="内容来自：#{indexJsfController.index}，现在时间：#{indexJsfController.now}"/>
+        <br/>
+        <h:commandButton value="更新"><f:ajax render="indexNow">更新页面内容</f:ajax></h:commandButton>
+        <br/>
+        <span>JSF页面</span>
+    </h:form>
+</h:body>
+
+</html>
