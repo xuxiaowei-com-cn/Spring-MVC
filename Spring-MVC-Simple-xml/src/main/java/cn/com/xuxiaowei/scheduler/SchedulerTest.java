@@ -33,9 +33,8 @@ public class SchedulerTest {
     }
 
     /**
-     * 每 5 秒执行一次
+     * 使用 XML 配置
      */
-    @Scheduled(cron = "0/5 * * * * *")
     public void job() {
         log.info(jdbcProperties.toString());
     }
