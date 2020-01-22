@@ -60,6 +60,11 @@
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
 
+        <!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+        <!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
+        <!-- Sun JSF RI 规范 API、实现 -->
+        <sun-jsf.version>2.2.20</sun-jsf.version>
+
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.13.0</log4j-web.version>
 
@@ -209,7 +214,7 @@
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
-            <version>2.2.20</version>
+            <version>${sun-jsf.version}</version>
         </dependency>
 
         <!-- Sun JSF RI 实现 -->
@@ -217,7 +222,7 @@
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
-            <version>2.2.20</version>
+            <version>${sun-jsf.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
