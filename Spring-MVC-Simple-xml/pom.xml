@@ -25,6 +25,10 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>4.3.25.RELEASE</spring.version>
 
+        <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
+        <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
+        <quartz.version>2.2.3</quartz.version>
+
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
         <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
 
@@ -117,21 +121,12 @@
             <version>${spring.version}</version>
         </dependency>
 
-
-        <!-- quartz 2.3.0 之后的版本会引入 HikariCP-java7，而 HikariCP-java7 需要 JDK 7 支持，排除方法参见下方配置 -->
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.3.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.zaxxer</groupId>
-                    <artifactId>HikariCP-java7</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-
+            <version>${quartz.version}</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>
