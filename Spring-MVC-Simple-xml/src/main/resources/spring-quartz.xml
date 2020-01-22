@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 将 定时器测试类 注册为 Bean -->
+    <bean id="schedulerTest" class="cn.com.xuxiaowei.scheduler.SchedulerTest"/>
+
+    <!-- 将 定时器测试类 注册为 Job -->
+    <bean id="schedulerTestMethodInvokingJobDetailFactoryBean"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 设置定时器的目标 -->
+        <property name="targetObject" ref="schedulerTest"/>
+        <!-- 设置定时器目标的方法 -->
+        <property name="targetMethod" value="job"/>
+    </bean>
+
+    <!-- 设置定时器目标的执行方式 -->
+    <bean id="schedulerTestCronTriggerFactoryBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 设置此触发器应与之关联的JobDetail -->
+        <property name="jobDetail" ref="schedulerTestMethodInvokingJobDetailFactoryBean"/>
+        <!-- 年 不可为 * -->
+        <property name="cronExpression" value="0/5 * * * * ?"/>
+    </bean>
+
+    <!-- 定时器工厂 -->
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="schedulerTestCronTriggerFactoryBean"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
