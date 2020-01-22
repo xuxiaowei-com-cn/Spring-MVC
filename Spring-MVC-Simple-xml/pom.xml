@@ -240,8 +240,6 @@
             <version>${log4j-slf4j-impl.version}</version>
         </dependency>
 
-        <!-- 此 Servlet 需要根据 Tomcat 选择 -->
-        <!-- 查看 Tomcat Servlet：apache-tomcat\lib\servlet-api 中的 META-INF/MANIFEST.MF 文件中的 Specification-Version 属性 -->
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
