@@ -14,3 +14,4 @@ Spring-MVC-Simple-xml 项目配置。
 - log4j2
 - Slf4j
 - 定时器
+- 返回XML数据
