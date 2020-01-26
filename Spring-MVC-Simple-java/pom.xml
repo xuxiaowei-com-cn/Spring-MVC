@@ -54,6 +54,7 @@
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
         <jackson-datatype.version>2.10.1</jackson-datatype.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
@@ -191,6 +192,14 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-parameter-names</artifactId>
+            <version>${jackson-datatype.version}</version>
+        </dependency>
+
+        <!-- XML Bean 转化工具 -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
             <version>${jackson-datatype.version}</version>
         </dependency>
 
