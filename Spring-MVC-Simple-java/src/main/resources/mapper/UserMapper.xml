@@ -26,7 +26,8 @@
         keyColumn：数据库主键字段名
         keyProperty：实体类主键属性名
      -->
-    <insert id="insert" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+    <!-- JDK 6 中 useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId" 无效 -->
+    <insert id="insert">
         INSERT INTO user (user_id, username, password) VALUES (#{user.userId}, #{user.username}, #{user.password})
     </insert>
 
