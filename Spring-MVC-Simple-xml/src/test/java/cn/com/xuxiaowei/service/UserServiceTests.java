@@ -31,6 +31,12 @@ public class UserServiceTests {
     }
 
     @Test
+    public void removeByUsername() {
+        boolean removeByUsername = userService.removeByUsername("徐晓伟");
+        log.debug(String.valueOf(removeByUsername));
+    }
+
+    @Test
     public void save() {
         User user = new User();
         user.setUsername("xxw" + System.currentTimeMillis());
@@ -41,6 +47,20 @@ public class UserServiceTests {
         log.debug(String.valueOf(save));
         log.debug(String.valueOf(user));
     }
+
+    @Test
+    public void updateByUserId() {
+        User user = new User();
+        user.setUserId(8L);
+        user.setUsername("xxw" + System.currentTimeMillis());
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+
+        User updateByUsername = userService.updateByUserId(user);
+
+        log.debug(String.valueOf(updateByUsername));
+        log.debug(String.valueOf(user));
+    }
+
 
     @Test
     public void testTransactional() {
