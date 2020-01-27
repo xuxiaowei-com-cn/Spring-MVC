@@ -1,6 +1,7 @@
 package cn.com.xuxiaowei.service;
 
 import cn.com.xuxiaowei.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.UUID;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @RunWith(SpringRunner.class)
 @ContextConfiguration(value = {"classpath:/spring-context.xml"})
 public class UserServiceTests {
@@ -25,7 +27,7 @@ public class UserServiceTests {
     @Test
     public void getByUsername() {
         User user = userService.getByUsername("徐晓伟");
-        System.out.println(user);
+        log.debug(String.valueOf(user));
     }
 
     @Test
@@ -36,8 +38,8 @@ public class UserServiceTests {
 
         boolean save = userService.save(user);
 
-        System.out.println(save);
-        System.out.println(user);
+        log.debug(String.valueOf(save));
+        log.debug(String.valueOf(user));
     }
 
     @Test
