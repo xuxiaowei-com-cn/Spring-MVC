@@ -47,6 +47,7 @@ import javax.annotation.Resource;
  * {@link CachePut}:
  * 表示无论如何都会执行方法，最后将方法的返回值再保存到缓存中
  * 使用在插入数据的地方，则表示保存到数据库后，会同期插入到Redis缓存中
+ * 使用在更新数据的地方，则表示更新到数据库后，会同期更新（插入）到Redis缓存中
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -123,6 +124,7 @@ public class UserServiceImpl implements UserService {
      * @return 更新结果
      */
     @Override
+    @CachePut(key = "#user.username")
     public User updateByUsername(User user) {
 
         if (user == null) {
