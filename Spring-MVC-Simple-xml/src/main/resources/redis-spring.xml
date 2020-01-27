@@ -63,22 +63,18 @@
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connection-factory-ref="lettuceConnectionFactory"
           p:keySerializer-ref="keySerializer"
-          p:hashKeySerializer-ref="hashKeySerializer"
           p:valueSerializer-ref="valueSerializer"
-          p:hashValueSerializer-ref="hashValueSerializer"/>
+          init-method="afterPropertiesSet"/>
 
     <!--  -->
     <bean id="keySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
 
     <!--  -->
-    <bean id="hashKeySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
-
-    <!--  -->
     <bean id="valueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
-          c:type="java.lang.Object"/>
+          c:type="java.lang.Object"
+          p:objectMapper-ref="objectMapper"/>
 
     <!--  -->
-    <bean id="hashValueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
-          c:type="java.lang.Object"/>
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
 </beans>
