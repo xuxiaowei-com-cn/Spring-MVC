@@ -21,6 +21,7 @@ import cn.com.xuxiaowei.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +38,9 @@ import javax.annotation.Resource;
  * {@link Cacheable}：
  * 进入方法前，Spring 会先去缓存服务器中查找对应 Key 的缓存值，如果找到缓存值，那么 Spring 将不会再调用方法，而是将缓存值缓存值读出，返回给调用者；
  * 如果没有找到缓存值，那么 Spring 就会执行你的方法，将最后的结果通过 Key 保存到缓存服务器中
+ * <p>
+ * {@link CacheEvict}:
+ * 移除数据库、缓存对应的 Key 的值
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -69,6 +73,7 @@ public class UserServiceImpl implements UserService {
      * @return 删除结果，是否成功
      */
     @Override
+    @CacheEvict
     public boolean removeByUsername(String username) {
         return userMapper.deleteByUsername(username) > 0;
     }
