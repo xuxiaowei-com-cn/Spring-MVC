@@ -21,6 +21,10 @@ import cn.com.xuxiaowei.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,10 +32,27 @@ import javax.annotation.Resource;
 
 /**
  * 用户 Service 服务类实现类
+ * <p>
+ * {@link CacheConfig}（提供类的默认设置）：
+ * 提供类级别共享公共高速缓存相关设置的机制。
+ * 当此注释存在于一个给定的类，它提供了在该类中定义的任何高速缓存操作的一组默认设置。
+ * <p>
+ * {@link Cacheable}：
+ * 进入方法前，Spring 会先去缓存服务器中查找对应 Key 的缓存值，如果找到缓存值，那么 Spring 将不会再调用方法，而是将缓存值缓存值读出，返回给调用者；
+ * 如果没有找到缓存值，那么 Spring 就会执行你的方法，将最后的结果通过 Key 保存到缓存服务器中
+ * <p>
+ * {@link CacheEvict}:
+ * 移除数据库、缓存对应的 Key 的值
+ * <p>
+ * {@link CachePut}:
+ * 表示无论如何都会执行方法，最后将方法的返回值再保存到缓存中
+ * 使用在插入数据的地方，则表示保存到数据库后，会同期插入到Redis缓存中
+ * 使用在更新数据的地方，则表示更新到数据库后，会同期更新（插入）到Redis缓存中
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
+@CacheConfig(cacheNames = User.CACHE_NAME)
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -54,6 +75,7 @@ public class UserServiceImpl implements UserService {
      * @return 用户信息，可为空，非 List
      */
     @Override
+    @Cacheable
     public User getByUsername(String username) {
         return userMapper.selectByUsername(username);
     }
@@ -65,6 +87,7 @@ public class UserServiceImpl implements UserService {
      * @return 删除结果，是否成功
      */
     @Override
+    @CacheEvict
     public boolean removeByUsername(String username) {
         return userMapper.deleteByUsername(username) > 0;
     }
@@ -76,6 +99,7 @@ public class UserServiceImpl implements UserService {
      * @return 返回保存结果
      */
     @Override
+    @CachePut(key = "#user.username")
     public User insert(User user) {
         int insert = userMapper.insert(user);
         return insert > 0 ? user : null;
@@ -100,6 +124,7 @@ public class UserServiceImpl implements UserService {
      * @return 更新结果
      */
     @Override
+    @CachePut(key = "#user.username")
     public User updateByUserId(User user) {
 
         if (user == null) {
