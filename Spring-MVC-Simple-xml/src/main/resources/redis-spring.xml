@@ -75,6 +75,6 @@
           p:objectMapper-ref="objectMapper"/>
 
     <!--  -->
-    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <bean id="objectMapper" class="cn.com.xuxiaowei.util.CustomObjectMapper" init-method="initObjectMapper"/>
 
 </beans>
