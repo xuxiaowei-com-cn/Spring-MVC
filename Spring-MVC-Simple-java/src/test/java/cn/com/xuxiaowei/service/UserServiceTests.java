@@ -54,6 +54,20 @@ public class UserServiceTests {
     }
 
     @Test
+    public void updateByUsername() {
+        User user = new User();
+        user.setUserId(System.currentTimeMillis());
+        user.setUsername("xxw");
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+
+        User updateByUsername = userService.updateByUsername(user);
+
+        log.debug(String.valueOf(updateByUsername));
+        log.debug(String.valueOf(user));
+    }
+
+
+    @Test
     public void testTransactional() {
         userService.testTransactional();
     }
