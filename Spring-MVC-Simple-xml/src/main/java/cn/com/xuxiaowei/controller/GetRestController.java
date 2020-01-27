@@ -1,11 +1,13 @@
 package cn.com.xuxiaowei.controller;
 
+import cn.com.xuxiaowei.entity.Person;
 import cn.com.xuxiaowei.entity.User;
 import cn.com.xuxiaowei.entity.UserInfo;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -165,6 +167,49 @@ public class GetRestController {
         user.setPassword(UUID.randomUUID().toString().replace("-", ""));
         log.debug("user：{}", user);
         return user;
+    }
+
+    /**
+     * 获取实体类（XML、JSON 类型）
+     * <p>
+     * 默认为 XML
+     * <p>
+     * Accept：application/json，指定返回为 JSON
+     * Accept：application/xml，指定返回为 XML
+     *
+     * @param request
+     * @param response
+     * @param username 参数
+     * @return 默认返回为 XML（浏览器默认返回为 XML，Postman 默认返回为 JSON）
+     */
+    @GetMapping(value = "/getUserXmlJson", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public User getUserXmlJson(HttpServletRequest request, HttpServletResponse response, String username) {
+        log.debug("username：{}", username);
+        User user = new User();
+        user.setUserId(counter.incrementAndGet());
+        user.setUsername("徐晓伟");
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+        log.debug("user：{}", user);
+        return user;
+    }
+
+    /**
+     * 根据 Accept（application/json、application/xml） 返回数据
+     *
+     * @param request
+     * @param response
+     * @param username
+     * @return
+     */
+    @RequestMapping("/getPerson")
+    public Person getPerson(HttpServletRequest request, HttpServletResponse response, String username) {
+        log.debug("username：{}", username);
+        Person person = new Person();
+        person.setUserId(counter.incrementAndGet());
+        person.setUsername("徐晓伟");
+        person.setPassword(UUID.randomUUID().toString().replace("-", ""));
+        log.debug("person：{}", person);
+        return person;
     }
 
 }
