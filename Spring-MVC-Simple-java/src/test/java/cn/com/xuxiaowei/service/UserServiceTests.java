@@ -36,6 +36,12 @@ public class UserServiceTests {
     }
 
     @Test
+    public void removeByUsername() {
+        boolean removeByUsername = userService.removeByUsername("徐晓伟");
+        log.debug(String.valueOf(removeByUsername));
+    }
+
+    @Test
     public void save() {
         User user = new User();
         user.setUsername("xxw" + System.currentTimeMillis());
