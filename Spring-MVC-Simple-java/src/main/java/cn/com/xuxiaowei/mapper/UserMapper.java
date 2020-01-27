@@ -35,6 +35,14 @@ public interface UserMapper {
     User selectByUsername(@Param("username") String username);
 
     /**
+     * 根据用户名删除用户
+     *
+     * @param username 用户名，唯一
+     * @return 删除结果，条数
+     */
+    int deleteByUsername(@Param("username") String username);
+
+    /**
      * 插入用户数据
      *
      * @param user 用户信息

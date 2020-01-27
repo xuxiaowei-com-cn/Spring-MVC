@@ -63,6 +63,17 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据用户名删除用户
+     *
+     * @param username 用户名，唯一
+     * @return 删除结果，是否成功
+     */
+    @Override
+    public boolean removeByUsername(String username) {
+        return userMapper.deleteByUsername(username) > 0;
+    }
+
+    /**
      * 保存用户数据
      *
      * @param user 用户信息
