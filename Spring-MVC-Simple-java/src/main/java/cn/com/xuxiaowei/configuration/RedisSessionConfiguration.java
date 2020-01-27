@@ -137,7 +137,7 @@ public class RedisSessionConfiguration {
         objectMapper.registerModule(javaTimeModule).registerModule(new ParameterNamesModule());
 
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        objectMapper.deactivateDefaultTyping();
+        objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
 
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
