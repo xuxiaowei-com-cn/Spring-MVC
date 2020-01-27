@@ -15,6 +15,11 @@
         where u.username = #{username}
     </select>
 
+    <!-- 根据用户名删除用户 -->
+    <delete id="deleteByUsername">
+        delete from user where username = #{username}
+    </delete>
+
     <!-- 插入用户数据 -->
     <!--
         useGeneratedKeys：是否开启主键返回
