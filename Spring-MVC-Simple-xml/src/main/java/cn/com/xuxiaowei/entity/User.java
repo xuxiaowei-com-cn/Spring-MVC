@@ -31,6 +31,13 @@ public class User implements Serializable {
     private static final long serialVersionUID = -1476784879155085411L;
 
     /**
+     * Redis 缓存中的名字
+     * <p>
+     * 必须为常量
+     */
+    public static final String CACHE_NAME = "User";
+
+    /**
      * 用户 id，主键
      */
     private Long userId;
