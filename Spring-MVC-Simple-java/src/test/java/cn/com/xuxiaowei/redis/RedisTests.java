@@ -1,6 +1,7 @@
 package cn.com.xuxiaowei.redis;
 
 import cn.com.xuxiaowei.configuration.SpringContextConfiguration;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,6 +15,7 @@ import redis.clients.jedis.Jedis;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {SpringContextConfiguration.class})
 @WebAppConfiguration
@@ -44,7 +46,7 @@ public class RedisTests {
             }
         }
 
-        System.out.println("Redis每秒操作次数：" + i + "次");
+        log.debug("Redis每秒操作 {} 次", i);
 
         jedis.close();
 
