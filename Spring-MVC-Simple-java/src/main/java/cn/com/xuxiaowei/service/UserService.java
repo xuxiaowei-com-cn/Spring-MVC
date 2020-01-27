@@ -45,6 +45,14 @@ public interface UserService {
      * 保存用户数据
      *
      * @param user 用户信息
+     * @return 返回保存结果
+     */
+    User insert(User user);
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
      * @return 返回是否保存成功
      */
     boolean save(User user);

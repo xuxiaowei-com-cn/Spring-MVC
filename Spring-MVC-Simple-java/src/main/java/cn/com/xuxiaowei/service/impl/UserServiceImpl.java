@@ -82,6 +82,18 @@ public class UserServiceImpl implements UserService {
      * 保存用户数据
      *
      * @param user 用户信息
+     * @return 返回保存结果
+     */
+    @Override
+    public User insert(User user) {
+        int insert = userMapper.insert(user);
+        return insert > 0 ? user : null;
+    }
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
      * @return 返回是否保存成功
      */
     @Override
