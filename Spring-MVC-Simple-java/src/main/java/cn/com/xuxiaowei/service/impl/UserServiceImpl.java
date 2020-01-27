@@ -20,6 +20,7 @@ import cn.com.xuxiaowei.mapper.UserMapper;
 import cn.com.xuxiaowei.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -53,6 +54,13 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     /**
      * 根据用户名查询用户
@@ -98,7 +106,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean save(User user) {
-        return userMapper.insert(user) == 1;
+        User insert = userService.insert(user);
+        return insert != null;
     }
 
     /**
