@@ -16,7 +16,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = {"classpath:redis.properties"})
 public class RedisProperties {
 
-    @Value("${redis.hostName}")
+    @Value("${redis.host-name}")
     private String hostName;
 
     @Value("${redis.port}")
