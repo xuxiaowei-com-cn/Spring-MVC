@@ -35,11 +35,27 @@ public interface UserMapper {
     User selectByUsername(@Param("username") String username);
 
     /**
+     * 根据用户名删除用户
+     *
+     * @param username 用户名，唯一
+     * @return 删除结果，条数
+     */
+    int deleteByUsername(@Param("username") String username);
+
+    /**
      * 插入用户数据
      *
      * @param user 用户信息
      * @return 返回插入条数
      */
     int insert(@Param("user") User user);
+
+    /**
+     * 根据用户主键更新用户数据
+     *
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
+     * @return 更新结果
+     */
+    int updateByUserId(@Param("user") User user);
 
 }

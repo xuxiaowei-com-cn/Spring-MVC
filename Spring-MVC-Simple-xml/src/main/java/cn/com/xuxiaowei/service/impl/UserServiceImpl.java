@@ -20,6 +20,7 @@ import cn.com.xuxiaowei.mapper.UserMapper;
 import cn.com.xuxiaowei.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +40,13 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     /**
      * 根据用户名查询用户
      *
@@ -51,6 +59,29 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据用户名删除用户
+     *
+     * @param username 用户名，唯一
+     * @return 删除结果，是否成功
+     */
+    @Override
+    public boolean removeByUsername(String username) {
+        return userMapper.deleteByUsername(username) > 0;
+    }
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回保存结果
+     */
+    @Override
+    public User insert(User user) {
+        int insert = userMapper.insert(user);
+        return insert > 0 ? user : null;
+    }
+
+    /**
      * 保存用户数据
      *
      * @param user 用户信息
@@ -58,7 +89,26 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean save(User user) {
-        return userMapper.insert(user) == 1;
+        User insert = userService.insert(user);
+        return insert != null;
+    }
+
+    /**
+     * 根据用户主键更新用户数据
+     *
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
+     * @return 更新结果
+     */
+    @Override
+    public User updateByUserId(User user) {
+
+        if (user == null) {
+            return null;
+        } else if (user.getUserId() == null) {
+            return null;
+        } else {
+            return userMapper.updateByUserId(user) > 0 ? user : null;
+        }
     }
 
     /**

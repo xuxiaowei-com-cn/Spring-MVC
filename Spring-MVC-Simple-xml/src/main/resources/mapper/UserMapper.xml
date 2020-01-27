@@ -15,14 +15,25 @@
         where u.username = #{username}
     </select>
 
+    <!-- 根据用户名删除用户 -->
+    <delete id="deleteByUsername">
+        delete from user where username = #{username}
+    </delete>
+
     <!-- 插入用户数据 -->
     <!--
         useGeneratedKeys：是否开启主键返回
         keyColumn：数据库主键字段名
         keyProperty：实体类主键属性名
      -->
-    <insert id="insert" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+    <!-- JDK 6 中 useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId" 无效 -->
+    <insert id="insert">
         INSERT INTO user (user_id, username, password) VALUES (#{user.userId}, #{user.username}, #{user.password})
     </insert>
+
+    <!-- 根据用户主键更新用户数据 -->
+    <update id="updateByUserId">
+        UPDATE user SET username = #{user.username}, password = #{user.password}, username = #{user.username} WHERE user_id = #{user.userId}
+    </update>
 
 </mapper>

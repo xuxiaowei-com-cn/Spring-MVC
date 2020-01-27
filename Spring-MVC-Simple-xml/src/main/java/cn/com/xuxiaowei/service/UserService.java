@@ -34,12 +34,36 @@ public interface UserService {
     User getByUsername(String username);
 
     /**
+     * 根据用户名删除用户
+     *
+     * @param username 用户名，唯一
+     * @return 删除结果，是否成功
+     */
+    boolean removeByUsername(String username);
+
+    /**
+     * 保存用户数据
+     *
+     * @param user 用户信息
+     * @return 返回保存结果
+     */
+    User insert(User user);
+
+    /**
      * 保存用户数据
      *
      * @param user 用户信息
      * @return 返回是否保存成功
      */
     boolean save(User user);
+
+    /**
+     * 根据用户主键更新用户数据
+     *
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
+     * @return 更新结果
+     */
+    User updateByUserId(User user);
 
     /**
      * 测试 事务
