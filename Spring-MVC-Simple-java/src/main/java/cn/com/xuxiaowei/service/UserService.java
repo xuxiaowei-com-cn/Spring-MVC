@@ -58,12 +58,12 @@ public interface UserService {
     boolean save(User user);
 
     /**
-     * 根据用户名更新用户数据
+     * 根据用户主键更新用户数据
      *
-     * @param user 用户信息，其中 {@link User#getUsername()} 不可为空
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
      * @return 更新结果
      */
-    User updateByUsername(User user);
+    User updateByUserId(User user);
 
     /**
      * 测试 事务

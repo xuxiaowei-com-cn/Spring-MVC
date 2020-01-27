@@ -51,11 +51,11 @@ public interface UserMapper {
     int insert(@Param("user") User user);
 
     /**
-     * 根据用户名更新用户数据
+     * 根据用户主键更新用户数据
      *
-     * @param user 用户信息，其中 {@link User#getUsername()} 不可为空
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
      * @return 更新结果
      */
-    int updateByUsername(@Param("user") User user);
+    int updateByUserId(@Param("user") User user);
 
 }

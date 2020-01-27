@@ -118,25 +118,21 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 根据用户名更新用户数据
+     * 根据用户主键更新用户数据
      *
-     * @param user 用户信息，其中 {@link User#getUsername()} 不可为空
+     * @param user 用户信息，其中 {@link User#getUserId()} 不可为空
      * @return 更新结果
      */
     @Override
     @CachePut(key = "#user.username")
-    public User updateByUsername(User user) {
+    public User updateByUserId(User user) {
 
         if (user == null) {
             return null;
-        }
-
-        String username = user.getUsername();
-
-        if (username == null || "".equals(username)) {
+        } else if (user.getUserId() == null) {
             return null;
         } else {
-            return userMapper.updateByUsername(user) > 0 ? user : null;
+            return userMapper.updateByUserId(user) > 0 ? user : null;
         }
     }
 

@@ -30,9 +30,9 @@
         INSERT INTO user (user_id, username, password) VALUES (#{user.userId}, #{user.username}, #{user.password})
     </insert>
 
-    <!-- 根据用户名更新用户数据 -->
-    <update id="updateByUsername">
-        UPDATE user SET username = #{user.username}, password = #{user.password}, user_id = #{user.userId} WHERE username = #{user.username}
+    <!-- 根据用户主键更新用户数据 -->
+    <update id="updateByUserId">
+        UPDATE user SET username = #{user.username}, password = #{user.password}, username = #{user.username} WHERE user_id = #{user.userId}
     </update>
 
 </mapper>

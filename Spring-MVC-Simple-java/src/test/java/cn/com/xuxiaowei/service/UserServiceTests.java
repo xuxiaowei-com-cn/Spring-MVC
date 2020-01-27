@@ -54,13 +54,13 @@ public class UserServiceTests {
     }
 
     @Test
-    public void updateByUsername() {
+    public void updateByUserId() {
         User user = new User();
-        user.setUserId(System.currentTimeMillis());
-        user.setUsername("xxw");
+        user.setUserId(8L);
+        user.setUsername("xxw" + System.currentTimeMillis());
         user.setPassword(UUID.randomUUID().toString().replace("-", ""));
 
-        User updateByUsername = userService.updateByUsername(user);
+        User updateByUsername = userService.updateByUserId(user);
 
         log.debug(String.valueOf(updateByUsername));
         log.debug(String.valueOf(user));
