@@ -117,6 +117,28 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据用户名更新用户数据
+     *
+     * @param user 用户信息，其中 {@link User#getUsername()} 不可为空
+     * @return 更新结果
+     */
+    @Override
+    public User updateByUsername(User user) {
+
+        if (user == null) {
+            return null;
+        }
+
+        String username = user.getUsername();
+
+        if (username == null || "".equals(username)) {
+            return null;
+        } else {
+            return userMapper.updateByUsername(user) > 0 ? user : null;
+        }
+    }
+
+    /**
      * 测试 事务
      */
     @Override
