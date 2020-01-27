@@ -23,6 +23,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +43,10 @@ import javax.annotation.Resource;
  * <p>
  * {@link CacheEvict}:
  * 移除数据库、缓存对应的 Key 的值
+ * <p>
+ * {@link CachePut}:
+ * 表示无论如何都会执行方法，最后将方法的返回值再保存到缓存中
+ * 使用在插入数据的地方，则表示保存到数据库后，会同期插入到Redis缓存中
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -93,6 +98,7 @@ public class UserServiceImpl implements UserService {
      * @return 返回保存结果
      */
     @Override
+    @CachePut(key = "#user.username")
     public User insert(User user) {
         int insert = userMapper.insert(user);
         return insert > 0 ? user : null;
