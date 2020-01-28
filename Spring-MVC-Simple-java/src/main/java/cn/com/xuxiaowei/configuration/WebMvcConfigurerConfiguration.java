@@ -15,13 +15,12 @@
  */
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.handlerinterceptor.IndexHandlerInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -61,6 +60,28 @@ public class WebMvcConfigurerConfiguration extends WebMvcConfigurerAdapter {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setSuffix(".html");
         return internalResourceViewResolver;
+    }
+
+    /**
+     * 拦截器
+     *
+     * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-interceptors">mvc-config-interceptors</a>
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        // 拦截页面：/，/index
+        // 不拦截页面：/admin/**
+        registry.addInterceptor(indexHandlerInterceptor()).addPathPatterns("/", "/index").excludePathPatterns("/admin/**");
+
+    }
+
+    /**
+     * 将拦截器注册为 {@link Bean}，可在拦截器中使用 {@link Autowired}
+     */
+    @Bean
+    IndexHandlerInterceptor indexHandlerInterceptor() {
+        return new IndexHandlerInterceptor();
     }
 
 }
