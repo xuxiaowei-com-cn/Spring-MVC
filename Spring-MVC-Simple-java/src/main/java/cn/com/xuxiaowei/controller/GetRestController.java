@@ -195,11 +195,13 @@ public class GetRestController {
 
     /**
      * 根据 Accept（application/json、application/xml） 返回数据
+     * <p>
+     * 由于引入了 jackson-dataformat-xml 依赖，默认返回值不是 JSON，而是 XML
      *
      * @param request
      * @param response
-     * @param username
-     * @return
+     * @param username 参数
+     * @return 默认返回 XML（由于引入了 jackson-dataformat-xml），可根据 Accept 指定返回类型
      */
     @RequestMapping("/getPerson")
     public Person getPerson(HttpServletRequest request, HttpServletResponse response, String username) {
