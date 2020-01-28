@@ -41,8 +41,8 @@ public class GetRestController {
     /**
      * 获取实体类
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，由于 {@link UserInfo} 使用了 {@link JacksonXmlRootElement} 等注解，默认返回为 XML
      */
@@ -60,8 +60,8 @@ public class GetRestController {
     /**
      * 获取实体类
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，{@link User} 转换为 JSON
      */
@@ -79,8 +79,8 @@ public class GetRestController {
     /**
      * 获取实体类
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，{@link User} 转换为 XML
      */
@@ -98,8 +98,8 @@ public class GetRestController {
     /**
      * 获取实体类
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，由于 {@link User} 使用了 {@link XmlRootElement}、{@link XmlElement} 注解，默认返回为 XML
      */
@@ -117,12 +117,12 @@ public class GetRestController {
     /**
      * 具有参数的 Get 请求
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param name     姓名，如果未传入，默认为：World，
      *                 {@link RequestParam#value()}：接收参数的名称
      *                 {@link RequestParam#defaultValue()}：默认值
-     * @return
+     * @return 根据参数与默认值返回
      */
     @GetMapping("/getHi")
     public String getHi(HttpServletRequest request, HttpServletResponse response,
@@ -134,8 +134,8 @@ public class GetRestController {
     /**
      * 获取实体类（JSON 类型）
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，{@link User} 转换为 JSON
      */
@@ -153,8 +153,8 @@ public class GetRestController {
     /**
      * 获取实体类（XML 类型）
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 返回实体类，{@link User} 转换为 XML
      */
@@ -177,8 +177,8 @@ public class GetRestController {
      * Accept：application/json，指定返回为 JSON
      * Accept：application/xml，指定返回为 XML
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      * @param username 参数
      * @return 默认返回为 XML（浏览器默认返回为 XML，Postman 默认返回为 JSON）
      */
@@ -196,10 +196,10 @@ public class GetRestController {
     /**
      * 根据 Accept（application/json、application/xml） 返回数据
      *
-     * @param request
-     * @param response
-     * @param username
-     * @return
+     * @param request  请求
+     * @param response 响应
+     * @param username 参数
+     * @return 默认返回 XML（由于引入了 jackson-dataformat-xml），可根据 Accept 指定返回类型
      */
     @RequestMapping("/getPerson")
     public Person getPerson(HttpServletRequest request, HttpServletResponse response, String username) {
