@@ -16,7 +16,7 @@
     <!-- Enable MVC Configuration -->
     <!-- 启用MVC配置 -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-enable -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManagerFactoryBean"/>
 
     <!-- Default Servlet -->
     <!-- 默认Servlet -->
@@ -41,5 +41,16 @@
             <bean class="cn.com.xuxiaowei.handlerinterceptor.IndexHandlerInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-content-negotiation -->
+    <bean id="contentNegotiationManagerFactoryBean"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <value>
+                json=application/json
+                xml=application/xml
+            </value>
+        </property>
+    </bean>
 
 </beans>

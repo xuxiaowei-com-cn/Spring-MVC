@@ -20,10 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -74,6 +73,19 @@ public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
         // 拦截页面：/，/index
         // 不拦截页面：/admin/**
         registry.addInterceptor(indexHandlerInterceptor()).addPathPatterns("/", "/index").excludePathPatterns("/admin/**");
+
+    }
+
+    /**
+     * 自动将 {@link RequestMapping} 包括 {@link RequestMapping} 的拓展注解 增加 URL 后缀名，并根据后缀名去请求解析数据
+     *
+     * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-content-negotiation">mvc-config-content-negotiation</a>
+     */
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+
+        configurer.mediaType("json", MediaType.APPLICATION_JSON);
+        configurer.mediaType("xml", MediaType.APPLICATION_XML);
 
     }
 
