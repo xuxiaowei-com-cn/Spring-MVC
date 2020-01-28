@@ -30,4 +30,16 @@
         <property name="suffix" value=".html"/>
     </bean>
 
+    <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-interceptors -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截：/，/index -->
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/index"/>
+            <!-- 不拦截页面：/admin/** -->
+            <mvc:exclude-mapping path="/admin/**"/>
+            <bean class="cn.com.xuxiaowei.handlerinterceptor.IndexHandlerInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
