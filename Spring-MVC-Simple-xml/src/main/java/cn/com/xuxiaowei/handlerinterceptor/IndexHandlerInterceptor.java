@@ -26,7 +26,7 @@ public class IndexHandlerInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * 1
+     * 1、
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -39,7 +39,7 @@ public class IndexHandlerInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * 2
+     * 2、执行处理程序后
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
@@ -49,7 +49,7 @@ public class IndexHandlerInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * 3
+     * 3、完成完整的请求后
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
