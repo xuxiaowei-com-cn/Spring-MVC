@@ -48,13 +48,7 @@ public class GetRestController {
      */
     @GetMapping("/getUserInfo1")
     public UserInfo getUserInfo1(HttpServletRequest request, HttpServletResponse response, String username) {
-        log.debug("username：{}", username);
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId(counter.incrementAndGet());
-        userInfo.setUsername("徐晓伟");
-        userInfo.setPassword(UUID.randomUUID().toString().replace("-", ""));
-        log.debug("userInfo：{}", userInfo);
-        return userInfo;
+        return getUserInfo(username);
     }
 
     /**
@@ -67,13 +61,7 @@ public class GetRestController {
      */
     @GetMapping(value = "/getUserInfoJson", produces = MediaType.APPLICATION_JSON_VALUE)
     public UserInfo getUserInfoJson(HttpServletRequest request, HttpServletResponse response, String username) {
-        log.debug("username：{}", username);
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId(counter.incrementAndGet());
-        userInfo.setUsername("徐晓伟");
-        userInfo.setPassword(UUID.randomUUID().toString().replace("-", ""));
-        log.debug("userInfo：{}", userInfo);
-        return userInfo;
+        return getUserInfo(username);
     }
 
     /**
@@ -86,6 +74,16 @@ public class GetRestController {
      */
     @GetMapping(value = "/getUserInfoXml", produces = MediaType.APPLICATION_XML_VALUE)
     public UserInfo getUserInfoXml(HttpServletRequest request, HttpServletResponse response, String username) {
+        return getUserInfo(username);
+    }
+
+    /**
+     * 方法抽取
+     *
+     * @param username 参数
+     * @return 返回 {@link UserInfo}
+     */
+    private UserInfo getUserInfo(String username) {
         log.debug("username：{}", username);
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(counter.incrementAndGet());
@@ -105,13 +103,7 @@ public class GetRestController {
      */
     @GetMapping("/getUser1")
     public User getUser1(HttpServletRequest request, HttpServletResponse response, String username) {
-        log.debug("username：{}", username);
-        User user = new User();
-        user.setUserId(counter.incrementAndGet());
-        user.setUsername("徐晓伟");
-        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
-        log.debug("user：{}", user);
-        return user;
+        return getUser(username);
     }
 
     /**
@@ -141,6 +133,16 @@ public class GetRestController {
      */
     @GetMapping(value = "/getUserJson", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUserJson(HttpServletRequest request, HttpServletResponse response, String username) {
+        return getUser(username);
+    }
+
+    /**
+     * 方法抽取
+     *
+     * @param username 参数
+     * @return 返回 {@link User}
+     */
+    private User getUser(String username) {
         log.debug("username：{}", username);
         User user = new User();
         user.setUserId(counter.incrementAndGet());
@@ -160,13 +162,7 @@ public class GetRestController {
      */
     @GetMapping(value = "/getUserXml", produces = MediaType.APPLICATION_XML_VALUE)
     public User getUserXml(HttpServletRequest request, HttpServletResponse response, String username) {
-        log.debug("username：{}", username);
-        User user = new User();
-        user.setUserId(counter.incrementAndGet());
-        user.setUsername("徐晓伟");
-        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
-        log.debug("user：{}", user);
-        return user;
+        return getUser(username);
     }
 
     /**
@@ -184,13 +180,7 @@ public class GetRestController {
      */
     @GetMapping(value = "/getUserXmlJson", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public User getUserXmlJson(HttpServletRequest request, HttpServletResponse response, String username) {
-        log.debug("username：{}", username);
-        User user = new User();
-        user.setUserId(counter.incrementAndGet());
-        user.setUsername("徐晓伟");
-        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
-        log.debug("user：{}", user);
-        return user;
+        return getUser(username);
     }
 
     /**
