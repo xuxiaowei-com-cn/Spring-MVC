@@ -42,6 +42,7 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+    <!-- 自动将 URL 增加后缀名，并根据后缀名去请求解析数据 -->
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-content-negotiation -->
     <bean id="contentNegotiationManagerFactoryBean"
           class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
