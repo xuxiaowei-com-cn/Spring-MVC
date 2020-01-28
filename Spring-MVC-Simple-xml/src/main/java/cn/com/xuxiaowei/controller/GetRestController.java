@@ -195,6 +195,8 @@ public class GetRestController {
 
     /**
      * 根据 Accept（application/json、application/xml） 返回数据
+     * <p>
+     * 由于引入了 jackson-dataformat-xml 依赖，默认返回值不是 JSON，而是 XML
      *
      * @param request  请求
      * @param response 响应
