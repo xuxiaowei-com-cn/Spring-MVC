@@ -1,5 +1,6 @@
 package cn.com.xuxiaowei.controller;
 
+import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.entity.Person;
 import cn.com.xuxiaowei.entity.User;
 import cn.com.xuxiaowei.entity.UserInfo;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -187,11 +189,14 @@ public class GetRestController {
      * 根据 Accept（application/json、application/xml） 返回数据
      * <p>
      * 由于引入了 jackson-dataformat-xml 依赖，默认返回值不是 JSON，而是 XML
+     * <p>
+     * 根据 URL 后缀名自动请求解析不同类型的数据，参加：{@link WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)}
      *
      * @param request  请求
      * @param response 响应
      * @param username 参数
      * @return 默认返回 XML（由于引入了 jackson-dataformat-xml），可根据 Accept 指定返回类型
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     @RequestMapping("/getPerson")
     public Person getPerson(HttpServletRequest request, HttpServletResponse response, String username) {
