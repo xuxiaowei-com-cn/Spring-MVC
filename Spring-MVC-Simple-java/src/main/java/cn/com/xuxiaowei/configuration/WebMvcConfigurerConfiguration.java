@@ -60,7 +60,13 @@ public class WebMvcConfigurerConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+
+        internalResourceViewResolver.setPrefix("/");
         internalResourceViewResolver.setSuffix(".html");
+
+        // 是否启用缓存
+        internalResourceViewResolver.setCache(false);
+
         return internalResourceViewResolver;
     }
 
