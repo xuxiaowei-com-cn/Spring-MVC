@@ -78,6 +78,10 @@ public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
 
     /**
      * 自动将 {@link RequestMapping} 包括 {@link RequestMapping} 的拓展注解 增加 URL 后缀名，并根据后缀名去请求解析数据
+     * <p>
+     * 要求：
+     * 使用某个后缀名时，需要 {@link RequestMapping} 包括 {@link RequestMapping} 的拓展注解 和 下方的 {@link MediaType} 有相同的值，
+     * 或者 {@link RequestMapping} 包括 {@link RequestMapping} 的拓展注解不使用 {@link MediaType}
      *
      * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-content-negotiation">mvc-config-content-negotiation</a>
      */
