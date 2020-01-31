@@ -12,6 +12,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableCaching
-public class RedisConfiguration {
+public class RedisAnnotationConfiguration {
 
 }
