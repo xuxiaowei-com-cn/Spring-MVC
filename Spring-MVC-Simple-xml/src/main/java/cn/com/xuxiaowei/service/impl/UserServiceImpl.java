@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
      * @return 用户信息，可为空，非 List
      */
     @Override
-    @Cacheable
+    @Cacheable(key = "'User::'+#username")
     public User getByUsername(String username) {
         return userMapper.selectByUsername(username);
     }
@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
      * @return 删除结果，是否成功
      */
     @Override
-    @CacheEvict
+    @CacheEvict(key = "'User::'+#username")
     public boolean removeByUsername(String username) {
         return userMapper.deleteByUsername(username) > 0;
     }
@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserService {
      * @return 返回保存结果
      */
     @Override
-    @CachePut(key = "#user.username")
+    @CachePut(key = "'User::'+#user.username")
     public User insert(User user) {
         int insert = userMapper.insert(user);
         return insert > 0 ? user : null;
@@ -124,7 +124,7 @@ public class UserServiceImpl implements UserService {
      * @return 更新结果
      */
     @Override
-    @CachePut(key = "#user.username")
+    @CachePut(key = "'User::'+#user.username")
     public User updateByUserId(User user) {
 
         if (user == null) {
