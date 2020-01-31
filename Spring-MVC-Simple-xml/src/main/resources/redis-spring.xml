@@ -19,16 +19,41 @@
     <!-- 如果名称相同，可缺省 -->
     <cache:annotation-driven cache-manager="redisCacheManager"/>
 
-    <!-- 使用 RedisCacheManager 的内部类 RedisCacheManagerBuilder 创建缓存管理器 -->
-    <!-- Java：RedisCacheManager.RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(new LettuceConnectionFactory()); -->
-    <bean id="redisCacheManagerBuilder"
-          class="org.springframework.data.redis.cache.RedisCacheManager$RedisCacheManagerBuilder"
-          factory-method="fromConnectionFactory"
+    <!-- 从 RedisTemplate 中获取连接 -->
+    <!-- 直接使用 RedisTemplate 引入的连接 -->
+    <!--<bean id="connectionFactory" factory-bean="redisTemplate" factory-method="getConnectionFactory"/>-->
+
+    <!-- 省略一步检查 connectionFactory 是否为 null -->
+
+    <!-- 检查 RedisConnectionFactory 是否为 null -->
+    <!-- 创建新的无锁 RedisCacheWriter -->
+    <bean id="redisCacheWriter" class="org.springframework.data.redis.cache.RedisCacheWriter"
+          factory-method="nonLockingRedisCacheWriter"
           c:connectionFactory-ref="lettuceConnectionFactory"/>
 
-    <!-- 从 RedisCacheManagerBuilder 中获取 缓存管理器 -->
-    <!-- Java：RedisCacheManager build = redisCacheManagerBuilder.build(); -->
-    <bean id="redisCacheManager" factory-bean="redisCacheManagerBuilder" factory-method="build"/>
+    <!-- 获取 RedisTemplate 的序列化 -->
+    <!-- 直接使用 RedisTemplate 引入的序列化 -->
+    <!--<bean id="getValueSerializer" factory-bean="redisTemplate" factory-method="getValueSerializer"/>-->
+
+    <!-- 序列化对 -->
+    <!-- c:serializer-ref="getValueSerializer" 或者直接使用 c:serializer-ref="valueSerializer" -->
+    <bean id="serializationPair"
+          class="org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair"
+          factory-method="fromSerializer"
+          c:serializer-ref="valueSerializer"/>
+
+    <!-- 获取默认缓存配置 -->
+    <bean id="redisCacheConfiguration" class="org.springframework.data.redis.cache.RedisCacheConfiguration"
+          factory-method="defaultCacheConfig"/>
+
+    <!-- 设置序列化 -->
+    <bean id="defaultCacheConfiguration" factory-bean="redisCacheConfiguration" factory-method="serializeValuesWith"
+          c:valueSerializationPair-ref="serializationPair"/>
+
+    <!-- 创建并返回 Redis 缓存管理 -->
+    <bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager"
+          c:cacheWriter-ref="redisCacheWriter"
+          c:defaultCacheConfiguration-ref="defaultCacheConfiguration"/>
 
     <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
