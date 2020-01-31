@@ -56,6 +56,7 @@
           p:connection-factory-ref="lettuceConnectionFactory"
           p:keySerializer-ref="keySerializer"
           p:valueSerializer-ref="valueSerializer"
+          init-method="afterPropertiesSet"/>
 
     <!--  -->
     <bean id="keySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
@@ -64,5 +65,7 @@
     <bean id="valueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
           c:type="java.lang.Object"/>
 
+    <!-- 使用自定义序列化 -->
+    <bean id="objectMapper" class="cn.com.xuxiaowei.util.CustomObjectMapper" factory-method="defaultObjectMapper"/>
 
 </beans>
