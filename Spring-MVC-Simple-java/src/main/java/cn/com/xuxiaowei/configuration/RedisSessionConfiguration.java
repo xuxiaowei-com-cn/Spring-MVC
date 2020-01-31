@@ -156,7 +156,7 @@ public class RedisSessionConfiguration {
 
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 
-        // 序列化时带类名
+        // 序列化时带全限定名
         objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
 
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
