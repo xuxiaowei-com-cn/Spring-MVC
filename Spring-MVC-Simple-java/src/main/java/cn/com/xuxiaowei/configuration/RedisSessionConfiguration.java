@@ -80,23 +80,36 @@ public class RedisSessionConfiguration {
     }
 
     /**
-     *
+     * Redis 缓存管理
      */
     @Bean
     protected RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
 
-        RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(Objects.requireNonNull(redisTemplate.getConnectionFactory()));
+        // 检查 RedisConnectionFactory 是否为 null
+        RedisConnectionFactory redisConnectionFactory = Objects.requireNonNull(redisTemplate.getConnectionFactory());
 
+        // 检查 RedisConnectionFactory 是否为 null
+        // 创建新的无锁 RedisCacheWriter
+        RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
+
+        // 获取 RedisTemplate 的序列化
         RedisSerializer<?> valueSerializer = redisTemplate.getValueSerializer();
 
-        RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer));
+        // 序列化对
+        RedisSerializationContext.SerializationPair<?> serializationPair = RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer);
 
-        return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
+        // 获取默认缓存配置
+        RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
+
+        // 设置序列化
+        RedisCacheConfiguration redisCacheConfigurationSerialize = redisCacheConfiguration.serializeValuesWith(serializationPair);
+
+        // 创建并返回 Redis 缓存管理
+        return new RedisCacheManager(redisCacheWriter, redisCacheConfigurationSerialize);
     }
 
     /**
-     *
+     * 序列化
      */
     @Bean
     protected RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
