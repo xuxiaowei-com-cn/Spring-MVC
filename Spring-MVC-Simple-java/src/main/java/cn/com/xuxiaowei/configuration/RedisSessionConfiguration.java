@@ -94,6 +94,7 @@ public class RedisSessionConfiguration {
 
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 
+        // 序列化时带类名
         objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
