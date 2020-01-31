@@ -63,10 +63,10 @@ public class IndexController {
         User user = userService.getByUsername("徐晓伟");
 
         logger.debug(user);
-        log.debug(user.toString());
+        log.debug(String.valueOf(user));
 
         logger.info(user);
-        log.info(user.toString());
+        log.info(String.valueOf(user));
 
         return "index";
     }
