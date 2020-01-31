@@ -22,6 +22,7 @@
 
     <!-- 插入用户数据 -->
     <!--
+        参见：https://mybatis.org/mybatis-3/sqlmap-xml.html
         useGeneratedKeys：是否开启主键返回
         keyColumn：数据库主键字段名
         keyProperty：实体类主键属性名
