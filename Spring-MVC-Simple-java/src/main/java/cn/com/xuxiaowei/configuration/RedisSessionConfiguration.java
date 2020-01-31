@@ -85,8 +85,11 @@ public class RedisSessionConfiguration {
     @Bean
     protected RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
 
+        // 从 RedisTemplate 中获取连接
+        RedisConnectionFactory connectionFactory = redisTemplate.getConnectionFactory();
+
         // 检查 RedisConnectionFactory 是否为 null
-        RedisConnectionFactory redisConnectionFactory = Objects.requireNonNull(redisTemplate.getConnectionFactory());
+        RedisConnectionFactory redisConnectionFactory = Objects.requireNonNull(connectionFactory);
 
         // 检查 RedisConnectionFactory 是否为 null
         // 创建新的无锁 RedisCacheWriter
