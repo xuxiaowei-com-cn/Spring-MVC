@@ -150,9 +150,13 @@ public class RedisSessionConfiguration {
         javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateTimeFormatter.ofPattern(Constants.DEFAULT_TIME_FORMAT)));
 
         // 用于注册可以扩展该映射器提供的功能的模块的方法; 例如，通过添加自定义序列化程序和反序列化程序的提供程序。
-        objectMapper.registerModule(javaTimeModule).registerModule(new ParameterNamesModule());
+        objectMapper.registerModule(javaTimeModule);
+
+        objectMapper.registerModule(new ParameterNamesModule());
 
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+
+        // 序列化时带类名
         objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
 
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
