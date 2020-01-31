@@ -95,6 +95,10 @@
 
     <!--  -->
     <bean id="valueSerializer" class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"
-          c:type="java.lang.Object"/>
+          c:type="java.lang.Object"
+          p:objectMapper-ref="objectMapper"/>
+
+    <!-- 使用自定义序列化 -->
+    <bean id="objectMapper" class="cn.com.xuxiaowei.util.CustomObjectMapper" factory-method="defaultObjectMapper"/>
 
 </beans>
