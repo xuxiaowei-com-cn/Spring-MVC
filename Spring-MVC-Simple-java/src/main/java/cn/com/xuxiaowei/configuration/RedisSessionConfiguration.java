@@ -112,10 +112,12 @@ public class RedisSessionConfiguration {
     }
 
     /**
-     * 序列化
+     * 注意：如果要使用注解 {@link Autowired} 管理 {@link RedisTemplate}，
+     * 则需要将 {@link RedisTemplate} 的 {@link Bean} 缺省泛型
      */
     @Bean
-    protected RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    @SuppressWarnings("rawtypes")
+    protected RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 
         // Helper类简化了 Redis 数据访问代码
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
