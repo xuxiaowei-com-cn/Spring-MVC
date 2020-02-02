@@ -18,7 +18,7 @@
             ${basedir}/src/main/resources/mybatis/generatorConfig.xml
         </mybatis.generator.configurationFile>
 
-        <!-- JDK 6 最高支持 spring 版本为：4.3.25.RELEASE -->
+        <!-- JDK 6 最高支持 spring 版本为：4.3.26.RELEASE -->
         <!-- Spring MVC -->
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
