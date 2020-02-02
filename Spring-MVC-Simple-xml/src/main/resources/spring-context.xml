@@ -36,7 +36,6 @@
     <import resource="classpath:spring-quartz.xml"/>
 
     <!-- 导入 Redis-Spring 配置 -->
-    <!-- 在 web.xml 中使用 -->
-    <!--<import resource="classpath:redis-spring.xml"/>-->
+    <import resource="classpath:redis-spring.xml"/>
 
 </beans>
