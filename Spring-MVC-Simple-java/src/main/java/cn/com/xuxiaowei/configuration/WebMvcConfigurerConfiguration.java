@@ -56,7 +56,7 @@ public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
      * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp">JSP and JSTL</a>
      */
     @Bean
-    InternalResourceViewResolver internalResourceViewResolver() {
+    public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
 
         internalResourceViewResolver.setPrefix("/");
@@ -103,7 +103,7 @@ public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
      * 将拦截器注册为 {@link Bean}，可在拦截器中使用 {@link Autowired}
      */
     @Bean
-    IndexHandlerInterceptor indexHandlerInterceptor() {
+    public IndexHandlerInterceptor indexHandlerInterceptor() {
         return new IndexHandlerInterceptor();
     }
 

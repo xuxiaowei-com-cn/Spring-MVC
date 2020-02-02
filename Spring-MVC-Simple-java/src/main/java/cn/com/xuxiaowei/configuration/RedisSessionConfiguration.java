@@ -66,7 +66,7 @@ public class RedisSessionConfiguration {
      * 配置 Lettuce Redis 连接器
      */
     @Bean
-    protected LettuceConnectionFactory redisConnectionFactory() {
+    public LettuceConnectionFactory redisConnectionFactory() {
 
         // 默认地址：localhost
         // 默认端口：6379
@@ -83,7 +83,7 @@ public class RedisSessionConfiguration {
      * Redis 缓存管理
      */
     @Bean
-    protected RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
+    public RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
 
         // 从 RedisTemplate 中获取连接
         RedisConnectionFactory connectionFactory = redisTemplate.getConnectionFactory();
@@ -117,7 +117,7 @@ public class RedisSessionConfiguration {
      */
     @Bean
     @SuppressWarnings("rawtypes")
-    protected RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 
         // Helper类简化了 Redis 数据访问代码
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
