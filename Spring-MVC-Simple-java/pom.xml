@@ -54,14 +54,6 @@
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <jedis.version>2.6.3</jedis.version>
 
-        <!-- 非必须 -->
-        <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
-        <lettuce-core.version>5.2.1.RELEASE</lettuce-core.version>
-
-        <!-- 使用 lettuce 连接池需要引入：com.lambdaworks 的 lettuce，否则 Caused by: java.lang.ClassNotFoundException: com.lambdaworks.redis.RedisException -->
-        <!-- https://mvnrepository.com/artifact/com.lambdaworks/lettuce -->
-        <lambdaworks.lettuce.version>2.3.3</lambdaworks.lettuce.version>
-
         <!-- JDK 6 最高支持 mysql 版本为：5.1.48 -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>5.1.48</mysql.version>
@@ -185,20 +177,6 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
-        <dependency>
-            <groupId>io.lettuce</groupId>
-            <artifactId>lettuce-core</artifactId>
-            <version>${lettuce-core.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.lambdaworks/lettuce -->
-        <dependency>
-            <groupId>com.lambdaworks</groupId>
-            <artifactId>lettuce</artifactId>
-            <version>${lambdaworks.lettuce.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
