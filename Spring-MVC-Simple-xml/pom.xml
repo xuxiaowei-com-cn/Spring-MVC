@@ -23,7 +23,7 @@
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>4.3.25.RELEASE</spring.version>
+        <spring.version>4.3.26.RELEASE</spring.version>
 
         <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
