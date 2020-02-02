@@ -13,8 +13,8 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Data
 @Configuration
-@PropertySource(value = {"classpath:redis.properties"})
-public class RedisProperties {
+@PropertySource(value = {"classpath:redis-single.properties"})
+public class RedisSingleProperties {
 
     @Value("${redis.host-name}")
     private String hostName;

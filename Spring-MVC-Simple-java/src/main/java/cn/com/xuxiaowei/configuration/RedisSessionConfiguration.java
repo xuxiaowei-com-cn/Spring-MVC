@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.configuration;
 
-import cn.com.xuxiaowei.properties.RedisProperties;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -31,34 +29,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @EnableCaching
 @EnableRedisHttpSession
 public class RedisSessionConfiguration {
-
-    /**
-     * Redis 属性
-     */
-    private RedisProperties redisProperties;
-
-    @Autowired
-    public void setRedisProperties(RedisProperties redisProperties) {
-        this.redisProperties = redisProperties;
-    }
-
-    /**
-     * 配置 Jedis Redis 连接器
-     */
-    @Bean
-    public JedisConnectionFactory jedisConnectionFactory() {
-
-        // hostName：默认值：localhost
-        // port：默认值：6379
-        // password：默认值：
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-
-        jedisConnectionFactory.setHostName(redisProperties.getHostName());
-        jedisConnectionFactory.setPort(redisProperties.getPort());
-        jedisConnectionFactory.setDatabase(redisProperties.getDatabase());
-
-        return jedisConnectionFactory;
-    }
 
     /**
      *
