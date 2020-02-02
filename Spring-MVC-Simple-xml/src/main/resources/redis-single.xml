@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Redis 单机版配置 -->
+
+    <!-- 连接配置 -->
+    <bean id="redisStandaloneConfiguration"
+          class="org.springframework.data.redis.connection.RedisStandaloneConfiguration"
+          p:hostName="${redis.host-name}"
+          p:port="${redis.port}"
+          p:database="${redis.database}"/>
+
+    <!-- 连接池：LettuceConnectionFactory、JedisConnectionFactory 二选一 -->
+
+    <!-- 创建一个 RedisConnectionFactory 将 Spring Session 连接到 Redis Server -->
+    <!-- 将连接配置为在默认端口（6379）上连接到 localhost。有关配置 Spring Data Redis 的更多信息，请参见参考文档 -->
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/2.2.0.RELEASE/reference/html/ -->
+    <bean id="lettuceConnectionFactory"
+          class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"
+          c:configuration-ref="redisStandaloneConfiguration"/>
+
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:template -->
+    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:string -->
+    <!--<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:use-pool="true" c:standaloneConfig-ref="redisStandaloneConfiguration"/>-->
+
+</beans>

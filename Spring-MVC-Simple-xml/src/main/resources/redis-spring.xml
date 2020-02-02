@@ -58,27 +58,8 @@
     <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
 
-    <!-- 连接配置 -->
-    <bean id="redisStandaloneConfiguration"
-          class="org.springframework.data.redis.connection.RedisStandaloneConfiguration"
-          p:hostName="${redis.host-name}"
-          p:port="${redis.port}"
-          p:database="${redis.database}"/>
-
-
-    <!-- 连接池：LettuceConnectionFactory、JedisConnectionFactory 二选一 -->
-
-    <!-- 创建一个 RedisConnectionFactory 将 Spring Session 连接到 Redis Server -->
-    <!-- 将连接配置为在默认端口（6379）上连接到 localhost。有关配置 Spring Data Redis 的更多信息，请参见参考文档 -->
-    <!-- https://docs.spring.io/spring-data/data-redis/docs/2.2.0.RELEASE/reference/html/ -->
-    <bean id="lettuceConnectionFactory"
-          class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"
-          c:configuration-ref="redisStandaloneConfiguration"/>
-
-    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:template -->
-    <!-- https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:string -->
-    <!--<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:use-pool="true" c:standaloneConfig-ref="redisStandaloneConfiguration"/>-->
+    <!-- 导入激活 Redis 单机版配置 -->
+    <import resource="classpath:redis-single.xml"/>
 
     <!-- 通过 RedisTemplate 处理对象 -->
     <!-- 字符串 -->
