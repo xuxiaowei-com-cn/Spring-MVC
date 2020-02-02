@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.configuration;
 
-import cn.com.xuxiaowei.properties.RedisProperties;
 import cn.com.xuxiaowei.util.Constants;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -23,8 +22,6 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
@@ -51,33 +48,6 @@ import java.util.Objects;
 @EnableCaching
 @EnableRedisHttpSession
 public class RedisSessionConfiguration {
-
-    /**
-     * Redis 属性文件
-     */
-    private RedisProperties redisProperties;
-
-    @Autowired
-    public void setRedisProperties(RedisProperties redisProperties) {
-        this.redisProperties = redisProperties;
-    }
-
-    /**
-     * 配置 Lettuce Redis 连接器
-     */
-    @Bean
-    public LettuceConnectionFactory redisConnectionFactory() {
-
-        // 默认地址：localhost
-        // 默认端口：6379
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(
-                redisProperties.getHostName(), redisProperties.getPort());
-
-        // 默认数据库：0
-        redisStandaloneConfiguration.setDatabase(redisProperties.getDatabase());
-
-        return new LettuceConnectionFactory(redisStandaloneConfiguration);
-    }
 
     /**
      * Redis 缓存管理
