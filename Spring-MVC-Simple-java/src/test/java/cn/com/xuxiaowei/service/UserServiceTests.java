@@ -27,7 +27,7 @@ import java.util.UUID;
 @WebAppConfiguration
 public class UserServiceTests {
 
-    @Resource
+    @Autowired
     private UserService userService;
 
     @Test
