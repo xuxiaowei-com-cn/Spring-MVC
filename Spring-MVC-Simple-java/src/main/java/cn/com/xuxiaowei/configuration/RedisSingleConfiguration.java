@@ -1,6 +1,6 @@
 package cn.com.xuxiaowei.configuration;
 
-import cn.com.xuxiaowei.properties.RedisProperties;
+import cn.com.xuxiaowei.properties.RedisSingleProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,13 +17,13 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 public class RedisSingleConfiguration {
 
     /**
-     * Redis 属性文件
+     * Redis 单机版属性文件
      */
-    private RedisProperties redisProperties;
+    private RedisSingleProperties redisSingleProperties;
 
     @Autowired
-    public void setRedisProperties(RedisProperties redisProperties) {
-        this.redisProperties = redisProperties;
+    public void setRedisProperties(RedisSingleProperties redisSingleProperties) {
+        this.redisSingleProperties = redisSingleProperties;
     }
 
     /**
@@ -35,10 +35,10 @@ public class RedisSingleConfiguration {
         // 默认地址：localhost
         // 默认端口：6379
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(
-                redisProperties.getHostName(), redisProperties.getPort());
+                redisSingleProperties.getHostName(), redisSingleProperties.getPort());
 
         // 默认数据库：0
-        redisStandaloneConfiguration.setDatabase(redisProperties.getDatabase());
+        redisStandaloneConfiguration.setDatabase(redisSingleProperties.getDatabase());
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }
