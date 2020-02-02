@@ -17,7 +17,7 @@ import java.util.UUID;
  */
 @Slf4j
 @RunWith(SpringRunner.class)
-@ContextConfiguration(value = {"classpath:/spring-context.xml"})
+@ContextConfiguration(value = {"classpath:spring-context.xml"})
 public class UserInfoTests {
 
     private XmlMapper xmlMapper = new XmlMapper();
