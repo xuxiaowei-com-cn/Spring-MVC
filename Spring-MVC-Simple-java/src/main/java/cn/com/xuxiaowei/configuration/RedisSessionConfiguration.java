@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -43,20 +43,21 @@ public class RedisSessionConfiguration {
     }
 
     /**
-     * 配置 Lettuce Redis 连接器
+     * 配置 Jedis Redis 连接器
      */
     @Bean
-    protected LettuceConnectionFactory redisConnectionFactory() {
+    protected JedisConnectionFactory redisConnectionFactory() {
 
         // hostName：默认值：localhost
         // port：默认值：6379
         // password：默认值：
-        LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(
-                redisProperties.getHostName(), redisProperties.getPort());
+        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
 
-        lettuceConnectionFactory.setDatabase(redisProperties.getDatabase());
+        jedisConnectionFactory.setHostName(redisProperties.getHostName());
+        jedisConnectionFactory.setPort(redisProperties.getPort());
+        jedisConnectionFactory.setDatabase(redisProperties.getDatabase());
 
-        return lettuceConnectionFactory;
+        return jedisConnectionFactory;
     }
 
     /**
