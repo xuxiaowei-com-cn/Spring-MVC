@@ -46,7 +46,7 @@ public class RedisSessionConfiguration {
      * 配置 Jedis Redis 连接器
      */
     @Bean
-    protected JedisConnectionFactory redisConnectionFactory() {
+    public JedisConnectionFactory jedisConnectionFactory() {
 
         // hostName：默认值：localhost
         // port：默认值：6379
@@ -64,7 +64,7 @@ public class RedisSessionConfiguration {
      *
      */
     @Bean
-    protected RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
+    public RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
         return new RedisCacheManager(redisTemplate);
     }
 
@@ -72,7 +72,7 @@ public class RedisSessionConfiguration {
      *
      */
     @Bean
-    protected RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 
         // Helper类简化了 Redis 数据访问代码
         RedisTemplate<Object, Object> template = new RedisTemplate<Object, Object>();
