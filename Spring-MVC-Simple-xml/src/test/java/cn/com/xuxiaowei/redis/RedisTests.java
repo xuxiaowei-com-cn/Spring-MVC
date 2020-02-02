@@ -15,7 +15,7 @@ import redis.clients.jedis.Jedis;
  */
 @Slf4j
 @RunWith(SpringRunner.class)
-@ContextConfiguration(value = {"classpath:/spring-context.xml"})
+@ContextConfiguration(value = {"classpath:spring-context.xml"})
 public class RedisTests {
 
     @Test
