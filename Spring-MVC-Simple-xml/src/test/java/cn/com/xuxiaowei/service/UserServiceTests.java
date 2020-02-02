@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
 /**
@@ -21,7 +22,7 @@ import java.util.UUID;
 @ContextConfiguration(value = {"classpath:spring-context.xml"})
 public class UserServiceTests {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @Test
