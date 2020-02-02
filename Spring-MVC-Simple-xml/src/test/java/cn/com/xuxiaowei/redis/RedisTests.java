@@ -26,7 +26,7 @@ import java.util.Set;
 public class RedisTests {
 
     @Resource
-    private RedisTemplate<String, User> redisTemplate;
+    private RedisTemplate<String, User> redisTemplateUser;
 
     /**
      * 操作字符串 {@link RedisTemplate#opsForValue()}
@@ -41,7 +41,7 @@ public class RedisTests {
 
         String username = "xxw";
 
-        ValueOperations<String, User> valueOperations = redisTemplate.opsForValue();
+        ValueOperations<String, User> valueOperations = redisTemplateUser.opsForValue();
 
         User user = new User();
         user.setUserId(666L);
