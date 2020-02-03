@@ -23,7 +23,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * 启用MVC配置
@@ -49,25 +48,6 @@ public class WebMvcConfigurerConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
-    }
-
-    /**
-     * 视图解析器
-     *
-     * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-freemarker">FreeMarker</a>
-     * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp">JSP and JSTL</a>
-     */
-    @Bean
-    public InternalResourceViewResolver internalResourceViewResolver() {
-        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-
-        internalResourceViewResolver.setPrefix("/");
-        internalResourceViewResolver.setSuffix(".html");
-
-        // 是否启用缓存
-        internalResourceViewResolver.setCache(false);
-
-        return internalResourceViewResolver;
     }
 
     /**
