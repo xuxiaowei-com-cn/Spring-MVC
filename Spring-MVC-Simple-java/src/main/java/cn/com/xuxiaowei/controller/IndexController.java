@@ -84,6 +84,14 @@ public class IndexController {
     }
 
     /**
+     * {@link FreeMarkerViewResolver} 视图解析器解析的页面
+     */
+    @RequestMapping("/ftlh/index")
+    public ModelAndView indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return new ModelAndView("ftlh/index");
+    }
+
+    /**
      * {@link InternalResourceViewResolver} 视图解析器解析的页面
      */
     @RequestMapping("/jsp/index")
