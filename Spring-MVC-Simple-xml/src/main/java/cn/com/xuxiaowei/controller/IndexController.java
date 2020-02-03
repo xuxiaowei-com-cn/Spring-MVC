@@ -72,7 +72,7 @@ public class IndexController {
         log.debug(String.valueOf(user));
         log.info(String.valueOf(user));
 
-        return "templates/index";
+        return "html/index";
     }
 
     /**

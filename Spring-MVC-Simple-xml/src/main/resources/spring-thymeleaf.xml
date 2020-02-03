@@ -7,7 +7,7 @@
     <!-- {@link ThymeleafViewResolver} 视图解析器 -->
     <bean id="springResourceTemplateResolver"
           class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver"
-          p:prefix="/WEB-INF/html/"
+          p:prefix="/WEB-INF/"
           p:suffix=".html"
           p:characterEncoding="UTF-8"
           p:templateMode="HTML"
@@ -19,7 +19,7 @@
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver"
           p:templateEngine-ref="springTemplateEngine"
           p:characterEncoding="UTF-8"
-          p:viewNames="templates/*">
+          p:viewNames="html/*">
     </bean>
 
 </beans>
