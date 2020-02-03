@@ -24,6 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,7 +53,9 @@ public class IndexController {
     }
 
     /**
-     * Index
+     * 默认 Index
+     * <p>
+     * 使用 {@link ThymeleafViewResolver} 视图解析器
      */
     @RequestMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -68,7 +72,23 @@ public class IndexController {
         log.debug(String.valueOf(user));
         log.info(String.valueOf(user));
 
-        return "index";
+        return "templates/index";
+    }
+
+    /**
+     * {@link ThymeleafViewResolver} 视图解析器解析的页面
+     */
+    @RequestMapping("/html/index")
+    public String indexHtml(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return index(request, response, model);
+    }
+
+    /**
+     * {@link InternalResourceViewResolver} 视图解析器解析的页面
+     */
+    @RequestMapping("/jsp/index")
+    public String indexJsp(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "jsp/index";
     }
 
 }

@@ -11,10 +11,6 @@ import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
 
 /**
  * {@link ThymeleafViewResolver} 视图解析器
- * <p>
- * {@link ThymeleafViewResolverConfiguration} 与 {@link InternalResourceViewResolverConfiguration} 激活一个
- * <p>
- * Configuration
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -22,26 +18,29 @@ import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
 @Configuration
 public class ThymeleafViewResolverConfiguration {
 
-    /**
-     * Bean
-     */
     @Bean
     public SpringResourceTemplateResolver springResourceTemplateResolver() {
 
         SpringResourceTemplateResolver springResourceTemplateResolver = new SpringResourceTemplateResolver();
-        springResourceTemplateResolver.setPrefix("/WEB-INF/templates/");
+
+        // 视图文件放置目录
+        springResourceTemplateResolver.setPrefix("/WEB-INF/html/");
+
+        // 需要解析的视图文件后缀
         springResourceTemplateResolver.setSuffix(".html");
+
+        // 视图编码
         springResourceTemplateResolver.setCharacterEncoding(CHARACTER_ENCODING);
-        springResourceTemplateResolver.setOrder(2);
+
+        // 设置视图解析器解析模板
         springResourceTemplateResolver.setTemplateMode(TemplateMode.HTML);
+
+        // 是否启用缓存
         springResourceTemplateResolver.setCacheable(false);
 
         return springResourceTemplateResolver;
     }
 
-    /**
-     * Bean
-     */
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver(SpringResourceTemplateResolver springResourceTemplateResolver) {
 
@@ -50,7 +49,12 @@ public class ThymeleafViewResolverConfiguration {
 
         springTemplateEngine.setTemplateResolver(springResourceTemplateResolver);
         thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
+
+        // 视图编码
         thymeleafViewResolver.setCharacterEncoding(CHARACTER_ENCODING);
+
+        // 需要解析的视图返回文件名前缀
+        thymeleafViewResolver.setViewNames(new String[]{"templates/*"});
 
         return thymeleafViewResolver;
     }
