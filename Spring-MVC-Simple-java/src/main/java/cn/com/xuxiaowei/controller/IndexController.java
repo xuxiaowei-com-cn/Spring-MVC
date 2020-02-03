@@ -24,7 +24,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -89,8 +88,8 @@ public class IndexController {
      * {@link FreeMarkerViewResolver} 视图解析器解析的页面
      */
     @RequestMapping("/ftlh/index")
-    public ModelAndView indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return new ModelAndView("ftlh/index");
+    public String indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "ftlh/index";
     }
 
     /**
