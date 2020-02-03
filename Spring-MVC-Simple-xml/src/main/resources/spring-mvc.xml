@@ -50,12 +50,8 @@
 
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver"
           p:templateEngine-ref="springTemplateEngine"
-          p:characterEncoding="UTF-8">
-        <property name="viewNames">
-            <list>
-                <value>templates/*</value>
-            </list>
-        </property>
+          p:characterEncoding="UTF-8"
+          p:viewNames="templates/*">
     </bean>
 
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-interceptors -->
