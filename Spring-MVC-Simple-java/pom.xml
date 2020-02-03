@@ -24,6 +24,13 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>5.2.3.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
+        <thymeleaf-spring5.version>3.0.11.RELEASE</thymeleaf-spring5.version>
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-java8time -->
+        <thymeleaf-extras-java8time.version>3.0.4.RELEASE</thymeleaf-extras-java8time.version>
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
+        <thymeleaf-testing.version>3.0.4.RELEASE</thymeleaf-testing.version>
+
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
         <HikariCP.version>3.4.2</HikariCP.version>
 
@@ -109,6 +116,20 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>${thymeleaf-spring5.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-java8time -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-java8time</artifactId>
+            <version>${thymeleaf-extras-java8time.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
@@ -283,6 +304,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-testing</artifactId>
+            <version>${thymeleaf-testing.version}</version>
             <scope>test</scope>
         </dependency>
 
