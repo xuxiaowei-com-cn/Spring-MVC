@@ -3,7 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
@@ -24,35 +23,11 @@
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-default-servlet-handler -->
     <mvc:default-servlet-handler/>
 
-    <!-- JSP and JSTL -->
-    <!-- {@link InternalResourceViewResolver} 视图解析器 -->
-    <!-- 是否启用缓存：cache -->
-    <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp-resolver -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:viewClass="org.springframework.web.servlet.view.InternalResourceView"
-          p:prefix="/WEB-INF/"
-          p:viewNames="jsp/*"
-          p:suffix=".jsp"
-          p:cache="false"
-          p:contentType="text/html"/>
+    <!-- 启用 {@link InternalResourceViewResolver} 视图解析器 -->
+    <import resource="classpath:spring-internal.xml"/>
 
-    <!-- {@link ThymeleafViewResolver} 视图解析器 -->
-    <bean id="springResourceTemplateResolver"
-          class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver"
-          p:prefix="/WEB-INF/html/"
-          p:suffix=".html"
-          p:characterEncoding="UTF-8"
-          p:templateMode="HTML"
-          p:cacheable="false"/>
-
-    <bean id="springTemplateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine"
-          p:templateResolver-ref="springResourceTemplateResolver"/>
-
-    <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver"
-          p:templateEngine-ref="springTemplateEngine"
-          p:characterEncoding="UTF-8"
-          p:viewNames="templates/*">
-    </bean>
+    <!-- 启用 {@link ThymeleafViewResolver} 视图解析器 -->
+    <import resource="classpath:spring-thymeleaf.xml"/>
 
     <!-- 参见：https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-interceptors -->
     <mvc:interceptors>
