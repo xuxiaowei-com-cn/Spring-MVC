@@ -7,6 +7,8 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
+
 /**
  * {@link ThymeleafViewResolver} 视图解析器
  * <p>
@@ -26,38 +28,29 @@ public class ThymeleafViewResolverConfiguration {
     @Bean
     public SpringResourceTemplateResolver springResourceTemplateResolver() {
 
-        SpringResourceTemplateResolver servletContextTemplateResolver = new SpringResourceTemplateResolver();
-        servletContextTemplateResolver.setPrefix("/WEB-INF/templates/");
-        servletContextTemplateResolver.setSuffix(".html");
-        servletContextTemplateResolver.setCharacterEncoding("UTF-8");
-        servletContextTemplateResolver.setOrder(2);
-        servletContextTemplateResolver.setTemplateMode(TemplateMode.HTML);
-        servletContextTemplateResolver.setCacheable(false);
+        SpringResourceTemplateResolver springResourceTemplateResolver = new SpringResourceTemplateResolver();
+        springResourceTemplateResolver.setPrefix("/WEB-INF/templates/");
+        springResourceTemplateResolver.setSuffix(".html");
+        springResourceTemplateResolver.setCharacterEncoding(CHARACTER_ENCODING);
+        springResourceTemplateResolver.setOrder(2);
+        springResourceTemplateResolver.setTemplateMode(TemplateMode.HTML);
+        springResourceTemplateResolver.setCacheable(false);
 
-        return servletContextTemplateResolver;
+        return springResourceTemplateResolver;
     }
 
     /**
      * Bean
      */
     @Bean
-    public SpringTemplateEngine springTemplateEngine() {
-
-        SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
-        springTemplateEngine.setTemplateResolver(springResourceTemplateResolver());
-
-        return springTemplateEngine;
-    }
-
-    /**
-     * Bean
-     */
-    @Bean
-    public ThymeleafViewResolver thymeleafViewResolver() {
+    public ThymeleafViewResolver thymeleafViewResolver(SpringResourceTemplateResolver springResourceTemplateResolver) {
 
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-        thymeleafViewResolver.setTemplateEngine(springTemplateEngine());
-        thymeleafViewResolver.setCharacterEncoding("UTF-8");
+        SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
+
+        springTemplateEngine.setTemplateResolver(springResourceTemplateResolver);
+        thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
+        thymeleafViewResolver.setCharacterEncoding(CHARACTER_ENCODING);
 
         return thymeleafViewResolver;
     }
