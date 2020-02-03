@@ -65,8 +65,8 @@ public class IndexController {
         logger.debug(user);
         logger.info(user);
 
-        log.debug(user.toString());
-        log.info(user.toString());
+        log.debug(String.valueOf(user));
+        log.info(String.valueOf(user));
 
         return "index";
     }
