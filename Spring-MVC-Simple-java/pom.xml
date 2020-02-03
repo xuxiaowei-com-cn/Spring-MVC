@@ -25,6 +25,11 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <spring.version>4.3.26.RELEASE</spring.version>
 
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+        <thymeleaf-spring4.version>3.0.11.RELEASE</thymeleaf-spring4.version>
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
+        <thymeleaf-testing.version>3.0.4.RELEASE</thymeleaf-testing.version>
+
         <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
@@ -121,6 +126,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf-spring4.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
@@ -284,6 +296,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-testing</artifactId>
+            <version>${thymeleaf-testing.version}</version>
             <scope>test</scope>
         </dependency>
 
