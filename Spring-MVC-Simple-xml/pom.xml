@@ -30,6 +30,9 @@
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
         <thymeleaf-testing.version>3.0.4.RELEASE</thymeleaf-testing.version>
 
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+        <freemarker.version>2.3.29</freemarker.version>
+
         <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
@@ -133,6 +136,13 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring4</artifactId>
             <version>${thymeleaf-spring4.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
