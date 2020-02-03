@@ -24,6 +24,11 @@ package cn.com.xuxiaowei.util;
 public final class Constants {
 
     /**
+     * 编码
+     */
+    public static final String CHARACTER_ENCODING = "UTF-8";
+
+    /**
      * 日期时间格式
      */
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
