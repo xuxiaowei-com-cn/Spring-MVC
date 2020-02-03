@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- {@link ThymeleafViewResolver} 视图解析器 -->
+    <bean id="springResourceTemplateResolver"
+          class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver"
+          p:prefix="/WEB-INF/html/"
+          p:suffix=".html"
+          p:characterEncoding="UTF-8"
+          p:templateMode="HTML"
+          p:cacheable="false"/>
+
+    <bean id="springTemplateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine"
+          p:templateResolver-ref="springResourceTemplateResolver"/>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
+          p:templateEngine-ref="springTemplateEngine"
+          p:characterEncoding="UTF-8"
+          p:viewNames="templates/*">
+    </bean>
+
+</beans>
