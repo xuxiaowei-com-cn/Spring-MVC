@@ -21,3 +21,28 @@ Spring MVC 项目配置。
 - 返回XML数据
     - 根据 Accept 自动请求解析不同类型的数据
     - 根据 URL 后缀名自动请求解析不同类型的数据
+
+## 数据库
+
+- Windows 设置
+~~~
+[mysql]
+default-character-set=utf8mb4
+
+[mysqld]
+character-set-server=utf8mb4
+~~~
+- Linux 设置
+~~~
+[mysql]
+default-character-set=utf8mb4
+
+[mysqld]
+character-set-server=utf8mb4
+collation_server=utf8mb4_bin
+~~~
+
+- 字符集
+    - utf8mb4
+排序规则
+    - utf8mb4_bin
