@@ -24,7 +24,7 @@ public class ThymeleafViewResolverConfiguration {
         SpringResourceTemplateResolver springResourceTemplateResolver = new SpringResourceTemplateResolver();
 
         // 视图文件放置目录
-        springResourceTemplateResolver.setPrefix("/WEB-INF/html/");
+        springResourceTemplateResolver.setPrefix("/WEB-INF/");
 
         // 需要解析的视图文件后缀
         springResourceTemplateResolver.setSuffix(".html");
@@ -54,7 +54,7 @@ public class ThymeleafViewResolverConfiguration {
         thymeleafViewResolver.setCharacterEncoding(CHARACTER_ENCODING);
 
         // 需要解析的视图返回文件名前缀
-        thymeleafViewResolver.setViewNames(new String[]{"templates/*"});
+        thymeleafViewResolver.setViewNames(new String[]{"html/*"});
 
         return thymeleafViewResolver;
     }
