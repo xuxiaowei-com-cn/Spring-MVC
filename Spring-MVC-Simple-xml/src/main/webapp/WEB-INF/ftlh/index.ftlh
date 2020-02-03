@@ -1,10 +1,11 @@
+<#assign ctx=springMacroRequestContext.contextPath/>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>Spring-MVC-Simple</title>
 
-    <link rel="stylesheet" type="text/css" media="all" href="/static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="${ctx}/static/css/index.css"/>
 
 </head>
 <body>
@@ -15,6 +16,6 @@
 
 </body>
 
-<script type="text/javascript" src="/static/js/jQuery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/jQuery/jquery-3.4.1.min.js"></script>
 
 </html>
