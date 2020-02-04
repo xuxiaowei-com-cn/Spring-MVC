@@ -28,8 +28,8 @@ public class LoginRestController {
      * 登录成功
      *
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
-     * @see Constants#LOGIN
-     * @see Constants#LOGIN_JSON
+     * @see Constants#LOGIN_SUCCESS
+     * @see Constants#LOGIN_SUCCESS_JSON
      * @see RequestMethod#POST
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
