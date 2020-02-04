@@ -3,6 +3,7 @@ package cn.com.xuxiaowei.controller;
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,14 +27,16 @@ public class LoginRestController {
 
     /**
      * 登录成功
+     * <p>
+     * 只能使用 {@link RequestMethod#GET}
      *
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
      * @see Constants#LOGIN_SUCCESS
      * @see Constants#LOGIN_SUCCESS_JSON
-     * @see RequestMethod#POST
+     * @see RequestMethod#GET
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
-    @PostMapping(LOGIN_SUCCESS)
+    @GetMapping(LOGIN_SUCCESS)
     public Map<String, Object> loginSuccess(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, Object> map = new HashMap<>(4);
