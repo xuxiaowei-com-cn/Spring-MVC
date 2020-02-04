@@ -25,7 +25,7 @@ import static cn.com.xuxiaowei.util.Constants.*;
 public class LoginRestController {
 
     /**
-     * 登录请求
+     * 登录成功
      *
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
      * @see Constants#LOGIN
@@ -33,8 +33,8 @@ public class LoginRestController {
      * @see RequestMethod#POST
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
-    @PostMapping(LOGIN)
-    public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+    @PostMapping(LOGIN_SUCCESS)
+    public Map<String, Object> loginSuccess(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
