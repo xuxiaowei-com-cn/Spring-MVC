@@ -98,6 +98,13 @@ public final class Constants {
      *
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
+    public static final String LOGOUT_SUCCESS = "/logout/success";
+
+    /**
+     * 注销登录成功
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
     public static final String LOGOUT_SUCCESS_JSON = "/logout/success.json";
 
     /**
