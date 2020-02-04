@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  * 定时器 测试类
  *
  * @author xuxiaowei
+ * @see Scheduled
  * @since 0.0.1
  */
 @Slf4j
@@ -31,8 +32,9 @@ public class SchedulerTest {
 
     /**
      * 每 5 秒执行一次
+     * <p>
+     * Scheduled(cron = "0/5 * * * * *")
      */
-    @Scheduled(cron = "0/5 * * * * *")
     public void job() {
         log.info(jdbcProperties.toString());
     }
