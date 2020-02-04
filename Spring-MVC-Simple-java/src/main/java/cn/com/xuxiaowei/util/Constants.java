@@ -118,6 +118,11 @@ public final class Constants {
     public static final String KEY = "NV!lK12FhRM-Key+NV!lK12FhRM-Key+";
 
     /**
+     * 匿名用户的权限
+     */
+    private static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
+
+    /**
      * 响应 Code
      */
     public static final String CODE = "code";
