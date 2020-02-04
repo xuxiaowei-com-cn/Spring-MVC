@@ -20,6 +20,18 @@
 
 <h3>FreeMarkerViewResolver 视图解析器</h3>
 
+<a href="${ctx}/html/index">Thymeleaf 页面</a><br>
+
+<a href="${ctx}/ftlh/index">FreeMarker 页面</a><br>
+
+<a href="${ctx}/jsp/index">JSP 页面</a><br>
+
+<a href="${ctx}/ui/index.xhtml">JSF 页面</a><br>
+
+<br>
+
+<button id="logout-button">注销登录</button>
+
 </body>
 
 <script type="text/javascript" src="${ctx}/static/js/jQuery/jquery-3.4.1.min.js"></script>

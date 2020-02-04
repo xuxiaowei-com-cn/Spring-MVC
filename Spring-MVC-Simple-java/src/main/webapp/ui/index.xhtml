@@ -33,8 +33,26 @@
         <br/>
         <h:commandButton value="更新"><f:ajax render="indexNow">更新页面内容</f:ajax></h:commandButton>
         <br/>
-        <span>JSF页面</span>
     </h:form>
+
+    <h2>Spring-MVC-Simple</h2>
+
+    <h3>JSF 视图解析器</h3>
+
+    <h:form id="link">
+
+        <h:outputLink value="../html/index">Thymeleaf 页面</h:outputLink><br/>
+
+        <h:outputLink value="../ftlh/index">FreeMarker 页面</h:outputLink><br/>
+
+        <h:outputLink value="../jsp/index">JSP 页面</h:outputLink><br/>
+
+        <h:outputLink value="">JSF 页面</h:outputLink><br/>
+
+    </h:form>
+
+    <button id="logout-button">注销登录</button>
+
 </h:body>
 
 <!-- 引入 JS -->

@@ -27,6 +27,18 @@
 
 <h3>InternalResourceViewResolver 视图解析器</h3>
 
+<a href="${pageContext.request.contextPath}/html/index">Thymeleaf 页面</a><br>
+
+<a href="${pageContext.request.contextPath}/ftlh/index">FreeMarker 页面</a><br>
+
+<a href="${pageContext.request.contextPath}/jsp/index">JSP 页面</a><br>
+
+<a href="${pageContext.request.contextPath}/ui/index.xhtml">JSF 页面</a><br>
+
+<br>
+
+<button id="logout-button">注销登录</button>
+
 </body>
 
 <!-- 引入 JS -->
