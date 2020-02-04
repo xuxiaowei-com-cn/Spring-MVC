@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * JSF Controller
@@ -43,6 +44,10 @@ public class IndexJsfController implements Serializable {
         log.debug(testService.hi());
 
         return this.toString();
+    }
+
+    public String getUuid() {
+        return String.join("：", "Controller 中的值", UUID.randomUUID().toString());
     }
 
     public Date getNow() {
