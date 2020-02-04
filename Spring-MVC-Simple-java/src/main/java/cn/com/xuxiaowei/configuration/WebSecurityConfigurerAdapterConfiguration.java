@@ -1,5 +1,6 @@
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.handler.CustomSavedRequestAwareAuthenticationSuccessHandler;
 import cn.com.xuxiaowei.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +45,11 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
      */
     private PasswordEncoder passwordEncoder;
 
+    /**
+     * 自定义 认证成功策略
+     */
+    private CustomSavedRequestAwareAuthenticationSuccessHandler customSavedRequestAwareAuthenticationSuccessHandler;
+
     @Autowired
     public void setUserDetailsService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
@@ -52,6 +58,11 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
     @Autowired
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Autowired
+    public void setCustomSavedRequestAwareAuthenticationSuccessHandler(CustomSavedRequestAwareAuthenticationSuccessHandler customSavedRequestAwareAuthenticationSuccessHandler) {
+        this.customSavedRequestAwareAuthenticationSuccessHandler = customSavedRequestAwareAuthenticationSuccessHandler;
     }
 
     /**
@@ -73,9 +84,15 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
                 // 定制登录失败后转向的 URL
                 .failureForwardUrl(LOGIN_FAIL_JSON)
                 // 定制登录成功后转向的 URL
-                .defaultSuccessUrl(LOGIN_SUCCESS_JSON, true)
+                // 使用自定义，如下所示：
+                // .defaultSuccessUrl(LOGIN_SUCCESS_JSON, true)
                 .permitAll()
         ;
+
+        // 授权登录成功后处理
+        customSavedRequestAwareAuthenticationSuccessHandler.setDefaultTargetUrl(LOGIN_SUCCESS_JSON);
+        customSavedRequestAwareAuthenticationSuccessHandler.setAlwaysUseDefaultTargetUrl(true);
+        http.formLogin().successHandler(customSavedRequestAwareAuthenticationSuccessHandler);
 
         // 使用 logout 方法定制注销行为
         http.logout()
