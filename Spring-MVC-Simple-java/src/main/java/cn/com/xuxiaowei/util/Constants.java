@@ -120,7 +120,7 @@ public final class Constants {
     /**
      * 匿名用户的权限
      */
-    private static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
+    public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
 
     /**
      * 响应 Code
