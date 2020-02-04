@@ -48,6 +48,15 @@ public final class Constants {
     /**
      * 登录失败
      *
+     * @see #LOGIN_FAIL_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_FAIL = "/login/fail";
+
+    /**
+     * 登录失败
+     *
+     * @see #LOGIN_FAIL
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     public static final String LOGIN_FAIL_JSON = "/login/fail.json";
@@ -55,6 +64,15 @@ public final class Constants {
     /**
      * 登录成功
      *
+     * @see #LOGIN_SUCCESS_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_SUCCESS = "/login/success";
+
+    /**
+     * 登录成功
+     *
+     * @see #LOGIN_SUCCESS
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     public static final String LOGIN_SUCCESS_JSON = "/login/success.json";
@@ -62,6 +80,15 @@ public final class Constants {
     /**
      * 注销登录
      *
+     * @see #LOGOUT_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT = "/logout";
+
+    /**
+     * 注销登录
+     *
+     * @see #LOGOUT
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     public static final String LOGOUT_JSON = "/logout.json";
