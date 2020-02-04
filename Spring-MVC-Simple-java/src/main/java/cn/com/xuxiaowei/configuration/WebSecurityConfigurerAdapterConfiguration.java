@@ -8,8 +8,15 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
+
+import javax.servlet.FilterChain;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import static cn.com.xuxiaowei.util.Constants.*;
 
@@ -48,6 +55,10 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
     }
 
     /**
+     * @see AbstractAuthenticationProcessingFilter#successfulAuthentication(HttpServletRequest, HttpServletResponse, FilterChain, Authentication) 登录成功后执行
+     * @see AbstractRememberMeServices#rememberMeRequested(HttpServletRequest, String) 记住我：true、on、yes、1，不区分大小写
+     * @see AbstractRememberMeServices#autoLogin(HttpServletRequest, HttpServletResponse) 自动登录
+     * @see AbstractRememberMeServices#decodeCookie(String) 从 Cookie 中解析用户信息
      * @see super#configure(HttpSecurity)
      */
     @Override
