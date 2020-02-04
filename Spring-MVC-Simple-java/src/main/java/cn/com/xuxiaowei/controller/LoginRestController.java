@@ -2,8 +2,12 @@ package cn.com.xuxiaowei.controller;
 
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cn.com.xuxiaowei.util.Constants.*;
-import static org.springframework.security.web.WebAttributes.*;
 
 /**
  * 登录 RestController
@@ -27,6 +30,11 @@ import static org.springframework.security.web.WebAttributes.*;
  */
 @RestController
 public class LoginRestController {
+
+    /**
+     * 保存的请求
+     */
+    private RequestCache requestCache = new HttpSessionRequestCache();
 
     /**
      * 登录成功
@@ -50,6 +58,20 @@ public class LoginRestController {
 
         map.put(CODE, CODE_OK);
         map.put(MSG, "登录成功");
+
+        SavedRequest savedRequest = requestCache.getRequest(request, response);
+
+        String redirectUrl;
+
+        if (savedRequest == null) {
+            redirectUrl = "";
+        } else {
+            redirectUrl = savedRequest.getRedirectUrl();
+
+            requestCache.removeRequest(request, response);
+        }
+
+        data.put("redirectUrl", redirectUrl);
 
         return map;
     }

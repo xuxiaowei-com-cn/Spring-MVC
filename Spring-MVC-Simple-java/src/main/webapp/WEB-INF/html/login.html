@@ -105,13 +105,21 @@
                 const code = result.code;
                 const msg = result.msg;
 
-                // if (code === 0) {
-                //     alert(msg);
-                // } else if (code === 1) {
-                //     alert(msg);
-                // } else {
-                //     alert("响应 Code 异常：" + result);
-                // }
+                if (code === 0) {
+
+                    let redirectUrlConfirm = confirm("登录成功，是否跳转到上次登录页面？");
+
+                    if (redirectUrlConfirm) {
+                        location.href = result.data.redirectUrl;
+                    } else {
+                        location.href = "";
+                    }
+
+                } else if (code === 1) {
+                    alert(msg);
+                } else {
+                    alert("响应 Code 异常：" + result);
+                }
 
             },
             error: function (error) {
