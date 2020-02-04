@@ -2,10 +2,15 @@ package cn.com.xuxiaowei.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
 
@@ -47,6 +52,13 @@ public class ThymeleafViewResolverConfiguration {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
 
+        // 页面权限
+        SpringSecurityDialect springSecurityDialect = new SpringSecurityDialect();
+
+        Set<IDialect> dialects = new HashSet<>();
+        dialects.add(springSecurityDialect);
+
+        springTemplateEngine.setAdditionalDialects(dialects);
         springTemplateEngine.setTemplateResolver(springResourceTemplateResolver);
         thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
 
