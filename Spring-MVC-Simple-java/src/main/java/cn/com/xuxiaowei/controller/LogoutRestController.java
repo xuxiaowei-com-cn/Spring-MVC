@@ -2,7 +2,7 @@ package cn.com.xuxiaowei.controller;
 
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
@@ -28,10 +28,10 @@ public class LogoutRestController {
      *
      * @see Constants#LOGOUT_SUCCESS
      * @see Constants#LOGOUT_SUCCESS_JSON
-     * @see RequestMethod#POST
+     * @see RequestMethod#GET
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
-    @PostMapping(LOGOUT_SUCCESS)
+    @GetMapping(LOGOUT_SUCCESS)
     public Map<String, Object> logoutSuccess(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, Object> map = new HashMap<>(4);
