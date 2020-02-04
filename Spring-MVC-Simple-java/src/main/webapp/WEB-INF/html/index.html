@@ -20,13 +20,23 @@
 
 <h3>ThymeleafViewResolver 视图解析器</h3>
 
-<h4>[[${session.name}]]</h4>
-<h4>[[${session.credentials}]]</h4>
-<h4>[[${session.principal}]]</h4>
-<h4>[[${session.details}]]</h4>
-<h4>[[${session.authorities}]]</h4>
+<!-- 从 Session 中获取（自己获取后，放入 Session 中的值） -->
+<h4 th:text="${session.name}"></h4>
+<h4 th:text="${session.credentials}"></h4>
+<h4 th:text="${session.principal}"></h4>
+<h4 th:text="${session.details}"></h4>
+<h4 th:text="${session.authorities}"></h4>
 
-<h4>[[${modelValue}]]</h4>
+<h4 th:text="${modelValue}"></h4>
+
+<hr>
+
+<!-- 从接口中获取 -->
+<h4 th:text="${#authentication.name}"></h4>
+<h4 th:text="${#authentication.credentials}"></h4>
+<h4 th:text="${#authentication.principal}"></h4>
+<h4 th:text="${#authentication.details}"></h4>
+<h4 th:text="${#authentication.authorities}"></h4>
 
 <a th:href="@{/html/index}">Thymeleaf 页面</a><br>
 
