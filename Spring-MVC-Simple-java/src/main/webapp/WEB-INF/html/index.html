@@ -35,50 +35,21 @@
 </body>
 
 <script type="text/javascript" th:src="@{/static/js/jQuery/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/logout.js}"></script>
 
 <script th:inline="javascript" type="text/javascript">
 
+    /*<![CDATA[*/
+    ctxPath = /*[[@{/}]]*/ '';
+    /*]]>*/
+
     $(function () {
+        console.info(ctxPath);
         console.log("文档就绪函数", new Date().toLocaleString())
     });
 
-    /**
-     * 登录
-     */
     $("#logout-button").click(function () {
-
-        const header = $("meta[name='_csrf_header']").attr("content");
-        const token = $("meta[name='_csrf']").attr("content");
-
-        $.ajax({
-            url: "logout.json",
-            method: "post",
-            dataType: 'json',
-            data: {},
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader(header, token);
-            },
-            success: function (result) {
-                console.log("result", result);
-
-                const code = result.code;
-                const msg = result.msg;
-
-                if (code === 0) {
-                    alert(msg);
-                    location.reload();
-                } else if (code === 1) {
-                    alert(msg);
-                } else {
-                    alert("响应 Code 异常：" + result);
-                }
-
-            },
-            error: function (error) {
-                console.log("error", error);
-            }
-        })
-
+        logout(ctxPath + "logout.json")
     });
 
 </script>
