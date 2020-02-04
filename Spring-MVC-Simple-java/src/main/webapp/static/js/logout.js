@@ -24,7 +24,8 @@ function logout(url) {
 
             if (code === 0) {
                 alert(msg);
-                location.reload();
+                // location.reload();
+                location.href = ""
             } else if (code === 1) {
                 alert(msg);
             } else {
