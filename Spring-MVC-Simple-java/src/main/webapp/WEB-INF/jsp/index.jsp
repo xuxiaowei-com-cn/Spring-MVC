@@ -51,6 +51,10 @@
         console.log("文档就绪函数", new Date().toLocaleString())
     });
 
+    $("#logout-button").click(function () {
+        logout("${pageContext.request.contextPath}/logout.json")
+    });
+
 </script>
 
 </html>
