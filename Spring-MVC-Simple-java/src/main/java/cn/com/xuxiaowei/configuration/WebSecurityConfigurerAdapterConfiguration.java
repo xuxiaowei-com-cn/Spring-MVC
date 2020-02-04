@@ -62,7 +62,7 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
                 // 定制登录失败后转向的 URL
                 .failureForwardUrl(LOGIN_FAIL_JSON)
                 // 定制登录成功后转向的 URL
-                .defaultSuccessUrl(LOGIN_SUCCESS_JSON)
+                .defaultSuccessUrl(LOGIN_SUCCESS_JSON, true)
                 .permitAll()
         ;
 
