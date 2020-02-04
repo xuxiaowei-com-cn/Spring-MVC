@@ -2,6 +2,8 @@ package cn.com.xuxiaowei.controller;
 
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
+import org.springframework.security.web.WebAttributes;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cn.com.xuxiaowei.util.Constants.*;
+import static org.springframework.security.web.WebAttributes.*;
 
 /**
  * 登录 RestController
@@ -30,6 +33,8 @@ public class LoginRestController {
      * <p>
      * 只能使用 {@link RequestMethod#GET}
      *
+     * @see WebAttributes
+     * @see SavedRequestAwareAuthenticationSuccessHandler#onAuthenticationSuccess(HttpServletRequest, HttpServletResponse, Authentication) 授权后重定向
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
      * @see Constants#LOGIN_SUCCESS
      * @see Constants#LOGIN_SUCCESS_JSON
