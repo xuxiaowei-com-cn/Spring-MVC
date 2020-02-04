@@ -26,6 +26,8 @@
 <h4>${details}</h4>
 <h4>${authorities}</h4>
 
+<h4>${modelValue}</h4>
+
 <a href="${ctx}/html/index">Thymeleaf 页面</a><br>
 
 <a href="${ctx}/ftlh/index">FreeMarker 页面</a><br>

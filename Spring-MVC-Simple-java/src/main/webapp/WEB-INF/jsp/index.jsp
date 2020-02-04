@@ -33,6 +33,8 @@
 <h4>${details}</h4>
 <h4>${authorities}</h4>
 
+<h4>${modelValue}</h4>
+
 <a href="${pageContext.request.contextPath}/html/index">Thymeleaf 页面</a><br>
 
 <a href="${pageContext.request.contextPath}/ftlh/index">FreeMarker 页面</a><br>
