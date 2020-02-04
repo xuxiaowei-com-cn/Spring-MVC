@@ -12,7 +12,7 @@
     <title>Spring-MVC-Simple</title>
 
     <!-- 引入 CSS -->
-    <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/static/css/style.css"/>
 
 </head>
 <body>

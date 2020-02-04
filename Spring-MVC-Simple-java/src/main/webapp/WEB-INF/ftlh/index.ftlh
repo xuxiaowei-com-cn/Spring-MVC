@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Spring-MVC-Simple</title>
 
-    <link rel="stylesheet" type="text/css" media="all" href="${ctx}/static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="${ctx}/static/css/style.css"/>
 
 </head>
 <body>
