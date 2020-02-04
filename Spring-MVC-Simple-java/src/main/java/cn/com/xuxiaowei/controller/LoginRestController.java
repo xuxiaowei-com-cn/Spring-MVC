@@ -3,6 +3,9 @@ package cn.com.xuxiaowei.controller;
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
@@ -17,6 +20,8 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,6 +63,33 @@ public class LoginRestController {
 
         map.put(CODE, CODE_OK);
         map.put(MSG, "登录成功");
+
+        HttpSession session = request.getSession();
+
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+
+        String name = authentication.getName();
+        session.setAttribute("name", String.join("：", "name", name));
+
+        Object credentials = authentication.getCredentials();
+        session.setAttribute("credentials", String.join("：", "credentials", String.valueOf(credentials)));
+
+        Object principal = authentication.getPrincipal();
+        session.setAttribute("principal", String.join("：", "principal", String.valueOf(principal)));
+
+        Object details = authentication.getDetails();
+        session.setAttribute("details", String.join("：", "details", String.valueOf(details)));
+
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+
+        String authoritiesJoin = "";
+        for (GrantedAuthority authority : authorities) {
+            authoritiesJoin = String.join(",", authoritiesJoin, authority.getAuthority());
+        }
+        authoritiesJoin = authoritiesJoin.substring(1);
+
+        session.setAttribute("authorities", String.join("：", "authorities", authoritiesJoin));
 
         SavedRequest savedRequest = requestCache.getRequest(request, response);
 

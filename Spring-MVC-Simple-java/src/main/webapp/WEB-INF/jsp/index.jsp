@@ -27,6 +27,12 @@
 
 <h3>InternalResourceViewResolver 视图解析器</h3>
 
+<h4>${name}</h4>
+<h4>${credentials}</h4>
+<h4>${principal}</h4>
+<h4>${details}</h4>
+<h4>${authorities}</h4>
+
 <a href="${pageContext.request.contextPath}/html/index">Thymeleaf 页面</a><br>
 
 <a href="${pageContext.request.contextPath}/ftlh/index">FreeMarker 页面</a><br>
