@@ -15,6 +15,9 @@
  */
 package cn.com.xuxiaowei.util;
 
+import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+
 /**
  * 常量
  *
@@ -27,6 +30,85 @@ public final class Constants {
      * 编码
      */
     public static final String CHARACTER_ENCODING = "UTF-8";
+
+    /**
+     * 登录页面、登录请求
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN = "/login";
+
+    /**
+     * 登录请求
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_JSON = "/login.json";
+
+    /**
+     * 登录失败
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_FAIL_JSON = "/login/fail.json";
+
+    /**
+     * 登录成功
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_SUCCESS_JSON = "/login/success.json";
+
+    /**
+     * 注销登录
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT_JSON = "/logout.json";
+
+    /**
+     * 注销登录成功
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT_SUCCESS_JSON = "/logout/success.json";
+
+    /**
+     * Cookie 有效期
+     */
+    public static final int TOKEN_VALIDITY_SECONDS = 60 * 60;
+
+    /**
+     * 记住我参数名
+     * <p>
+     * Cookie
+     */
+    public static final String REMEMBER_ME_PARAMETER = "rememberMe";
+
+    /**
+     * Cookie Key
+     */
+    public static final String KEY = "NV!lK12FhRM-Key+NV!lK12FhRM-Key+";
+
+    /**
+     * 响应 Code
+     */
+    public static final String CODE = "code";
+
+    /**
+     * 正确响应 Code
+     */
+    public static final int CODE_OK = 0;
+
+    /**
+     * 错误响应 Code
+     */
+    public static final int CODE_ERR = 1;
+
+    /**
+     * 响应 Code 说明
+     */
+    public static final String MSG = "msg";
 
     /**
      * 日期时间格式
