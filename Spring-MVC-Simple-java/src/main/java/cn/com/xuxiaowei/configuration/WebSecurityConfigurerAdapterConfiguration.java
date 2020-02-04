@@ -30,6 +30,10 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
     @Override
     public void configure(WebSecurity web) throws Exception {
 
+        // 静态资源不拦截
+        web.ignoring().mvcMatchers("/static/css/**");
+        web.ignoring().mvcMatchers("/static/js/**");
+
     }
 
 }
