@@ -2,6 +2,7 @@ package cn.com.xuxiaowei.controller;
 
 import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import cn.com.xuxiaowei.util.Constants;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,7 @@ public class LoginRestController {
     /**
      * 登录请求
      *
+     * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
      * @see Constants#LOGIN
      * @see Constants#LOGIN_JSON
      * @see RequestMethod#POST

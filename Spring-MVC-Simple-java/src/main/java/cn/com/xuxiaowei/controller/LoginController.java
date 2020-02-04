@@ -22,6 +22,7 @@ public class LoginController {
     /**
      * 登录页面
      *
+     * @see LoginRestController#login(HttpServletRequest, HttpServletResponse)
      * @see RequestMethod#GET
      */
     @GetMapping(LOGIN)
