@@ -32,6 +32,7 @@ import org.springframework.web.servlet.config.annotation.*;
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-stereotype-annotations">@Component and Further Stereotype Annotations</a>@Component、@Service、@Controller、@Repository
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-enable">Enable MVC Configuration</a>启用MVC配置
+ * @since 0.0.1
  */
 @Configuration
 @EnableWebMvc

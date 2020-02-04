@@ -29,6 +29,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet-context-hierarchy">Context Hierarchy</a>上下文层次结构
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-container-config">Servlet Config</a>Servlet配置
+ * @since 0.0.1
  */
 public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration extends AbstractAnnotationConfigDispatcherServletInitializer {
 

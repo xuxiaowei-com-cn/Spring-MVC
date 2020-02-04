@@ -25,6 +25,7 @@ import org.springframework.context.annotation.Configuration;
  *
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-scanning-autodetection">Automatically Detecting Classes and Registering Bean Definitions</a>自动检测类和注册Bean定义
+ * @since 0.0.1
  */
 @Configuration
 @ComponentScan(basePackages = "cn.com.xuxiaowei")
