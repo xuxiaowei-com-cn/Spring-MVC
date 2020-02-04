@@ -1,11 +1,15 @@
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.service.impl.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static cn.com.xuxiaowei.util.Constants.*;
 
@@ -18,6 +22,30 @@ import static cn.com.xuxiaowei.util.Constants.*;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfigurerAdapter {
+
+    /**
+     * 注入加载用户特定数据的核心接口实现类注册
+     *
+     * @see UserDetailsServiceImpl
+     */
+    private UserDetailsService userDetailsService;
+
+    /**
+     * 注入密码编码器
+     *
+     * @see PasswordEncoderConfiguration
+     */
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public void setUserDetailsService(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     /**
      * @see super#configure(HttpSecurity)
@@ -64,7 +92,10 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+
+        // 查询用户与密码比较
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+
     }
 
     @Override
