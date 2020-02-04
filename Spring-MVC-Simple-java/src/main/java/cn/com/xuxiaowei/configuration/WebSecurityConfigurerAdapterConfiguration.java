@@ -14,6 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.LazyCsrfTokenRepository;
 
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +69,9 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
     }
 
     /**
+     * @see LazyCsrfTokenRepository
+     * @see CookieCsrfTokenRepository
+     * @see CsrfFilter
      * @see AbstractAuthenticationProcessingFilter#successfulAuthentication(HttpServletRequest, HttpServletResponse, FilterChain, Authentication) 登录成功后执行
      * @see AbstractRememberMeServices#rememberMeRequested(HttpServletRequest, String) 记住我：true、on、yes、1，不区分大小写
      * @see AbstractRememberMeServices#autoLogin(HttpServletRequest, HttpServletResponse) 自动登录
