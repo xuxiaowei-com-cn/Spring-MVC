@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Spring-MVC-Simple</title>
 
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
     <link rel="stylesheet" type="text/css" media="all" href="${ctx}/static/css/style.css"/>
 
 </head>
