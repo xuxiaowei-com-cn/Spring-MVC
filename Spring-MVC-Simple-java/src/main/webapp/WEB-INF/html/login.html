@@ -106,15 +106,8 @@
                 const msg = result.msg;
 
                 if (code === 0) {
-
-                    let redirectUrlConfirm = confirm("登录成功，是否跳转到上次登录页面？");
-
-                    if (redirectUrlConfirm) {
-                        location.href = result.data.redirectUrl;
-                    } else {
-                        location.href = "";
-                    }
-
+                    alert(msg);
+                    location.href = result.data.redirectUrl;
                 } else if (code === 1) {
                     alert(msg);
                 } else {
