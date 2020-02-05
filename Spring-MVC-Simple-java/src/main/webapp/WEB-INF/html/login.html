@@ -78,7 +78,14 @@
 
 <script th:inline="javascript" type="text/javascript">
 
+    /*<![CDATA[*/
+    let ctxPath = /*[[@{/}]]*/ '';
+    let contextPath = [[${#httpServletRequest.getContextPath()}]];
+    /*]]>*/
+
     $(function () {
+        console.info(ctxPath);
+        console.info(contextPath);
         console.log("文档就绪函数", new Date().toLocaleString())
     });
 
