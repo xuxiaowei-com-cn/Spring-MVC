@@ -126,6 +126,9 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         // 必须（至少指定一个，防止错误，Caused by: java.lang.IllegalStateException: permitAll only works with HttpSecurity.authorizeRequests()）
         http.authorizeRequests().antMatchers("/**").hasRole("USER");
 
+        // 允许配置异常处理，错误页面
+        http.exceptionHandling().accessDeniedPage(ACCESS_DENIED);
+
     }
 
     @Override
