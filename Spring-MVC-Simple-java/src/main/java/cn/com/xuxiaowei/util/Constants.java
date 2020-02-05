@@ -127,7 +127,7 @@ public final class Constants {
     /**
      * 错误页面
      */
-    public static final String ACCESS_DENIED = "accessDenied";
+    public static final String ACCESS_DENIED = "/accessDenied";
 
     /**
      * 匿名用户的权限
