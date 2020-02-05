@@ -125,6 +125,11 @@ public final class Constants {
     public static final String KEY = "NV!lK12FhRM-Key+NV!lK12FhRM-Key+";
 
     /**
+     * 错误页面
+     */
+    public static final String ACCESS_DENIED = "accessDenied";
+
+    /**
      * 匿名用户的权限
      */
     public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
