@@ -118,12 +118,13 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
                 .key(KEY)
         ;
 
+        // 管理员权限
+        // 如果权限存在交集，请调整顺序，将小路径放在前面
+        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
+
         // 所有页面均需要 USER 角色
         // 必须（至少指定一个，防止错误，Caused by: java.lang.IllegalStateException: permitAll only works with HttpSecurity.authorizeRequests()）
         http.authorizeRequests().antMatchers("/**").hasRole("USER");
-
-        // 管理员权限
-        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
 
     }
 
