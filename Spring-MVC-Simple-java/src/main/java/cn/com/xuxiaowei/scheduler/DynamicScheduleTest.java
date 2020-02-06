@@ -84,7 +84,13 @@ public class DynamicScheduleTest implements SchedulingConfigurer {
                     } else {
 
                         // 定时器表达式为空，获取定时器执行的具体时间
-                        date = cron.getCronDate();
+                        Date cronDate = cron.getCronDate();
+
+                        // 现在时间在定时器执行具体时间之前，设置程序执行时间
+                        if (new Date().before(cronDate)) {
+                            date = cronDate;
+                        }
+
                     }
 
                 }
