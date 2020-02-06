@@ -10,7 +10,7 @@
     </resultMap>
 
     <!-- 根据 定制器 ID 查询定时器 -->
-    <select id="selectbyId" resultType="cn.com.xuxiaowei.entity.Cron">
+    <select id="selectbyId" resultMap="BaseResultMap">
         SELECT
             c.cron_id,
             c.expression,
@@ -22,7 +22,7 @@
             c.cron_id = #{cronId}
     </select>
 
-    <select id="selectByDeleted" resultType="cn.com.xuxiaowei.entity.Cron">
+    <select id="selectByDeleted" resultMap="BaseResultMap">
         SELECT
             c.cron_id,
             c.expression,
