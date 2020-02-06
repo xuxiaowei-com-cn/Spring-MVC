@@ -35,8 +35,8 @@
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
         </Console>
 
-        <RollingRandomAccessFile name="FatalLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${FATAL_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${FATAL_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="FatalLog" fileName="${LOG_HOME}/${FATAL_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${FATAL_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <!--<Filters></Filters>使用后，向下兼容-->
             <ThresholdFilter level="fatal" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -51,8 +51,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="ErrorLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${ERROR_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${ERROR_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="ErrorLog" fileName="${LOG_HOME}/${ERROR_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${ERROR_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
@@ -62,8 +62,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="WarnLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${WARN_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${WARN_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="WarnLog" fileName="${LOG_HOME}/${WARN_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${WARN_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
@@ -73,8 +73,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="InfoLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${INFO_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${INFO_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="InfoLog" fileName="${LOG_HOME}/${INFO_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${INFO_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
@@ -84,8 +84,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="DebugLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${DEBUG_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${DEBUG_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="DebugLog" fileName="${LOG_HOME}/${DEBUG_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${DEBUG_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
@@ -95,8 +95,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="TraceLog" fileName="${LOG_HOME}/${date:yyyy-MM-dd}/${TRACE_NAME}.log"
-                                 filePattern="${LOG_HOME}/${date:yyyy-MM-dd}/${TRACE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingRandomAccessFile name="TraceLog" fileName="${LOG_HOME}/${TRACE_NAME}.log"
+                                 filePattern="${LOG_HOME}/%d{yyyy-MM}/${TRACE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
             <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
