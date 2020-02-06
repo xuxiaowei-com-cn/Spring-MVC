@@ -1,7 +1,6 @@
 package cn.com.xuxiaowei.service;
 
 import cn.com.xuxiaowei.entity.Cron;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public interface CronService {
      * @param cronId 定时器 ID
      * @return 返回定时器
      */
-    Cron selectbyId(@Param("cronId") Long cronId);
+    Cron selectbyId(Long cronId);
 
     /**
      * 查询未删除的定时器
