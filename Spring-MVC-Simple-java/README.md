@@ -3,6 +3,8 @@ Spring-MVC-Simple-java 项目配置。
 
 ## [Spring Framework Documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html)
 
+## [Spring Faces](https://docs.spring.io/autorepo/docs/webflow/current/reference/html/spring-faces.html)
+
 ## 使用 Apache Tomcat 9
 
 ## 项目配置
