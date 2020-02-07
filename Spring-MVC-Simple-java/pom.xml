@@ -34,6 +34,9 @@
         <thymeleaf-spring4.version>3.0.11.RELEASE</thymeleaf-spring4.version>
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
         <thymeleaf-testing.version>3.0.4.RELEASE</thymeleaf-testing.version>
+        <!-- thymeleaf-extras-springsecurity4 -->
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
+        <thymeleaf-extras-springsecurity4.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity4.version>
 
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <freemarker.version>2.3.29</freemarker.version>
@@ -155,6 +158,13 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring4</artifactId>
             <version>${thymeleaf-spring4.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>${thymeleaf-extras-springsecurity4.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
