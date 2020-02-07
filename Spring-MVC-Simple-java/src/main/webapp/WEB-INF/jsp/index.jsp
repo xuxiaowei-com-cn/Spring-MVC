@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -45,7 +46,13 @@
 
 <br>
 
+<sec:authorize access="!isAuthenticated()">
+<button id="login-page">登录页面</button>
+</sec:authorize>
+
+<sec:authorize access="isAuthenticated()">
 <button id="logout-button">注销登录</button>
+</sec:authorize>
 
 </body>
 
