@@ -24,12 +24,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 /**
  * Index Controller
@@ -73,6 +75,8 @@ public class IndexController {
         log.debug(String.valueOf(user));
         log.info(String.valueOf(user));
 
+        model.addAttribute("modelValue", "Model 中的值：" + UUID.randomUUID().toString());
+
         return "html/index";
     }
 
@@ -88,8 +92,11 @@ public class IndexController {
      * {@link FreeMarkerViewResolver} 视图解析器解析的页面
      */
     @RequestMapping("/ftlh/index")
-    public String indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "ftlh/index";
+    public ModelAndView indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        model.addAttribute("modelValue", "Model 中的值：" + UUID.randomUUID().toString());
+
+        return new ModelAndView("ftlh/index");
     }
 
     /**
@@ -97,6 +104,9 @@ public class IndexController {
      */
     @RequestMapping("/jsp/index")
     public String indexJsp(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        model.addAttribute("modelValue", "Model 中的值：" + UUID.randomUUID().toString());
+
         return "jsp/index";
     }
 
