@@ -15,12 +15,13 @@
             %d：2019-07-10 22:45:06,988
             %p：日志等级
             %F：文件名，IndexController.java
+            %class：类全限定名，cn.com.xuxiaowei.controller.IndexController
             %class{1}：类名，IndexController
             %M：方法名，index
             %L：行号
             %X{}：动态读取 org.slf4j.MDC 中的属性
          -->
-        <property name="PATTERN_FORMAT">[%d] %-5p (%class{1}#%M:%L) - %X{IP} - %X{sessionId} - %m%n</property>
+        <property name="PATTERN_FORMAT">[%d{-yyyy-MM-dd HH:mm:ss.SSS}] %-5p (%class#%M:%L) - %X{IP} - %X{sessionId} - %m%n</property>
 
         <!-- 日志文件名称 -->
         <property name="FATAL_NAME">fatal</property>
