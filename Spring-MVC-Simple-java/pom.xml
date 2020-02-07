@@ -300,12 +300,14 @@
         </dependency>
 
         <!-- JSF 所需 -->
+        <!-- Tomcat 中已存在 -->
         <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
         <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>
             <version>${el-api.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
