@@ -5,9 +5,23 @@
 <Configuration monitorInterval="30">
 
     <properties>
+
         <!-- 日志路径：默认为 D: 盘 -->
         <property name="LOG_HOME">/log4j2/logs/</property>
+
+        <!-- 控制台打印日志 -->
+        <!--
+            -5：宽度（5个空格）
+            %d：2019-07-10 22:45:06,988
+            %p：日志等级
+            %F：文件名，IndexController.java
+            %class{1}：类名，IndexController
+            %M：方法名，index
+            %L：行号
+            %X{}：动态读取 org.slf4j.MDC 中的属性
+         -->
         <property name="PATTERN_FORMAT">[%d] %-5p (%class{1}#%M:%L) - %X{IP} - %X{sessionId} - %m%n</property>
+
         <!-- 日志文件名称 -->
         <property name="FATAL_NAME">fatal</property>
         <property name="ERROR_NAME">error</property>
@@ -20,18 +34,7 @@
 
     <Appenders>
 
-        <!-- 控制台打印日志 -->
         <Console name="Console" target="SYSTEM_OUT">
-            <!--
-                -5：宽度（5个空格）
-                %d：2019-07-10 22:45:06,988
-                %p：日志等级
-                %F：文件名，IndexController.java
-                %class{1}：类名，IndexController
-                %M：方法名，index
-                %L：行号
-                %X{}：动态读取 org.slf4j.MDC 中的属性
-            -->
             <PatternLayout pattern="${PATTERN_FORMAT}"/>
         </Console>
 
@@ -112,7 +115,6 @@
 
         <!-- 扫描的包以及日志等级 -->
         <Logger name="cn.com.xuxiaowei" level="debug">
-            <AppenderRef ref="Console"/>
             <AppenderRef ref="FatalLog"/>
             <AppenderRef ref="ErrorLog"/>
             <AppenderRef ref="WarnLog"/>
@@ -121,15 +123,20 @@
             <AppenderRef ref="TraceLog"/>
         </Logger>
 
-        <!--<Root level="debug">
+        <!--
+            如果在 Root 中设置了 level="debug"，则将项目中所有的 debug及高于debug的日志 打印出来，包括 jar 包中的
+        -->
+        <Root>
             <AppenderRef ref="Console"/>
+            <!--
             <AppenderRef ref="FatalLog"/>
             <AppenderRef ref="ErrorLog"/>
             <AppenderRef ref="WarnLog"/>
             <AppenderRef ref="InfoLog"/>
             <AppenderRef ref="DebugLog"/>
             <AppenderRef ref="TraceLog"/>
-        </Root>-->
+            -->
+        </Root>
 
     </Loggers>
 </Configuration>
