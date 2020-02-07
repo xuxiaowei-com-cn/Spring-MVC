@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Login</title>
 
-    <!--<meta name="_csrf" th:content="${_csrf.token}"/>
-    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -92,8 +92,8 @@
      */
     $("#login-button").click(function () {
 
-        /*const header = $("meta[name='_csrf_header']").attr("content");
-        const token = $("meta[name='_csrf']").attr("content");*/
+        const header = $("meta[name='_csrf_header']").attr("content");
+        const token = $("meta[name='_csrf']").attr("content");
         const $login_form = $("#login-form");
 
         $.ajax({
@@ -101,9 +101,9 @@
             method: "post",
             dataType: 'json',
             data: $login_form.serialize(),
-            /*beforeSend: function (xhr) {
+            beforeSend: function (xhr) {
                 xhr.setRequestHeader(header, token);
-            },*/
+            },
             success: function (result) {
                 console.log("result", result);
 
