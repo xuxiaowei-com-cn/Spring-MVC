@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Spring-MVC-Simple</title>
@@ -8,7 +9,7 @@
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/style.css}"/>
 
@@ -19,8 +20,57 @@
 
 <h3>ThymeleafViewResolver 视图解析器</h3>
 
+<!-- 从 Session 中获取（自己获取后，放入 Session 中的值） -->
+<h4 th:text="${session.name}"></h4>
+<h4 th:text="${session.credentials}"></h4>
+<h4 th:text="${session.principal}"></h4>
+<h4 th:text="${session.details}"></h4>
+<h4 th:text="${session.authorities}"></h4>
+
+<h4 th:text="${modelValue}"></h4>
+
+<hr>
+
+<!-- 从接口中获取 -->
+<h4 th:text="${#authentication.name}"></h4>
+<h4 th:text="${#authentication.credentials}"></h4>
+<h4 th:text="${#authentication.principal}"></h4>
+<h4 th:text="${#authentication.details}"></h4>
+<h4 th:text="${#authentication.authorities}"></h4>
+
+<a th:href="@{/html/index}">Thymeleaf 页面</a><br>
+
+<a th:href="@{/ftlh/index}">FreeMarker 页面</a><br>
+
+<a th:href="@{/jsp/index}">JSP 页面</a><br>
+
+<a th:href="@{/ui/index.xhtml}">JSF 页面</a><br>
+
+<br>
+
+<button sec:authorize="!isAuthenticated()" id="login-page">登录页面</button>
+<button sec:authorize="isAuthenticated()" id="logout-button">注销登录</button>
+
 </body>
 
 <script type="text/javascript" th:src="@{/static/js/jQuery/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/logout.js}"></script>
+
+<script th:inline="javascript" type="text/javascript">
+
+    /*<![CDATA[*/
+    let ctxPath = /*[[@{/}]]*/ '';
+    /*]]>*/
+
+    $(function () {
+        console.info(ctxPath);
+        console.log("文档就绪函数", new Date().toLocaleString())
+    });
+
+    $("#logout-button").click(function () {
+        logout(ctxPath + "logout.json")
+    });
+
+</script>
 
 </html>

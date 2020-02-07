@@ -33,8 +33,52 @@
         <br/>
         <h:commandButton value="更新"><f:ajax render="indexNow">更新页面内容</f:ajax></h:commandButton>
         <br/>
-        <span>JSF页面</span>
     </h:form>
+
+    <h2>Spring-MVC-Simple</h2>
+
+    <h3>JSF 视图解析器</h3>
+
+    <h4>${name}</h4>
+    <h4>${credentials}</h4>
+    <h4>${principal}</h4>
+    <h4>${details}</h4>
+    <h4>${authorities}</h4>
+
+    <h4>#{indexJsfController.uuid}</h4>
+
+    <h:form id="link">
+
+        <h:outputLink value="../html/index">Thymeleaf 页面</h:outputLink><br/>
+
+        <h:outputLink value="../ftlh/index">FreeMarker 页面</h:outputLink><br/>
+
+        <h:outputLink value="../jsp/index">JSP 页面</h:outputLink><br/>
+
+        <h:outputLink value="">JSF 页面</h:outputLink><br/>
+
+    </h:form>
+
+    <br/>
+
+    <button id="logout-button">注销登录</button>
+
 </h:body>
+
+<!-- 引入 JS -->
+<script type="text/javascript" src="#{request.contextPath}/static/js/jQuery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="#{request.contextPath}/static/js/logout.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        console.log("文档就绪函数", new Date().toLocaleString())
+    });
+
+    $("#logout-button").click(function () {
+        logout("#{request.contextPath}/logout.json")
+    });
+
+</script>
 
 </html>
