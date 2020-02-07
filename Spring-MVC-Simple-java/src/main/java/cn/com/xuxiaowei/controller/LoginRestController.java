@@ -85,7 +85,7 @@ public class LoginRestController {
 
         StringBuilder authoritiesJoin = new StringBuilder();
         for (GrantedAuthority authority : authorities) {
-            authoritiesJoin.append(authority.getAuthority()).append(",");
+            authoritiesJoin.append(",").append(authority.getAuthority());
         }
         authoritiesJoin = new StringBuilder(authoritiesJoin.substring(1));
 
