@@ -2,6 +2,7 @@ package cn.com.xuxiaowei.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -46,6 +47,9 @@ public class ThymeleafViewResolverConfiguration {
 
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
+
+        // 添加支持 SpringSecurity
+        springTemplateEngine.addDialect(new SpringSecurityDialect());
 
         springTemplateEngine.setTemplateResolver(springResourceTemplateResolver);
         thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
