@@ -68,7 +68,7 @@ public class HtmlFormConfiguration extends HtmlForm {
         csrfInput.startElement("input", null);
         csrfInput.writeAttribute("type", "hidden", null);
         csrfInput.writeAttribute("id", id, null);
-        csrfInput.writeAttribute("name", "_csrf", null);
+        csrfInput.writeAttribute("name", parameterName, null);
         csrfInput.writeAttribute("value", token, null);
         csrfInput.endElement("input");
 
