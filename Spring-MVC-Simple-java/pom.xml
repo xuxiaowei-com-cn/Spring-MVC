@@ -153,6 +153,7 @@
         </dependency>
 
         <!-- FreeMarker Security -->
+        <!-- JSP Security -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
         <dependency>
             <groupId>org.springframework.security</groupId>
