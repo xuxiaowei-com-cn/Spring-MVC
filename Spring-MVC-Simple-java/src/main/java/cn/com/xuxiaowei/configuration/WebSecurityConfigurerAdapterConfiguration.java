@@ -5,6 +5,7 @@ import cn.com.xuxiaowei.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,12 +27,15 @@ import static cn.com.xuxiaowei.util.Constants.*;
 
 /**
  * WebSecurity 配置
+ * <p>
+ * {@link EnableGlobalMethodSecurity#prePostEnabled()} 为 true 开启基于方法的声明式权限控制，默认不开启
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
