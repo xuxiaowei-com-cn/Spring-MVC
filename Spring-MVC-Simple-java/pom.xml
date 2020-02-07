@@ -36,7 +36,7 @@
         <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-        <!--<quartz.version>2.2.3</quartz.version>-->
+        <quartz.version>2.2.3</quartz.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
         <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
@@ -146,11 +146,11 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>${quartz.version}</version>
-        </dependency>-->
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>
