@@ -27,6 +27,12 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- JSF 支持 Security -->
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/spring-security.taglib.xml</param-value>
+    </context-param>
+
     <!-- Using Log4j 2 in Web Applications -->
     <!-- 在Web应用程序中使用Log4j 2 -->
     <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->
