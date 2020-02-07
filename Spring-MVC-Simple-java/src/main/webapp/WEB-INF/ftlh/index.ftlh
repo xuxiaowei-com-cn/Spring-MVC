@@ -1,4 +1,5 @@
 <#assign ctx=springMacroRequestContext.contextPath/>
+<#assign security=JspTaglibs["http://www.springframework.org/security/tags"]/>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -38,7 +39,13 @@
 
 <br>
 
-<button id="logout-button">注销登录</button>
+<@security.authorize access="!isAuthenticated()">
+    <button id="login-page">登录页面</button>
+</@security.authorize>
+
+<@security.authorize access="isAuthenticated()">
+    <button id="logout-button">注销登录</button>
+</@security.authorize>
 
 </body>
 
