@@ -1,0 +1,15 @@
+html {
+
+}
+
+body {
+
+}
+
+input {
+    width: 150px;
+}
+
+input[type="checkbox" i] {
+    margin: 2px;
+}
