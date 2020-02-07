@@ -11,7 +11,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/tags">
 
 <h:head>
     <title>Index</title>
@@ -61,7 +62,13 @@
 
     <br/>
 
-    <button id="logout-button">注销登录</button>
+    <sec:authorize access="!isAuthenticated()">
+        <button id="login-page">登录页面</button>
+    </sec:authorize>
+
+    <sec:authorize access="isAuthenticated()">
+        <button id="logout-button">注销登录</button>
+    </sec:authorize>
 
 </h:body>
 
