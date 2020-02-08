@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
-import static cn.com.xuxiaowei.util.Constants.LOGIN;
 import static cn.com.xuxiaowei.util.Constants.ROLE_ANONYMOUS;
 import static org.thymeleaf.spring5.view.ThymeleafViewResolver.REDIRECT_URL_PREFIX;
 
