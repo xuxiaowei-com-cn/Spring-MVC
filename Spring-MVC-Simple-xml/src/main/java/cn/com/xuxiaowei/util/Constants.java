@@ -15,6 +15,8 @@
  */
 package cn.com.xuxiaowei.util;
 
+import java.nio.charset.Charset;
+
 /**
  * 常量
  *
@@ -22,6 +24,43 @@ package cn.com.xuxiaowei.util;
  * @since 0.0.1
  */
 public final class Constants {
+
+    /**
+     * 编码
+     *
+     * @see Charset#defaultCharset()
+     */
+    public static final String UTF_8 = "UTF-8";
+
+    /**
+     * 匿名用户的权限
+     */
+    public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
+
+    /**
+     * 响应 Code
+     */
+    public static final String CODE = "code";
+
+    /**
+     * 正确响应 Code
+     */
+    public static final int CODE_OK = 0;
+
+    /**
+     * 错误响应 Code
+     */
+    public static final int CODE_ERR = 1;
+
+    /**
+     * 响应 Code 说明
+     */
+    public static final String MSG = "msg";
+
+    /**
+     * 响应 数据 说明
+     */
+    public static final String DATA = "data";
 
     /**
      * 日期时间格式
