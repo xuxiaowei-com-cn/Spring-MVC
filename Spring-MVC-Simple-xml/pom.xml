@@ -92,6 +92,12 @@
         <!-- Sun JSF RI 规范 API、实现 -->
         <sun-jsf.version>2.2.20</sun-jsf.version>
 
+
+        <!-- JSF 所需 -->
+        <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
+        <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
+        <el-api.version>3.0.1-b06</el-api.version>
+
         <!-- JDK 6 最高支持 log4j-web 版本为：2.3 -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
         <log4j-web.version>2.3</log4j-web.version>
@@ -283,6 +289,18 @@
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>${sun-jsf.version}</version>
+        </dependency>
+
+
+        <!-- JSF 所需 -->
+        <!-- Tomcat 中已存在 -->
+        <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
+        <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${el-api.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
