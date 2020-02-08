@@ -23,7 +23,7 @@
         <!-- 使用 logout 方法定制注销行为 -->
         <sec:logout
                 logout-url="${security.logout-url}"
-                logout-success-url="${security.login-processing-url}"/>
+                logout-success-url="${security.logout-success-url}"/>
 
         <!-- 开启 Cookie 储存用户信息 -->
         <sec:remember-me
