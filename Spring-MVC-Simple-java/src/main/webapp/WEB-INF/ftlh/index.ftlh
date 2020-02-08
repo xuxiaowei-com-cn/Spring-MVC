@@ -21,13 +21,37 @@
 
 <h3>FreeMarkerViewResolver 视图解析器</h3>
 
-<h4>${name}</h4>
-<h4>${credentials}</h4>
-<h4>${principal}</h4>
-<h4>${details}</h4>
-<h4>${authorities}</h4>
+<hr>
+
+<h3>从 Session 中获取</h3>
+
+<@sec.authorize access="isAuthenticated()">
+    <h4>${'用户名：' + Session.SPRING_SECURITY_CONTEXT.authentication.name}</h4>
+</@sec.authorize>
+<@sec.authorize access="isAuthenticated()">
+    <#if Session.SPRING_SECURITY_CONTEXT.authentication.credentials ??>
+        <h4>${'用户证书：' + Session.SPRING_SECURITY_CONTEXT.authentication.credentials}</h4>
+    <#else>
+        <h4>用户证书：null</h4>
+    </#if>
+</@sec.authorize>
+<@sec.authorize access="isAuthenticated()">
+    <h4>${'用户详细信息：' + Session.SPRING_SECURITY_CONTEXT.authentication.principal}</h4>
+</@sec.authorize>
+<@sec.authorize access="isAuthenticated()">
+    <h4>${'用户细节：' + Session.SPRING_SECURITY_CONTEXT.authentication.details}</h4>
+</@sec.authorize>
+<@sec.authorize access="isAuthenticated()">
+    <h4>用户权限：
+        <#list Session.SPRING_SECURITY_CONTEXT.authentication.authorities as authoritie>
+            <#if authoritie_index == 0>[</#if>${authoritie}<#if authoritie_has_next>, </#if><#if !authoritie_has_next>]</#if>
+        </#list>
+    </h4>
+</@sec.authorize>
 
 <h4>${modelValue}</h4>
+
+<hr>
 
 <a href="${ctx}/html/index">Thymeleaf 页面</a><br>
 
@@ -40,7 +64,7 @@
 <br>
 
 <@sec.authorize access="!isAuthenticated()">
-    <button id="login-page">登录页面</button>
+    <button id="login-page"><a href="${ctx}/login">登录页面</a></button>
 </@sec.authorize>
 
 <@sec.authorize access="isAuthenticated()">
