@@ -8,4 +8,11 @@
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
     </application>
 
+    <!-- 自定义 HTML form -->
+    <!-- JSF POST CSRF 配置 -->
+    <component>
+        <component-type>javax.faces.HtmlForm</component-type>
+        <component-class>cn.com.xuxiaowei.configuration.HtmlFormConfiguration</component-class>
+    </component>
+
 </faces-config>
