@@ -6,7 +6,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
-import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
+import static cn.com.xuxiaowei.util.Constants.UTF_8;
 
 /**
  * {@link FreeMarkerViewResolver} 视图解析器
@@ -23,7 +23,7 @@ public class FreeMarkerConfigurerConfiguration {
         // FreeMarker 配置
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
 
-        freeMarkerConfigurer.setDefaultEncoding(CHARACTER_ENCODING);
+        freeMarkerConfigurer.setDefaultEncoding(UTF_8);
 
         // 视图文件放置目录
         freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/");
