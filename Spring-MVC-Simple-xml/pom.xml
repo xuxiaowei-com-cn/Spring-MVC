@@ -27,7 +27,8 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
-        <spring-security.version>5.2.1.RELEASE</spring-security.version>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+        <spring-security.version>5.2.2.RELEASE</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
         <thymeleaf-spring5.version>3.0.11.RELEASE</thymeleaf-spring5.version>
@@ -84,6 +85,10 @@
         <!-- Sun JSF RI 规范 API、实现 -->
         <sun-jsf.version>2.2.20</sun-jsf.version>
 
+        <!-- JSF 支持 Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-faces -->
+        <spring-faces.version>2.5.1.RELEASE</spring-faces.version>
+
         <!-- JSF 所需 -->
         <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
         <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
@@ -138,6 +143,15 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
+        <!-- FreeMarker Security -->
+        <!-- JSP Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
 
@@ -299,13 +313,23 @@
             <version>${sun-jsf.version}</version>
         </dependency>
 
+        <!-- JSF 支持 Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-faces -->
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-faces</artifactId>
+            <version>${spring-faces.version}</version>
+        </dependency>
+
         <!-- JSF 所需 -->
+        <!-- Tomcat 中已存在 -->
         <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
         <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>
             <version>${el-api.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
