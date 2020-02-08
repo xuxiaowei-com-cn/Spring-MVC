@@ -68,7 +68,7 @@
         <lettuce-core.version>5.2.1.RELEASE</lettuce-core.version>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <mysql.version>8.0.18</mysql.version>
+        <mysql.version>8.0.19</mysql.version>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
