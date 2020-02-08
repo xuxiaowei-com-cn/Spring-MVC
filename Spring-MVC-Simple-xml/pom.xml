@@ -28,7 +28,8 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
-        <spring-security.version>4.2.13.RELEASE</spring-security.version>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+        <spring-security.version>4.2.14.RELEASE</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
         <thymeleaf-spring4.version>3.0.11.RELEASE</thymeleaf-spring4.version>
@@ -92,6 +93,10 @@
         <!-- Sun JSF RI 规范 API、实现 -->
         <sun-jsf.version>2.2.20</sun-jsf.version>
 
+        <!-- JDK 6 最高支持 spring-faces 版本为：2.4.8.RELEASE -->
+        <!-- JSF 支持 Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-faces -->
+        <spring-faces.version>2.4.8.RELEASE</spring-faces.version>
 
         <!-- JSF 所需 -->
         <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
@@ -149,6 +154,15 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
+        <!-- FreeMarker Security -->
+        <!-- JSP Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
 
@@ -291,6 +305,13 @@
             <version>${sun-jsf.version}</version>
         </dependency>
 
+        <!-- JSF 支持 Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-faces -->
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-faces</artifactId>
+            <version>${spring-faces.version}</version>
+        </dependency>
 
         <!-- JSF 所需 -->
         <!-- Tomcat 中已存在 -->
