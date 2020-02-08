@@ -31,6 +31,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 /**
  * Index Controller
@@ -74,6 +75,8 @@ public class IndexController {
         log.debug(String.valueOf(user));
         log.info(String.valueOf(user));
 
+        model.addAttribute("modelValue", String.join("：", "Model 中的值", UUID.randomUUID().toString()));
+
         return "html/index";
     }
 
@@ -90,6 +93,9 @@ public class IndexController {
      */
     @RequestMapping("/ftlh/index")
     public ModelAndView indexFtlh(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        model.addAttribute("modelValue", String.join("：", "Model 中的值", UUID.randomUUID().toString()));
+
         return new ModelAndView("ftlh/index");
     }
 
@@ -98,6 +104,9 @@ public class IndexController {
      */
     @RequestMapping("/jsp/index")
     public String indexJsp(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        model.addAttribute("modelValue", String.join("：", "Model 中的值", UUID.randomUUID().toString()));
+
         return "jsp/index";
     }
 
