@@ -15,6 +15,8 @@
  */
 package cn.com.xuxiaowei.util;
 
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+
 /**
  * 常量
  *
@@ -27,6 +29,82 @@ public final class Constants {
      * 编码
      */
     public static final String CHARACTER_ENCODING = "UTF-8";
+
+    /**
+     * 登录页面、登录请求
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN = "/login";
+
+    /**
+     * 登录请求
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_JSON = "/login.json";
+
+    /**
+     * 登录失败
+     *
+     * @see #LOGIN_FAIL_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_FAIL = "/login/fail";
+
+    /**
+     * 登录失败
+     *
+     * @see #LOGIN_FAIL
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_FAIL_JSON = "/login/fail.json";
+
+    /**
+     * 登录成功
+     *
+     * @see #LOGIN_SUCCESS_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_SUCCESS = "/login/success";
+
+    /**
+     * 登录成功
+     *
+     * @see #LOGIN_SUCCESS
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGIN_SUCCESS_JSON = "/login/success.json";
+
+    /**
+     * 注销登录
+     *
+     * @see #LOGOUT_JSON
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT = "/logout";
+
+    /**
+     * 注销登录
+     *
+     * @see #LOGOUT
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT_JSON = "/logout.json";
+
+    /**
+     * 注销登录成功
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT_SUCCESS = "/logout/success";
+
+    /**
+     * 注销登录成功
+     *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     */
+    public static final String LOGOUT_SUCCESS_JSON = "/logout/success.json";
 
     /**
      * Cookie 有效期
