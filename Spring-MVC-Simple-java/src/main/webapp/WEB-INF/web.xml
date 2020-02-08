@@ -33,6 +33,17 @@
         <param-value>/WEB-INF/spring-security.taglib.xml</param-value>
     </context-param>
 
+    <!-- CXF 配置 -->
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/ws/*</url-pattern>
+    </servlet-mapping>
+
     <!-- Using Log4j 2 in Web Applications -->
     <!-- 在Web应用程序中使用Log4j 2 -->
     <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->
