@@ -39,28 +39,31 @@ public class LoginController {
 
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
-        String name = authentication.getName();
-        Object credentials = authentication.getCredentials();
-        Object principal = authentication.getPrincipal();
-        Object details = authentication.getDetails();
 
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        if (authentication != null) {
 
-        for (GrantedAuthority grantedAuthority : authorities) {
+            String name = authentication.getName();
+            Object credentials = authentication.getCredentials();
+            Object principal = authentication.getPrincipal();
+            Object details = authentication.getDetails();
 
-            String authority = grantedAuthority.getAuthority();
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
-            // 当前用户的权限不是匿名用户
-            if (!ROLE_ANONYMOUS.equals(authority)) {
+            for (GrantedAuthority grantedAuthority : authorities) {
 
-                // 重定向到首页
-                return REDIRECT_URL_PREFIX + "/";
+                String authority = grantedAuthority.getAuthority();
+
+                // 当前用户的权限不是匿名用户
+                if (!ROLE_ANONYMOUS.equals(authority)) {
+
+                    // 重定向到首页
+                    return REDIRECT_URL_PREFIX + "/";
+                }
+
             }
-
         }
 
         return "html/login";
     }
-
 
 }
