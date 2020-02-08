@@ -13,7 +13,11 @@
           p:templateMode="HTML"
           p:cacheable="false"/>
 
+    <!-- 添加支持 SpringSecurity -->
+    <bean id="springSecurityDialect" class="org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect"/>
+
     <bean id="springTemplateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine"
+          p:additionalDialects-ref="springSecurityDialect"
           p:templateResolver-ref="springResourceTemplateResolver"/>
 
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver"
