@@ -8,7 +8,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import static cn.com.xuxiaowei.util.Constants.CHARACTER_ENCODING;
+import static cn.com.xuxiaowei.util.Constants.UTF_8;
 
 /**
  * {@link ThymeleafViewResolver} 视图解析器
@@ -31,7 +31,7 @@ public class ThymeleafViewResolverConfiguration {
         springResourceTemplateResolver.setSuffix(".html");
 
         // 视图编码
-        springResourceTemplateResolver.setCharacterEncoding(CHARACTER_ENCODING);
+        springResourceTemplateResolver.setCharacterEncoding(UTF_8);
 
         // 设置视图解析器解析模板
         springResourceTemplateResolver.setTemplateMode(TemplateMode.HTML);
@@ -55,7 +55,7 @@ public class ThymeleafViewResolverConfiguration {
         thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
 
         // 视图编码
-        thymeleafViewResolver.setCharacterEncoding(CHARACTER_ENCODING);
+        thymeleafViewResolver.setCharacterEncoding(UTF_8);
 
         // 需要解析的视图返回文件名前缀
         thymeleafViewResolver.setViewNames(new String[]{"html/*"});
