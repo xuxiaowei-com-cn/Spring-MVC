@@ -7,6 +7,13 @@
 
     <!-- 测试 WebService 服务类 -->
     <jaxws:endpoint implementor="cn.com.xuxiaowei.web.service.impl.WebServiceTestServiceImpl"
-                    address="/webServiceTestService"/>
+                    address="/webServiceTestService">
+
+        <!-- 进入 Handler 测试 拦截器 -->
+        <jaxws:inInterceptors>
+            <bean class="cn.com.xuxiaowei.handlerinterceptor.WebServicesHandlerTestInterceptor"/>
+        </jaxws:inInterceptors>
+
+    </jaxws:endpoint>
 
 </beans>
