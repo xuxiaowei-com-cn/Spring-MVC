@@ -40,10 +40,15 @@
 
     </sec:http>
 
+    <!-- 密码编码器 -->
     <bean id="passwordEncoderConfiguration" class="cn.com.xuxiaowei.configuration.PasswordEncoderConfiguration"/>
 
     <sec:authentication-manager>
+
+        <!-- 查询登录用户 -->
         <sec:authentication-provider user-service-ref="userDetailsServiceImpl">
+
+            <!-- 密码编码器 -->
             <sec:password-encoder ref="passwordEncoderConfiguration"/>
         </sec:authentication-provider>
     </sec:authentication-manager>
