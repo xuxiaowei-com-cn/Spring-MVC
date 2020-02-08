@@ -27,6 +27,8 @@ Spring MVC 项目配置。
 - Hikari 连接池
 - MyBatis
 - Redis
+    - Session 共享
+    - Redis 注解
 - MySQL
 - log4j2
 - Slf4j
