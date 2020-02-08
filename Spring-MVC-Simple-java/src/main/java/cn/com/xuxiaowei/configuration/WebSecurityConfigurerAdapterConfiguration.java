@@ -1,6 +1,7 @@
 package cn.com.xuxiaowei.configuration;
 
 import cn.com.xuxiaowei.handler.CustomSavedRequestAwareAuthenticationSuccessHandler;
+import cn.com.xuxiaowei.properties.SecurityProperties;
 import cn.com.xuxiaowei.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +24,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static cn.com.xuxiaowei.util.Constants.*;
-
 /**
  * WebSecurity 配置
  * <p>
@@ -37,6 +36,11 @@ import static cn.com.xuxiaowei.util.Constants.*;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfigurerAdapter {
+
+    /**
+     * Security 属性文件
+     */
+    private SecurityProperties securityProperties;
 
     /**
      * 注入加载用户特定数据的核心接口实现类注册
@@ -56,6 +60,11 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
      * 自定义 认证成功策略
      */
     private CustomSavedRequestAwareAuthenticationSuccessHandler customSavedRequestAwareAuthenticationSuccessHandler;
+
+    @Autowired
+    public void setSecurityProperties(SecurityProperties securityProperties) {
+        this.securityProperties = securityProperties;
+    }
 
     @Autowired
     public void setUserDetailsService(UserDetailsService userDetailsService) {
@@ -88,38 +97,38 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         // 指定支持基于表单的身份验证。
         http.formLogin()
                 // 定制登录页面的访问 URL
-                .loginPage(LOGIN)
+                .loginPage(securityProperties.getLoginPage())
                 // 定制登录请求的访问 URL
-                .loginProcessingUrl(LOGIN_JSON)
+                .loginProcessingUrl(securityProperties.getLoginProcessingUrl())
                 // 定制登录失败后转向的 URL
-                .failureForwardUrl(LOGIN_FAIL_JSON)
+                .failureForwardUrl(securityProperties.getFailureForwardUrl())
                 // 定制登录成功后转向的 URL
                 // 使用自定义，如下所示：
-                // .defaultSuccessUrl(LOGIN_SUCCESS_JSON, true)
+                // .defaultSuccessUrl(securityProperties.getDefaultTargetUrl(), securityProperties.getAlwaysUseDefaultTargetUrl())
                 .permitAll()
         ;
 
         // 授权登录成功后处理
-        customSavedRequestAwareAuthenticationSuccessHandler.setDefaultTargetUrl(LOGIN_SUCCESS_JSON);
-        customSavedRequestAwareAuthenticationSuccessHandler.setAlwaysUseDefaultTargetUrl(true);
+        customSavedRequestAwareAuthenticationSuccessHandler.setDefaultTargetUrl(securityProperties.getDefaultTargetUrl());
+        customSavedRequestAwareAuthenticationSuccessHandler.setAlwaysUseDefaultTargetUrl(securityProperties.getAlwaysUseDefaultTargetUrl());
         http.formLogin().successHandler(customSavedRequestAwareAuthenticationSuccessHandler);
 
         // 使用 logout 方法定制注销行为
         http.logout()
                 // 定制注销 URL（行为）
-                .logoutUrl(LOGOUT_JSON)
+                .logoutUrl(securityProperties.getLogoutUrl())
                 // 注销成功后跳转的URL
-                .logoutSuccessUrl(LOGOUT_SUCCESS_JSON)
+                .logoutSuccessUrl(securityProperties.getLogoutSuccessUrl())
                 .permitAll();
 
         // 开启 Cookie 储存用户信息
         http.rememberMe()
                 // 指定 Cookie 有效时间
-                .tokenValiditySeconds(TOKEN_VALIDITY_SECONDS)
+                .tokenValiditySeconds(securityProperties.getTokenValiditySeconds())
                 // 默认：remember-me
-                .rememberMeParameter(REMEMBER_ME_PARAMETER)
+                .rememberMeParameter(securityProperties.getRememberMeParameter())
                 // key 指定 Cookie 中的私钥
-                .key(KEY)
+                .key(securityProperties.getKey())
         ;
 
         // 管理员权限
@@ -130,8 +139,8 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         // 必须（至少指定一个，防止错误，Caused by: java.lang.IllegalStateException: permitAll only works with HttpSecurity.authorizeRequests()）
         http.authorizeRequests().antMatchers("/**").hasRole("USER");
 
-        // 允许配置异常处理，错误页面
-        http.exceptionHandling().accessDeniedPage(ACCESS_DENIED);
+        // 允许授权配置异常处理，错误页面
+        http.exceptionHandling().accessDeniedPage(securityProperties.getAccessDeniedPage());
 
     }
 
