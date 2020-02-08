@@ -135,9 +135,9 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         // 如果权限存在交集，请调整顺序，将小路径放在前面
         http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
 
-        // 所有页面均需要 USER 角色
+        // 用户权限
         // 必须（至少指定一个，防止错误，Caused by: java.lang.IllegalStateException: permitAll only works with HttpSecurity.authorizeRequests()）
-        http.authorizeRequests().antMatchers("/**").hasRole("USER");
+        http.authorizeRequests().antMatchers("/user/**").hasRole("USER");
 
         // 允许授权配置异常处理，错误页面
         http.exceptionHandling().accessDeniedPage(securityProperties.getAccessDeniedPage());
