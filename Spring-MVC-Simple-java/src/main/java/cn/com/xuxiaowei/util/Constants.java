@@ -15,8 +15,7 @@
  */
 package cn.com.xuxiaowei.util;
 
-import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import java.nio.charset.Charset;
 
 /**
  * 常量
@@ -28,106 +27,10 @@ public final class Constants {
 
     /**
      * 编码
-     */
-    public static final String CHARACTER_ENCODING = "UTF-8";
-
-    /**
-     * 登录页面、登录请求
      *
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
+     * @see Charset#defaultCharset()
      */
-    public static final String LOGIN = "/login";
-
-    /**
-     * 登录请求
-     *
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGIN_JSON = "/login.json";
-
-    /**
-     * 登录失败
-     *
-     * @see #LOGIN_FAIL_JSON
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGIN_FAIL = "/login/fail";
-
-    /**
-     * 登录失败
-     *
-     * @see #LOGIN_FAIL
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGIN_FAIL_JSON = "/login/fail.json";
-
-    /**
-     * 登录成功
-     *
-     * @see #LOGIN_SUCCESS_JSON
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGIN_SUCCESS = "/login/success";
-
-    /**
-     * 登录成功
-     *
-     * @see #LOGIN_SUCCESS
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGIN_SUCCESS_JSON = "/login/success.json";
-
-    /**
-     * 注销登录
-     *
-     * @see #LOGOUT_JSON
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGOUT = "/logout";
-
-    /**
-     * 注销登录
-     *
-     * @see #LOGOUT
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGOUT_JSON = "/logout.json";
-
-    /**
-     * 注销登录成功
-     *
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGOUT_SUCCESS = "/logout/success";
-
-    /**
-     * 注销登录成功
-     *
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
-     */
-    public static final String LOGOUT_SUCCESS_JSON = "/logout/success.json";
-
-    /**
-     * Cookie 有效期
-     */
-    public static final int TOKEN_VALIDITY_SECONDS = 60 * 60;
-
-    /**
-     * 记住我参数名
-     * <p>
-     * Cookie
-     */
-    public static final String REMEMBER_ME_PARAMETER = "rememberMe";
-
-    /**
-     * Cookie Key
-     */
-    public static final String KEY = "NV!lK12FhRM-Key+NV!lK12FhRM-Key+";
-
-    /**
-     * 错误页面
-     */
-    public static final String ACCESS_DENIED = "/accessDenied";
+    public static final String UTF_8 = "UTF-8";
 
     /**
      * 匿名用户的权限
@@ -153,6 +56,11 @@ public final class Constants {
      * 响应 Code 说明
      */
     public static final String MSG = "msg";
+
+    /**
+     * 响应 数据 说明
+     */
+    public static final String DATA = "data";
 
     /**
      * 日期时间格式
