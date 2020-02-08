@@ -44,7 +44,7 @@
 <@sec.authorize access="isAuthenticated()">
     <h4>用户权限：
         <#list Session.SPRING_SECURITY_CONTEXT.authentication.authorities as authoritie>
-            <#if authoritie_index == 0>[</#if>${authoritie}<#if authoritie_index / 2 == 0 && authoritie_has_next>, </#if><#if !authoritie_has_next>]</#if>
+            <#if authoritie_index == 0>[</#if>${authoritie}<#if authoritie_has_next>, </#if><#if !authoritie_has_next>]</#if>
         </#list>
     </h4>
 </@sec.authorize>
