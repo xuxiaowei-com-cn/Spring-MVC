@@ -47,7 +47,7 @@ public class IndexJsfController implements Serializable {
     }
 
     public String getUuid() {
-        return "Controller 中的值：" + UUID.randomUUID().toString();
+        return "Controller 中的值："+UUID.randomUUID().toString();
     }
 
     public Date getNow() {
