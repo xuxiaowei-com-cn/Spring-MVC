@@ -38,4 +38,7 @@
     <!-- 导入 Redis-Spring 配置 -->
     <import resource="classpath:redis-spring.xml"/>
 
+    <!-- 导入 Spring-CXF 配置 -->
+    <import resource="classpath:spring-cxf.xml"/>
+
 </beans>
