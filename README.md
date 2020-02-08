@@ -39,6 +39,8 @@ Spring MVC 项目配置。
 
 ## 数据库
 
+- MySQL 5.7.24
+
 - Windows 设置
 ~~~
 [mysql]
