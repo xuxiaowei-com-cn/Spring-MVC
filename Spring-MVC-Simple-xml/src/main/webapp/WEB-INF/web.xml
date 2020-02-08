@@ -48,6 +48,13 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
+
+    <!-- JSF 支持 Security -->
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/spring-security.taglib.xml</param-value>
+    </context-param>
+
     <!-- CXF 配置 -->
     <servlet>
         <servlet-name>cxf</servlet-name>
