@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/style.css}"/>
+
+    <style>
+        #rememberMe {
+            width: 15px;
+            /*
+                总宽度：150px
+                自己宽：15px
+                左右边框分别宽：2px
+             */
+            margin-right: calc(150px - 15px + 2px);
+        }
+    </style>
+
+</head>
+<body style="text-align: center">
+
+<h2>Login</h2>
+
+<form id="login-form">
+
+    <label for="username-left">
+        <input id="username-left" value="用户名" disabled style="text-align: center">
+    </label>
+
+    <label for="username">
+        <input id="username" name="username" type="text">
+    </label>
+
+    <br>
+
+    <label for="password-left">
+        <input id="password-left" value="密码" disabled style="text-align: center">
+    </label>
+
+    <label for="password">
+        <input id="password" name="password" type="password">
+    </label>
+
+    <br>
+
+    <label for="rememberMe-left">
+        <input id="rememberMe-left" value="记住我" disabled style="text-align: center">
+    </label>
+
+    <label for="rememberMe">
+        <input id="rememberMe" name="rememberMe" type="checkbox">
+    </label>
+
+    <br>
+    <br>
+
+    <label for="login-button">
+        <input id="login-button" type="button" value="登录">
+    </label>
+
+    <label for="login-reset">
+        <input id="login-reset" type="reset" value="清空">
+    </label>
+
+</form>
+
+</body>
+
+<script type="text/javascript" th:src="@{/static/js/jQuery/jquery-3.4.1.min.js}"></script>
+
+<script th:inline="javascript" type="text/javascript">
+
+    /*<![CDATA[*/
+    let ctxPath = /*[[@{/}]]*/ '';
+    let contextPath = [[${#httpServletRequest.getContextPath()}]];
+    /*]]>*/
+
+    $(function () {
+        console.info(ctxPath);
+        console.info(contextPath);
+        console.log("文档就绪函数", new Date().toLocaleString())
+    });
+
+    /**
+     * 登录
+     */
+    $("#login-button").click(function () {
+
+        const header = $("meta[name='_csrf_header']").attr("content");
+        const token = $("meta[name='_csrf']").attr("content");
+        const $login_form = $("#login-form");
+
+        $.ajax({
+            url: "login.json",
+            method: "post",
+            dataType: 'json',
+            data: $login_form.serialize(),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            success: function (result) {
+                console.log("result", result);
+
+                const code = result.code;
+                const msg = result.msg;
+
+                if (code === 0) {
+                    alert(msg);
+                    location.href = result.data.redirectUrl;
+                } else if (code === 1) {
+                    alert(msg);
+                } else {
+                    alert("响应 Code 异常：" + result);
+                }
+
+            },
+            error: function (error) {
+                console.log("error", error);
+            }
+        })
+
+    });
+
+</script>
+
+</html>
