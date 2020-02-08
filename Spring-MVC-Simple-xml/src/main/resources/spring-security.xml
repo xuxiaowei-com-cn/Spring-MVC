@@ -17,7 +17,7 @@
         <sec:form-login
                 login-page="${security.login-page}"
                 login-processing-url="${security.login-processing-url}"
-                authentication-failure-forward-url="/login/fail.json"
+                authentication-failure-forward-url="${security.failure-forward-url}"
                 authentication-success-handler-ref="customSavedRequestAwareAuthenticationSuccessHandler"/>
 
         <!-- 使用 logout 方法定制注销行为 -->
@@ -28,14 +28,14 @@
         <!-- 开启 Cookie 储存用户信息 -->
         <sec:remember-me
                 token-validity-seconds="${security.token-validity-seconds}"
-                remember-me-parameter="rememberMe"
+                remember-me-parameter="${security.remember-me-parameter}"
                 key="${security.key}"/>
 
         <!-- 所有页面均需要 USER 角色 -->
         <sec:intercept-url pattern="/admin/**" access="hasRole('USER')"/>
 
         <!-- 允许配置异常处理，错误页面 -->
-        <sec:access-denied-handler error-page="/accessDenied"/>
+        <sec:access-denied-handler error-page="${security.access-denied-page}"/>
 
     </sec:http>
 
