@@ -35,7 +35,8 @@
     <span>用户权限：</span>
     <span th:each="authoritie,authoritieStat:${session.SPRING_SECURITY_CONTEXT.authentication.authorities}">
         <span th:if="${authoritieStat.first}">[</span>[[${authoritie}]]<span
-            th:if="${authoritieStat.count / 2 == 0}">, </span><span th:if="${authoritieStat.last}">]</span>
+            th:if="${authoritieStat.count / 2 == 0 && !authoritieStat.last}">, </span><span
+            th:if="${authoritieStat.last}">]</span>
     </span>
 </h4>
 
