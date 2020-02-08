@@ -1,10 +1,7 @@
 package cn.com.xuxiaowei.controller;
 
-import cn.com.xuxiaowei.util.Constants;
+import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
@@ -19,8 +16,6 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,48 +43,20 @@ public class LoginRestController {
      * @see WebAttributes
      * @see SavedRequestAwareAuthenticationSuccessHandler#onAuthenticationSuccess(HttpServletRequest, HttpServletResponse, Authentication) 授权后重定向
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
-     * @see Constants#LOGIN_SUCCESS
-     * @see Constants#LOGIN_SUCCESS_JSON
      * @see RequestMethod#GET
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
-    @GetMapping(LOGIN_SUCCESS)
+    @GetMapping("/login/success")
     public Map<String, Object> loginSuccess(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
+        map.put(DATA, data);
 
         map.put(CODE, CODE_OK);
         map.put(MSG, "登录成功");
 
-        HttpSession session = request.getSession();
-
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-
-        String name = authentication.getName();
-        session.setAttribute("name", String.join("：", "name", name));
-
-        Object credentials = authentication.getCredentials();
-        session.setAttribute("credentials", String.join("：", "credentials", String.valueOf(credentials)));
-
-        Object principal = authentication.getPrincipal();
-        session.setAttribute("principal", String.join("：", "principal", String.valueOf(principal)));
-
-        Object details = authentication.getDetails();
-        session.setAttribute("details", String.join("：", "details", String.valueOf(details)));
-
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-
-        String authoritiesJoin = "";
-        for (GrantedAuthority authority : authorities) {
-            authoritiesJoin = String.join(",", authoritiesJoin, authority.getAuthority());
-        }
-        authoritiesJoin = authoritiesJoin.substring(1);
-
-        session.setAttribute("authorities", String.join("：", "authorities", authoritiesJoin));
-
+        // 获取登录授权前的 URL
         SavedRequest savedRequest = requestCache.getRequest(request, response);
 
         String redirectUrl;
@@ -110,17 +77,15 @@ public class LoginRestController {
     /**
      * 登录失败
      *
-     * @see Constants#LOGIN_FAIL
-     * @see Constants#LOGIN_FAIL_JSON
      * @see RequestMethod#POST
      * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
-    @PostMapping(LOGIN_FAIL)
+    @PostMapping("/login/fail")
     public Map<String, Object> loginFail(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
+        map.put(DATA, data);
 
         map.put(CODE, CODE_ERR);
         map.put(MSG, "登录失败");

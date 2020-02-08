@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.controller;
 
-import cn.com.xuxiaowei.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
@@ -18,8 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
-
-import static cn.com.xuxiaowei.util.Constants.ACCESS_DENIED;
 
 /**
  * 授权错误页面 Controller
@@ -51,7 +48,7 @@ public class AccessDeniedController {
      * @return 页面的位置
      * @see AccessDeniedHandlerImpl#handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)
      */
-    @GetMapping(ACCESS_DENIED)
+    @GetMapping("/accessDenied")
     public String accessDenied(HttpServletRequest request, HttpServletResponse response, Model model, Authentication authentication) {
 
         int status = response.getStatus();
@@ -60,7 +57,7 @@ public class AccessDeniedController {
         response.setStatus(HttpServletResponse.SC_OK);
 
         model.addAttribute("status", status);
-        model.addAttribute(Constants.MSG, String.format(MSG, "未知"));
+        model.addAttribute(MSG, String.format(MSG, "未知"));
         model.addAttribute("accessDeniedException", accessDeniedException);
 
         return "html/accessDenied";
