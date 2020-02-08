@@ -42,13 +42,17 @@
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <freemarker.version>2.3.29</freemarker.version>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
+        <cxf.version>3.3.5</cxf.version>
+
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
+        <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
+
         <!-- JDK 6 最高支持 quartz 版本为：2.2.3 -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
         <quartz.version>2.2.3</quartz.version>
-
-        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
-        <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
 
         <!-- JDK 6 最高支持 mybatis 版本为：3.4.6，最好使用：3.4.5 -->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -192,6 +196,20 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
