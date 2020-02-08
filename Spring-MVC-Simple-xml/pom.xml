@@ -73,7 +73,7 @@
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
-        <jackson-datatype.version>2.10.1</jackson-datatype.version>
+        <jackson-datatype.version>2.10.2</jackson-datatype.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
