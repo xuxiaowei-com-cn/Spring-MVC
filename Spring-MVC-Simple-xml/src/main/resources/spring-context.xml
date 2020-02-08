@@ -25,6 +25,7 @@
             <list>
                 <value>classpath:jdbc.properties</value>
                 <value>classpath:redis-single.properties</value>
+                <value>classpath:security.properties</value>
             </list>
         </property>
     </bean>
