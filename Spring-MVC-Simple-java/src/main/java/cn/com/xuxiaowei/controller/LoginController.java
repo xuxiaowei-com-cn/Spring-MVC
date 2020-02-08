@@ -1,5 +1,6 @@
 package cn.com.xuxiaowei.controller;
 
+import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
@@ -8,12 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
-import static cn.com.xuxiaowei.util.Constants.LOGIN;
 import static cn.com.xuxiaowei.util.Constants.ROLE_ANONYMOUS;
 import static org.thymeleaf.spring4.view.ThymeleafViewResolver.REDIRECT_URL_PREFIX;
 
@@ -31,10 +32,11 @@ public class LoginController {
      * <p>
      * 登录页面登录后不可访问
      *
+     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      * @see LoginRestController#loginSuccess(HttpServletRequest, HttpServletResponse)
      * @see RequestMethod#GET
      */
-    @GetMapping(LOGIN)
+    @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
 
         SecurityContext securityContext = SecurityContextHolder.getContext();
@@ -65,6 +67,5 @@ public class LoginController {
 
         return "html/login";
     }
-
 
 }
