@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.controller;
 
-import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +42,6 @@ public class LoginRestController {
      * @see SavedRequestAwareAuthenticationSuccessHandler#onAuthenticationSuccess(HttpServletRequest, HttpServletResponse, Authentication) 授权后重定向
      * @see LoginController#login(HttpServletRequest, HttpServletResponse, Model)
      * @see RequestMethod#GET
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     @GetMapping("/login/success")
     public Map<String, Object> loginSuccess(HttpServletRequest request, HttpServletResponse response) {
@@ -78,7 +75,6 @@ public class LoginRestController {
      * 登录失败
      *
      * @see RequestMethod#POST
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     @PostMapping("/login/fail")
     public Map<String, Object> loginFail(HttpServletRequest request, HttpServletResponse response) {

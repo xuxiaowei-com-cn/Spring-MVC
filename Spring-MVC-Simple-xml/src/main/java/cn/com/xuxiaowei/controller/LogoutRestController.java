@@ -1,10 +1,8 @@
 package cn.com.xuxiaowei.controller;
 
-import cn.com.xuxiaowei.configuration.WebMvcConfigurerConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +24,6 @@ public class LogoutRestController {
      * 注销登录成功
      *
      * @see RequestMethod#GET
-     * @see WebMvcConfigurerConfiguration#configureContentNegotiation(ContentNegotiationConfigurer)
      */
     @GetMapping("/logout/success")
     public Map<String, Object> logoutSuccess(HttpServletRequest request, HttpServletResponse response) {
