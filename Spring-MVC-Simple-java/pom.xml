@@ -51,7 +51,7 @@
         <quartz.version>2.3.2</quartz.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis.version>3.5.4</mybatis.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <mybatis-spring.version>2.0.3</mybatis-spring.version>
