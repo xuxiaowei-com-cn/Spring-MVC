@@ -49,4 +49,7 @@ public class SecurityProperties {
     @Value("${security.key}")
     private String key;
 
+    @Value("${security.access-denied-page}")
+    private String accessDeniedPage;
+
 }
