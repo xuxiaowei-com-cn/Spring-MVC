@@ -33,7 +33,7 @@ public class LogoutRestController {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
+        map.put(DATA, data);
 
         map.put(CODE, CODE_OK);
         map.put(MSG, "注销登录成功");

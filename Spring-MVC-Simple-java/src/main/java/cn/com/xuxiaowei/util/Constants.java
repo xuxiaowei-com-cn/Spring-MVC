@@ -58,6 +58,11 @@ public final class Constants {
     public static final String MSG = "msg";
 
     /**
+     * 响应 数据 说明
+     */
+    public static final String DATA = "data";
+
+    /**
      * 日期时间格式
      */
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";

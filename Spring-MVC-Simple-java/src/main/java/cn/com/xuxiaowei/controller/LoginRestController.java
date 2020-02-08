@@ -51,7 +51,7 @@ public class LoginRestController {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
+        map.put(DATA, data);
 
         map.put(CODE, CODE_OK);
         map.put(MSG, "登录成功");
@@ -85,7 +85,7 @@ public class LoginRestController {
 
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
+        map.put(DATA, data);
 
         map.put(CODE, CODE_ERR);
         map.put(MSG, "登录失败");
