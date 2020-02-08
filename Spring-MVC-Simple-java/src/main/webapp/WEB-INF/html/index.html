@@ -48,7 +48,7 @@
 
 <br>
 
-<button sec:authorize="!isAuthenticated()" id="login-page">登录页面</button>
+<button sec:authorize="!isAuthenticated()" id="login-page"><a th:href="@{/login}">登录页面</a></button>
 <button sec:authorize="isAuthenticated()" id="logout-button">注销登录</button>
 
 <div th:text="${session.SPRING_SECURITY_CONTEXT}"></div>
