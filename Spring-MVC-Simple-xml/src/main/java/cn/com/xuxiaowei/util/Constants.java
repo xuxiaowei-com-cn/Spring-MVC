@@ -24,6 +24,58 @@ package cn.com.xuxiaowei.util;
 public final class Constants {
 
     /**
+     * 编码
+     */
+    public static final String CHARACTER_ENCODING = "UTF-8";
+
+    /**
+     * Cookie 有效期
+     */
+    public static final int TOKEN_VALIDITY_SECONDS = 60 * 60;
+
+    /**
+     * 记住我参数名
+     * <p>
+     * Cookie
+     */
+    public static final String REMEMBER_ME_PARAMETER = "rememberMe";
+
+    /**
+     * Cookie Key
+     */
+    public static final String KEY = "NV!lK12FhRM-Key+NV!lK12FhRM-Key+";
+
+    /**
+     * 错误页面
+     */
+    public static final String ACCESS_DENIED = "/accessDenied";
+
+    /**
+     * 匿名用户的权限
+     */
+    public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
+
+    /**
+     * 响应 Code
+     */
+    public static final String CODE = "code";
+
+    /**
+     * 正确响应 Code
+     */
+    public static final int CODE_OK = 0;
+
+    /**
+     * 错误响应 Code
+     */
+    public static final int CODE_ERR = 1;
+
+    /**
+     * 响应 Code 说明
+     */
+    public static final String MSG = "msg";
+
+    /**
      * 日期时间格式
      */
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
