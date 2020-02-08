@@ -43,4 +43,7 @@
     <!-- 导入 Spring-CXF 配置 -->
     <import resource="classpath:spring-cxf.xml"/>
 
+    <!-- 导入 Spring-Security 配置 -->
+    <import resource="classpath:spring-security.xml"/>
+
 </beans>

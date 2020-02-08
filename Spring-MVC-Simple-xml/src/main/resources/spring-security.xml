@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!-- 授权登录成功后处理 -->
+    <bean id="customSavedRequestAwareAuthenticationSuccessHandler"
+          class="cn.com.xuxiaowei.handler.CustomSavedRequestAwareAuthenticationSuccessHandler"
+          p:defaultTargetUrl="${security.default-target-url}"
+          p:alwaysUseDefaultTargetUrl="${security.always-use-default-target-url}"/>
+
+    <sec:http>
+
+        <!-- 指定支持基于表单的身份验证 -->
+        <sec:form-login
+                login-page="${security.login-page}"
+                login-processing-url="${security.login-processing-url}"
+                authentication-failure-forward-url="/login/fail.json"
+                authentication-success-handler-ref="customSavedRequestAwareAuthenticationSuccessHandler"/>
+
+        <!-- 使用 logout 方法定制注销行为 -->
+        <sec:logout
+                logout-url="${security.logout-url}"
+                logout-success-url="${security.login-processing-url}"/>
+
+        <!-- 开启 Cookie 储存用户信息 -->
+        <sec:remember-me
+                token-validity-seconds="${security.token-validity-seconds}"
+                remember-me-parameter="rememberMe"
+                key="${security.key}"/>
+
+        <!-- 所有页面均需要 USER 角色 -->
+        <sec:intercept-url pattern="/admin/**" access="hasRole('USER')"/>
+
+        <!-- 允许配置异常处理，错误页面 -->
+        <sec:access-denied-handler error-page="/accessDenied"/>
+
+    </sec:http>
+
+    <bean id="passwordEncoderConfiguration" class="cn.com.xuxiaowei.configuration.PasswordEncoderConfiguration"/>
+
+    <sec:authentication-manager>
+        <sec:authentication-provider user-service-ref="userDetailsServiceImpl">
+            <sec:password-encoder ref="passwordEncoderConfiguration"/>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+</beans>
