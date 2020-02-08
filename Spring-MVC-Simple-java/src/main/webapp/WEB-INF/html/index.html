@@ -24,15 +24,15 @@
 
 <h3>从 Session 中获取</h3>
 <h4 sec:authorize="isAuthenticated()"
-    th:text="${'用户名：' +session.SPRING_SECURITY_CONTEXT.authentication.name}"></h4>
+    th:text="${'用户名：' + session.SPRING_SECURITY_CONTEXT.authentication.name}"></h4>
 <h4 sec:authorize="isAuthenticated()"
-    th:text="${'用户证书：' +session.SPRING_SECURITY_CONTEXT.authentication.credentials}"></h4>
+    th:text="${'用户证书：' + session.SPRING_SECURITY_CONTEXT.authentication.credentials}"></h4>
 <h4 sec:authorize="isAuthenticated()"
-    th:text="${'用户详细信息：' +session.SPRING_SECURITY_CONTEXT.authentication.principal}"></h4>
+    th:text="${'用户详细信息：' + session.SPRING_SECURITY_CONTEXT.authentication.principal}"></h4>
 <h4 sec:authorize="isAuthenticated()"
-    th:text="${'用户细节：' +session.SPRING_SECURITY_CONTEXT.authentication.details}"></h4>
+    th:text="${'用户细节：' + session.SPRING_SECURITY_CONTEXT.authentication.details}"></h4>
 <h4 sec:authorize="isAuthenticated()"
-    th:text="${'用户权限：' +session.SPRING_SECURITY_CONTEXT.authentication.authorities}"></h4>
+    th:text="${'用户权限：' + session.SPRING_SECURITY_CONTEXT.authentication.authorities}"></h4>
 
 <h4 th:text="${modelValue}"></h4>
 
