@@ -14,7 +14,16 @@ Spring MVC 项目配置。
 ## 项目配置
 
 - 集成 Spring MVC 配置
-- JSF
+- 模板引擎
+    - Thymeleaf
+    - FreeMarker
+    - JSP
+    - JSF（Sun）
+- Spring Security
+    - Thymeleaf 集成 Security
+    - FreeMarker 集成 Security
+    - JSP 集成 Security
+    - JSF（Sun） 集成 Security
 - Hikari 连接池
 - MyBatis
 - Redis
