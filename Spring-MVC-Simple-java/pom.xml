@@ -42,10 +42,10 @@
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <freemarker.version>2.3.29</freemarker.version>
 
-        <!-- JDK 6 最高支持 cxf 版本为：3.2.12 -->
+        <!-- JDK 6 最高支持 cxf 版本为：3.0.16 -->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
-        <cxf.version>3.2.12</cxf.version>
+        <cxf.version>3.0.16</cxf.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
         <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
