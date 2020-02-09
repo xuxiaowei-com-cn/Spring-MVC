@@ -9,6 +9,8 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 
 /**
  * Redis 单机版配置
+ * <p>
+ * {@link RedisSingleConfiguration} 与 {@link RedisClusterConfiguration} 使用一个
  *
  * @author xuxiaowei
  * @since 0.0.1
