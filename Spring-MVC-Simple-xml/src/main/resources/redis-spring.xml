@@ -27,6 +27,8 @@
 
     <!-- 检查 RedisConnectionFactory 是否为 null -->
     <!-- 创建新的无锁 RedisCacheWriter -->
+    <!-- 使用 JedisConnectionFactory 连接池时使用：jedisConnectionFactory -->
+    <!-- 使用 LettuceConnectionFactory 连接池时使用：lettuceConnectionFactory -->
     <bean id="redisCacheWriter" class="org.springframework.data.redis.cache.RedisCacheWriter"
           factory-method="nonLockingRedisCacheWriter"
           c:connectionFactory-ref="lettuceConnectionFactory"/>
@@ -68,6 +70,8 @@
     <!-- 字符串 -->
     <!-- Redis 模板定义 -->
     <!-- p:connection-factory-ref：根据连接池配置 -->
+    <!-- 使用 JedisConnectionFactory 连接池时使用：jedisConnectionFactory -->
+    <!-- 使用 LettuceConnectionFactory 连接池时使用：lettuceConnectionFactory -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connection-factory-ref="lettuceConnectionFactory"
           p:keySerializer-ref="keySerializer"
