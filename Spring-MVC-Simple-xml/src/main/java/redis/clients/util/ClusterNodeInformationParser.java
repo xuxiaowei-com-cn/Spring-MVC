@@ -36,7 +36,7 @@ public class ClusterNodeInformationParser {
 
         String[] arrayHostAndPort = stringHostAndPort.split(":");
         return new HostAndPort(arrayHostAndPort[0].isEmpty() ? current.getHost() : arrayHostAndPort[0],
-                arrayHostAndPort[1].isEmpty() ? current.getPort() : Integer.valueOf(arrayHostAndPort[1]));
+                !arrayHostAndPort[1].isEmpty() ? current.getPort() : Integer.valueOf(arrayHostAndPort[1]));
     }
 
     private void fillSlotInformation(String[] slotInfoPartArray, ClusterNodeInformation info) {
