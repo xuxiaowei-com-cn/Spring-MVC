@@ -6,6 +6,8 @@
 
     <!-- Redis 集群版配置 -->
 
+    <!-- 以下使用 LettuceConnectionFactory 连接池 -->
+
     <bean id="lettuceConnectionFactory"
           class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"
           c:clusterConfiguration-ref="redisClusterConfiguration"/>
@@ -34,5 +36,50 @@
             </set>
         </property>
     </bean>
+
+    <!-- 以上使用 LettuceConnectionFactory 连接池 -->
+
+
+    <!-- 以下是使用 JedisPoolConfig 连接池 -->
+
+    <!-- 注意：xmlns:p="http://www.springframework.org/schema/p" -->
+
+    <!--
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+
+    <bean id="redisCluster" class="redis.clients.jedis.JedisCluster"
+          c:connectionTimeout="6000"
+          c:soTimeout="2000"
+          c:maxAttempts="3"
+          c:poolConfig-ref="jedisPoolConfig">
+        <constructor-arg name="jedisClusterNode">
+            <set>
+                <bean id="redisHost1" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host1}"
+                      c:port="${redis.port1}"/>
+                <bean id="redisHost2" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host2}"
+                      c:port="${redis.port2}"/>
+                <bean id="redisHost3" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host3}"
+                      c:port="${redis.port3}"/>
+                <bean id="redisHost4" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host4}"
+                      c:port="${redis.port4}"/>
+                <bean id="redisHost5" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host5}"
+                      c:port="${redis.port5}"/>
+                <bean id="redisHost6" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host6}"
+                      c:port="${redis.port6}"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:use-pool="true" c:poolConfig-ref="jedisPoolConfig"/>
+    -->
+
+    <!-- 以上是使用 JedisPoolConfig 连接池 -->
 
 </beans>
