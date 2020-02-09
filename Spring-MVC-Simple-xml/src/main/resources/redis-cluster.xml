@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="maxTotal" value="${redis.maxActive}"/>
+        <property name="maxWaitMillis" value="${redis.maxWait}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+
+    <bean id="redisHost1" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host1}"/>
+        <constructor-arg name="port" value="${redis.port1}"/>
+    </bean>
+
+    <bean id="redisHost2" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host2}"/>
+        <constructor-arg name="port" value="${redis.port2}"/>
+    </bean>
+
+    <bean id="redisHost3" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host3}"/>
+        <constructor-arg name="port" value="${redis.port3}"/>
+    </bean>
+
+    <bean id="redisHost4" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host4}"/>
+        <constructor-arg name="port" value="${redis.port4}"/>
+    </bean>
+
+    <bean id="redisHost5" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host5}"/>
+        <constructor-arg name="port" value="${redis.port5}"/>
+    </bean>
+
+    <bean id="redisHost6" class="redis.clients.jedis.HostAndPort">
+        <constructor-arg name="host" value="${redis.host6}"/>
+        <constructor-arg name="port" value="${redis.port6}"/>
+    </bean>
+
+    <bean id="redisCluster" class="redis.clients.jedis.JedisCluster">
+        <constructor-arg name="jedisClusterNode">
+            <set>
+                <ref bean="redisHost1"/>
+                <ref bean="redisHost2"/>
+                <ref bean="redisHost3"/>
+                <ref bean="redisHost4"/>
+                <ref bean="redisHost5"/>
+                <ref bean="redisHost6"/>
+            </set>
+        </constructor-arg>
+        <constructor-arg name="connectionTimeout" value="6000"/>
+        <constructor-arg name="soTimeout" value="2000"/>
+        <constructor-arg name="maxAttempts" value="3"/>
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+    </bean>
+
+</beans>
