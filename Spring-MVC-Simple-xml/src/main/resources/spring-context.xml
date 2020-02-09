@@ -15,7 +15,7 @@
     <!-- 通过在应用程序上下文中注册PropertySourcesPlaceholderConfigurer来激活 ${...} 占位符的替换。 -->
     <!-- 参见：http://www.springframework.org/schema/context/spring-context.xsd -->
     <context:property-placeholder
-            location="classpath:jdbc.properties,classpath:redis-single.properties,classpath:security.properties"/>
+            location="classpath:jdbc.properties,classpath:redis-single.properties,classpath:security.properties,classpath:redis-cluster.properties"/>
 
     <!-- 或者使用： -->
     <!-- https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.html -->
@@ -26,6 +26,7 @@
                 <value>classpath:jdbc.properties</value>
                 <value>classpath:redis-single.properties</value>
                 <value>classpath:security.properties</value>
+                <value>classpath:redis-cluster.properties</value>
             </list>
         </property>
     </bean>
