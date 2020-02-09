@@ -120,7 +120,7 @@ firewall-cmd --list-all
 # 查看集群状态
 
 ~~~
-../src/redis-cli --cluster info 127.0.0.1:6001
+../src/redis-cli --cluster info 192.168.8.129:6001
 ~~~
 
 # 
