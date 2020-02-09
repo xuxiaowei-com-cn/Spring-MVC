@@ -61,6 +61,9 @@
     <!-- 导入激活 Redis 单机版配置 -->
     <import resource="classpath:redis-single.xml"/>
 
+    <!-- 导入激活 Redis 集群配置 -->
+    <!--<import resource="redis-cluster.xml"/>-->
+
     <!-- 通过 RedisTemplate 处理对象 -->
     <!-- 字符串 -->
     <!-- Redis 模板定义 -->
