@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Redis 集群版配置 -->
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+
+    <bean id="redisCluster" class="redis.clients.jedis.JedisCluster"
+          c:poolConfig-ref="jedisPoolConfig">
+        <constructor-arg name="nodes">
+            <set>
+                <bean id="redisHost1" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host1}"
+                      c:port="${redis.port1}"/>
+                <bean id="redisHost2" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host2}"
+                      c:port="${redis.port2}"/>
+                <bean id="redisHost3" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host3}"
+                      c:port="${redis.port3}"/>
+                <bean id="redisHost4" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host4}"
+                      c:port="${redis.port4}"/>
+                <bean id="redisHost5" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host5}"
+                      c:port="${redis.port5}"/>
+                <bean id="redisHost6" class="redis.clients.jedis.HostAndPort"
+                      c:host="${redis.host6}"
+                      c:port="${redis.port6}"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:use-pool="true" c:poolConfig-ref="jedisPoolConfig"/>
+
+</beans>
