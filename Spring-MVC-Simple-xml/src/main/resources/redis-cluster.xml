@@ -77,7 +77,8 @@
     </bean>
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:use-pool="true" c:poolConfig-ref="jedisPoolConfig"/>
+          p:use-pool="true"
+          c:poolConfig-ref="jedisPoolConfig"/>
     -->
 
     <!-- 以上是使用 JedisPoolConfig 连接池 -->
