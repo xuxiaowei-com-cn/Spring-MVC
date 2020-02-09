@@ -35,6 +35,7 @@
     </bean>
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:use-pool="true" c:poolConfig-ref="jedisPoolConfig"/>
+          p:use-pool="true"
+          c:poolConfig-ref="jedisPoolConfig"/>
 
 </beans>
