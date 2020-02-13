@@ -25,6 +25,7 @@ import java.nio.charset.Charset;
  * @see org.springframework.util.MimeTypeUtils spring-core，从 4.0 开始
  * @see org.springframework.http.HttpHeaders spring-web，从 3.0 开始
  * @see com.google.common.net.HttpHeaders guava，从 11.0 开始
+ * @see javax.servlet.http.HttpServletResponse
  * @since 0.0.1
  */
 public final class Constants {
