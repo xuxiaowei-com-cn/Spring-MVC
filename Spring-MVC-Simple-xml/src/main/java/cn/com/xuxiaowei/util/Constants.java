@@ -21,9 +21,20 @@ import java.nio.charset.Charset;
  * 常量
  *
  * @author xuxiaowei
+ * @see org.springframework.http.MediaType spring-web，从 3.0 开始
+ * @see org.springframework.util.MimeTypeUtils spring-core，从 4.0 开始
+ * @see org.springframework.http.HttpHeaders spring-web，从 3.0 开始
+ * @see com.google.common.net.HttpHeaders guava，从 11.0 开始
  * @since 0.0.1
  */
 public final class Constants {
+
+    /**
+     * Spring format 使用格式
+     *
+     * @see String#format(String, Object...)
+     */
+    public static final String COMMA = "%s,%s";
 
     /**
      * 编码
@@ -61,6 +72,34 @@ public final class Constants {
      * 响应 数据 说明
      */
     public static final String DATA = "data";
+
+    /**
+     * 必须先与服务器确认返回的响应是否被更改，然后才能使用该响应来满足后续对同一个网址的请求。
+     * 因此，如果存在合适的验证令牌 (ETag)，no-cache 会发起往返通信来验证缓存的响应，如果资源未被更改，可以避免下载。
+     *
+     * @see com.google.common.net.HttpHeaders#CACHE_CONTROL
+     * @see org.springframework.http.HttpHeaders#CACHE_CONTROL
+     */
+    public static final String NO_CACHE = "no-cache";
+
+    /**
+     * 所有内容都不会被缓存到缓存或 Internet 临时文件中
+     *
+     * @see com.google.common.net.HttpHeaders#CACHE_CONTROL
+     * @see org.springframework.http.HttpHeaders#CACHE_CONTROL
+     */
+    public static final String NO_STORE = "no-store";
+
+    /**
+     * @see com.google.common.net.HttpHeaders#CACHE_CONTROL
+     * @see org.springframework.http.HttpHeaders#CACHE_CONTROL
+     */
+    public static final String NO_CACHE_NO_STORE = String.format(COMMA, NO_CACHE, NO_STORE);
+
+    /**
+     * Session 中的图片验证码
+     */
+    public static final String PATCHCA = "patchca";
 
     /**
      * 日期时间格式
