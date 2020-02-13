@@ -26,6 +26,8 @@ import java.nio.charset.Charset;
  * @see org.springframework.http.HttpHeaders spring-web，从 3.0 开始
  * @see com.google.common.net.HttpHeaders guava，从 11.0 开始
  * @see javax.servlet.http.HttpServletResponse
+ * @see org.springframework.web.context.support.XmlWebApplicationContext spring-web
+ * @see org.springframework.context.ApplicationContextAware 可获取 {@link org.springframework.context.ApplicationContext}，非常量相关
  * @since 0.0.1
  */
 public final class Constants {
