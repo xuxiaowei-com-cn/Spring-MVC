@@ -23,8 +23,8 @@ public class HttpServletTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Map<String, Object> map = new HashMap<>();
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(4);
+        Map<String, Object> data = new HashMap<>(4);
         map.put("data", data);
 
         map.put(CODE, CODE_OK);
