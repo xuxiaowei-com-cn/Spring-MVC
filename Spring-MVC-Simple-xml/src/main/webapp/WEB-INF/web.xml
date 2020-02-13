@@ -75,6 +75,16 @@
         <url-pattern>/ws/*</url-pattern>
     </servlet-mapping>
 
+    <!-- GitHub 图片验证码 Patchca -->
+    <servlet>
+        <servlet-name>patchca</servlet-name>
+        <servlet-class>cn.com.xuxiaowei.servlet.PatchcaHttpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>patchca</servlet-name>
+        <url-pattern>/patchca</url-pattern>
+    </servlet-mapping>
+
     <!-- 日志 过滤器 -->
     <filter>
         <filter-name>logHttpFilter</filter-name>
