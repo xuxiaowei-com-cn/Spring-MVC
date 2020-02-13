@@ -18,6 +18,12 @@ import javax.jws.soap.SOAPBinding.Style;
 @WebService
 public interface WebServiceTestService {
 
+    /**
+     * 测试接口
+     *
+     * @param username 测试接口参数
+     * @return 返回测试数据
+     */
     Person getPerson(@WebParam(name = "username") String username);
 
 }
