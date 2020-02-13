@@ -78,6 +78,10 @@
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.19</mysql.version>
 
+        <!-- GitHub 图片验证码 Patchca 依赖 -->
+        <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
+        <patchca.version>0.0.1</patchca.version>
+
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
@@ -286,6 +290,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>patchca</artifactId>
+            <version>${patchca.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
