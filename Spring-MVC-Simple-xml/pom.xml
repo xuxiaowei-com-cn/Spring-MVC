@@ -83,6 +83,10 @@
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>5.1.48</mysql.version>
 
+        <!-- GitHub 图片验证码 Patchca 依赖 -->
+        <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
+        <patchca.version>0.0.1</patchca.version>
+
         <!-- JDK 6 最高支持 jackson-databind 版本为：2.7.9.6 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <jackson-databind.version>2.7.9.6</jackson-databind.version>
@@ -284,6 +288,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>patchca</artifactId>
+            <version>${patchca.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
