@@ -21,6 +21,12 @@ public class WebServiceTestServiceImpl implements WebServiceTestService {
      */
     private final AtomicLong counter = new AtomicLong();
 
+    /**
+     * 测试接口
+     *
+     * @param username 测试接口参数
+     * @return 返回测试数据
+     */
     @Override
     public Person getPerson(String username) {
 
