@@ -31,6 +31,7 @@ Spring MVC 项目配置。
 - Redis
     - Session 共享
     - Redis 注解
+    - Redis 集群配置
 - MySQL
 - log4j2
 - Slf4j
