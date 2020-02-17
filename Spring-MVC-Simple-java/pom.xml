@@ -96,6 +96,9 @@
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+        <velocity.version>1.7</velocity.version>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
@@ -349,6 +352,13 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
