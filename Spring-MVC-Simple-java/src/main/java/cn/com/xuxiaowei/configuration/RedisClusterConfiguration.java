@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 
 /**
@@ -31,12 +32,15 @@ public class RedisClusterConfiguration {
         this.redisClusterProperties = redisClusterProperties;
     }
 
+
     /**
-     * 配置 Lettuce Redis 集群连接器
-     * <p>
-     * {@link Bean}
+     * 公共部分，Lettuce 与 Jedis 连接池所需
      */
-    public LettuceConnectionFactory redisConnectionFactory() {
+    private org.springframework.data.redis.connection.RedisClusterConfiguration redisClusterConfiguration() {
+
+        // 类名重复，使用全限定名
+        org.springframework.data.redis.connection.RedisClusterConfiguration redisClusterConfiguration =
+                new org.springframework.data.redis.connection.RedisClusterConfiguration();
 
         RedisNode redisNode1 = new RedisNode(redisClusterProperties.getHost1(), redisClusterProperties.getPort1());
         RedisNode redisNode2 = new RedisNode(redisClusterProperties.getHost2(), redisClusterProperties.getPort2());
@@ -45,10 +49,6 @@ public class RedisClusterConfiguration {
         RedisNode redisNode5 = new RedisNode(redisClusterProperties.getHost5(), redisClusterProperties.getPort5());
         RedisNode redisNode6 = new RedisNode(redisClusterProperties.getHost6(), redisClusterProperties.getPort6());
 
-        // 类名重复，使用全限定名
-        org.springframework.data.redis.connection.RedisClusterConfiguration redisClusterConfiguration =
-                new org.springframework.data.redis.connection.RedisClusterConfiguration();
-
         redisClusterConfiguration.addClusterNode(redisNode1);
         redisClusterConfiguration.addClusterNode(redisNode2);
         redisClusterConfiguration.addClusterNode(redisNode3);
@@ -56,7 +56,31 @@ public class RedisClusterConfiguration {
         redisClusterConfiguration.addClusterNode(redisNode5);
         redisClusterConfiguration.addClusterNode(redisNode6);
 
-        return new LettuceConnectionFactory(redisClusterConfiguration);
+        return redisClusterConfiguration;
+    }
+
+    /**
+     * 配置 Lettuce Redis 集群连接器
+     * <p>
+     * {@link #redisConnectionFactory()} 与 {@link #jedisConnectionFactory()} 启用一个
+     *
+     * <p>
+     * {@link Bean}
+     */
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(redisClusterConfiguration());
+    }
+
+    /**
+     * 配置 Jedis Redis 集群连接器
+     * <p>
+     * {@link #redisConnectionFactory()} 与 {@link #jedisConnectionFactory()} 启用一个
+     *
+     * <p>
+     * {@link Bean}
+     */
+    public JedisConnectionFactory jedisConnectionFactory() {
+        return new JedisConnectionFactory(redisClusterConfiguration());
     }
 
 }
