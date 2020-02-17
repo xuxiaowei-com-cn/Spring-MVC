@@ -66,9 +66,9 @@
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <mybatis-spring.version>1.3.3</mybatis-spring.version>
 
-        <!-- JDK 6 最高支持 spring-data-redis 版本为：1.3.5.RELEASE -->
+        <!-- JDK 6 最高支持 spring-data-redis 正常运行版本为：1.7.11.RELEASE -->
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
-        <spring-data-redis.version>1.3.5.RELEASE</spring-data-redis.version>
+        <spring-data-redis.version>1.7.11.RELEASE</spring-data-redis.version>
 
         <!-- JDK 6 最高支持 spring-session-data-redis 版本为：1.3.5.RELEASE -->
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
