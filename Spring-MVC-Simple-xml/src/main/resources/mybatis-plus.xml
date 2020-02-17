@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- MyBatis Plus 配置 -->
+
+    <!-- 映射器，扫描 Mapper 接口 -->
+    <!-- 已在：mybatis-spring.xml 中扫描 -->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="cn.com.xuxiaowei.mapper"/>-->
+
+    <!-- 连接工厂 -->
+    <!--
+        mapper-locations：MyBatis Mapper 所对应的 XML 文件位置，如果您在 Mapper 中有自定义方法（XML 中有自定义实现），需要进行该配置，告诉 Mapper 所对应的 XML 文件位置。
+                            必须配置（否则出现：org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)）
+        type-aliases-package：MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML 文件中可以直接使用类名，
+                                而不用使用全限定的类名（即 XML 中调用的时候不用包含包名）。
+    -->
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:type-aliases-package="cn.com.xuxiaowei.entity"
+          p:configuration-ref="mybatisConfiguration"
+          p:mapperLocations="classpath:mapper/*.xml"/>
+
+    <!--
+        cache-enabled：缓存
+    -->
+    <bean id="mybatisConfiguration" class="com.baomidou.mybatisplus.MybatisConfiguration"
+          p:cache-enabled="true"/>
+
+</beans>
