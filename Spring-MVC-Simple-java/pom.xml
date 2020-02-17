@@ -87,6 +87,11 @@
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
         <jackson-datatype.version>2.10.2</jackson-datatype.version>
 
+        <!-- Apache Commons Codec 软件包包含各种格式的简单编码器和解码器，如Base64和Hexadecimal。 -->
+        <!-- 除了这些广泛使用的编码器和解码器之外，编解码器包还维护一组语音编码实用程序。 -->
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <commons-codec.version>1.14</commons-codec.version>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
@@ -319,6 +324,13 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>${jackson-datatype.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
