@@ -64,5 +64,5 @@ collation_server=utf8mb4_bin
 
 - 字符集
     - utf8mb4
-排序规则
+- 排序规则
     - utf8mb4_bin
