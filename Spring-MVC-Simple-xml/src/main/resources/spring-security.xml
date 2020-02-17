@@ -32,25 +32,27 @@
                 remember-me-parameter="${security.remember-me-parameter}"
                 key="${security.key}"/>
 
-        <!-- 所有页面均需要 USER 角色 -->
-        <sec:intercept-url pattern="/admin/**" access="hasRole('USER')"/>
+        <!-- 管理员权限 -->
+        <sec:intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
+
+        <sec:intercept-url pattern="/user/**" access="hasRole('USER')"/>
 
         <!-- 允许配置异常处理，错误页面 -->
         <sec:access-denied-handler error-page="${security.access-denied-page}"/>
 
     </sec:http>
 
+
     <!-- 密码编码器 -->
     <bean id="passwordEncoderConfiguration" class="cn.com.xuxiaowei.configuration.PasswordEncoderConfiguration"/>
 
     <sec:authentication-manager>
-
         <!-- 查询登录用户 -->
         <sec:authentication-provider user-service-ref="userDetailsServiceImpl">
-
-            <!-- 密码编码器 -->
             <sec:password-encoder ref="passwordEncoderConfiguration"/>
         </sec:authentication-provider>
     </sec:authentication-manager>
+
+    <!-- 忽略 MVC 的配置 -->
 
 </beans>
