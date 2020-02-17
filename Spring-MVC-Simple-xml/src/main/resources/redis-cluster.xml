@@ -11,23 +11,23 @@
         <property name="clusterNodes">
             <set>
                 <bean id="redisNode1" name="redisNode1" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6001"/>
+                      c:host="${redis.host1}"
+                      c:port="${redis.port1}"/>
                 <bean id="redisNode2" name="redisNode2" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6002"/>
+                      c:host="${redis.host2}"
+                      c:port="${redis.port2}"/>
                 <bean id="redisNode3" name="redisNode3" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6003"/>
+                      c:host="${redis.host3}"
+                      c:port="${redis.port3}"/>
                 <bean id="redisNode4" name="redisNode4" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6004"/>
+                      c:host="${redis.host4}"
+                      c:port="${redis.port4}"/>
                 <bean id="redisNode5" name="redisNode5" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6005"/>
+                      c:host="${redis.host5}"
+                      c:port="${redis.port5}"/>
                 <bean id="redisNode6" name="redisNode6" class="org.springframework.data.redis.connection.RedisNode"
-                      c:host="192.168.8.129"
-                      c:port="6006"/>
+                      c:host="${redis.host6}"
+                      c:port="${redis.port6}"/>
             </set>
         </property>
     </bean>
