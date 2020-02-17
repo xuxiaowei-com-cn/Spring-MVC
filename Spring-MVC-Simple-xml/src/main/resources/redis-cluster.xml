@@ -6,36 +6,35 @@
 
     <!-- Redis 集群版配置 -->
 
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
-
-    <bean id="redisCluster" class="redis.clients.jedis.JedisCluster"
-          c:poolConfig-ref="jedisPoolConfig">
-        <constructor-arg name="nodes">
+    <bean id="redisClusterConfiguration" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+        <property name="clusterNodes">
             <set>
-                <bean id="redisHost1" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode1" name="redisNode1" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host1}"
                       c:port="${redis.port1}"/>
-                <bean id="redisHost2" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode2" name="redisNode2" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host2}"
                       c:port="${redis.port2}"/>
-                <bean id="redisHost3" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode3" name="redisNode3" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host3}"
                       c:port="${redis.port3}"/>
-                <bean id="redisHost4" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode4" name="redisNode4" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host4}"
                       c:port="${redis.port4}"/>
-                <bean id="redisHost5" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode5" name="redisNode5" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host5}"
                       c:port="${redis.port5}"/>
-                <bean id="redisHost6" class="redis.clients.jedis.HostAndPort"
+                <bean id="redisNode6" name="redisNode6" class="org.springframework.data.redis.connection.RedisNode"
                       c:host="${redis.host6}"
                       c:port="${redis.port6}"/>
             </set>
-        </constructor-arg>
+        </property>
     </bean>
+
+    <!-- 使用 JedisPoolConfig 连接池 -->
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
           p:use-pool="true"
-          c:poolConfig-ref="jedisPoolConfig"/>
+          c:clusterConfig-ref="redisClusterConfiguration"/>
 
 </beans>
