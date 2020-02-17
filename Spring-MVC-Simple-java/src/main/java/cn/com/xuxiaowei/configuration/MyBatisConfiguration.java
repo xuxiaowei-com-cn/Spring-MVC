@@ -73,11 +73,15 @@ public class MyBatisConfiguration implements TransactionManagementConfigurer {
      * 连接工厂
      * <p>
      * 扫描 xml
+     * <p>
+     * 由于使用了 MyBatis Plus，连接工厂交付给 MyBatis Plus
+     * 该方法未启用
+     * <p>
+     * {@link Bean}
      *
      * @see <a href="http://mybatis.org/spring/zh/factorybean.html">SqlSessionFactoryBean</a>
      * @see <a href="http://mybatis.org/spring/zh/getting-started.html">mybatis-spring</a>
      */
-    @Bean
     public SqlSessionFactoryBean sqlSessionFactory() throws IOException {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
