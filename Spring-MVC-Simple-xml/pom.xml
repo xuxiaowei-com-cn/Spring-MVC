@@ -110,9 +110,10 @@
         <spring-faces.version>2.4.8.RELEASE</spring-faces.version>
 
         <!-- JSF 所需 -->
+        <!-- JDK 6 最高支持 el-api 版本为：2.2.5 -->
         <!-- Caused by: java.lang.ClassNotFoundException: javax.el.ELException -->
         <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
-        <el-api.version>3.0.1-b06</el-api.version>
+        <el-api.version>2.2.5</el-api.version>
 
         <!-- JDK 6 最高支持 log4j-web 版本为：2.3 -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
