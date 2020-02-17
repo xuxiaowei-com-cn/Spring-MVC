@@ -22,7 +22,7 @@
     <!-- 缓存管理器 -->
     <bean id="redisCacheManager"
           class="org.springframework.data.redis.cache.RedisCacheManager"
-          c:template-ref="redisTemplate"/>
+          c:redisOperations-ref="redisTemplate"/>
 
     <!-- 开启 Redis Session 缓存 -->
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
