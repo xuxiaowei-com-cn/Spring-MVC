@@ -25,40 +25,44 @@
           p:password="${jdbc.password}"/>
 
     <!-- 连接工厂 -->
+    <!-- 由于使用了 MyBatis Plus，连接工厂交付给 MyBatis Plus -->
     <!-- 参见：http://mybatis.org/spring/zh/getting-started.html -->
     <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="dataSource"
           p:typeAliasesPackage="cn.com.xuxiaowei.entity"
           p:configLocation="classpath:mybatis-config.xml">
 
-        <!-- SqlSessionFactory 有一个唯一的必要属性：用于 JDBC 的 DataSource。 -->
-        <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
-        <!-- p:dataSource-ref="dataSource" -->
+        &lt;!&ndash; SqlSessionFactory 有一个唯一的必要属性：用于 JDBC 的 DataSource。 &ndash;&gt;
+        &lt;!&ndash; 参见：http://mybatis.org/spring/zh/factorybean.html &ndash;&gt;
+        &lt;!&ndash; p:dataSource-ref="dataSource" &ndash;&gt;
 
-        <!-- 扫描entity包 使用别名 -->
-        <!-- 在 Mapper XML 可直接使用实体类的名字，而不需要用全限定名 -->
-        <!-- p:typeAliasesPackage="cn.com.xuxiaowei.entity" -->
+        &lt;!&ndash; 扫描entity包 使用别名 &ndash;&gt;
+        &lt;!&ndash; 在 Mapper XML 可直接使用实体类的名字，而不需要用全限定名 &ndash;&gt;
+        &lt;!&ndash; p:typeAliasesPackage="cn.com.xuxiaowei.entity" &ndash;&gt;
 
-        <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
-        <!-- SqlSessionFactory 一个常用的属性是 configLocation，它用来指定 MyBatis 的 XML 配置文件路径。 -->
-        <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
-        <!-- p:configLocation="classpath:mybatis-config.xml" -->
+        &lt;!&ndash; 配置MyBaties全局配置文件:mybatis-config.xml &ndash;&gt;
+        &lt;!&ndash; SqlSessionFactory 一个常用的属性是 configLocation，它用来指定 MyBatis 的 XML 配置文件路径。 &ndash;&gt;
+        &lt;!&ndash; 参见：http://mybatis.org/spring/zh/factorybean.html &ndash;&gt;
+        &lt;!&ndash; p:configLocation="classpath:mybatis-config.xml" &ndash;&gt;
 
-        <!-- mapperLocations 属性接受多个资源位置。 -->
-        <!-- 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。 -->
-        <!-- 属性的值是一个 Ant 风格的字符串，可以指定加载一个目录中的所有文件，或者从一个目录开始递归搜索所有目录。 -->
-        <!-- <property name="mapperLocations" value="classpath:mapper/*.xml"/> -->
-        <!-- 参见：http://mybatis.org/spring/zh/factorybean.html -->
+        &lt;!&ndash; mapperLocations 属性接受多个资源位置。 &ndash;&gt;
+        &lt;!&ndash; 这个属性可以用来指定 MyBatis 的映射器 XML 配置文件的位置。 &ndash;&gt;
+        &lt;!&ndash; 属性的值是一个 Ant 风格的字符串，可以指定加载一个目录中的所有文件，或者从一个目录开始递归搜索所有目录。 &ndash;&gt;
+        &lt;!&ndash; <property name="mapperLocations" value="classpath:mapper/*.xml"/> &ndash;&gt;
+        &lt;!&ndash; 参见：http://mybatis.org/spring/zh/factorybean.html &ndash;&gt;
         <property name="mapperLocations">
             <array>
                 <value>classpath:mapper/*.xml</value>
-                <!-- 多包 xml 扫描 -->
-                <!-- <value>classpath:Module/mapper/*.xml</value> -->
+                &lt;!&ndash; 多包 xml 扫描 &ndash;&gt;
+                &lt;!&ndash; <value>classpath:Module/mapper/*.xml</value> &ndash;&gt;
             </array>
         </property>
 
-    </bean>
+    </bean>-->
+
+    <!-- 导入 Mybatis-Plus 配置 -->
+    <import resource="classpath:mybatis-plus.xml"/>
 
     <!-- 事务 -->
     <!-- 参见：http://mybatis.org/spring/zh/transactions.html -->
@@ -73,7 +77,6 @@
     <!-- 通过使用逗号或分号分隔，你可以设置多个包。 -->
     <!-- 并且会在你所指定的包中递归搜索映射器。 -->
     <!-- 参见：http://mybatis.org/spring/zh/mappers.html -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="cn.com.xuxiaowei.mapper"/>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="cn.com.xuxiaowei.mapper"/>
 
 </beans>
