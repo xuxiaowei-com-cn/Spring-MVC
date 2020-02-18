@@ -114,6 +114,12 @@ public class MyBatisPlusGenerator {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
+        // 模板路径配置项
+        TemplateConfig templateConfig = new TemplateConfig();
+        templateConfig.setXml(null);
+
+        mpg.setTemplate(templateConfig);
+
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         // 设置 Controller 名
