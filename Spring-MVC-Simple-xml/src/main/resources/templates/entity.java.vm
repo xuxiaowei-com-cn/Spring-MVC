@@ -4,6 +4,10 @@ package ${package.Entity};
 import ${pkg};
 #end
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
 /**
  * <p>
  * ${table.comment}
@@ -12,6 +16,9 @@ import ${pkg};
  * @author ${author}
  * @since ${date}
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
 #if(${table.convert})
 @TableName("${table.name}")
 #end
@@ -44,29 +51,6 @@ public class ${entity} implements Serializable {
 	@TableField("${field.name}")
 #end
 	private ${field.propertyType} ${field.propertyName};
-#end
-
-#foreach($field in ${table.fields})
-#if(${field.propertyType.equals("Boolean")})
-#set($getprefix="is")
-#else
-#set($getprefix="get")
-#end
-
-	public ${field.propertyType} ${getprefix}${field.capitalName}() {
-		return ${field.propertyName};
-	}
-
-#if(${entityBuilderModel})
-	public ${entity} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#else
-	public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#end
-		this.${field.propertyName} = ${field.propertyName};
-#if(${entityBuilderModel})
-		return this;
-#end
-	}
 #end
 
 #if(${entityColumnConstant})
