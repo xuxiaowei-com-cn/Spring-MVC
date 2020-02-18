@@ -104,6 +104,9 @@
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
         <mybatis-plus.version>2.0.5</mybatis-plus.version>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+        <velocity.version>1.7</velocity.version>
+
         <!-- JDK 6 最高支持 mybatis-generator 版本为：1.3.7 -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
@@ -335,6 +338,13 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
             <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator -->
