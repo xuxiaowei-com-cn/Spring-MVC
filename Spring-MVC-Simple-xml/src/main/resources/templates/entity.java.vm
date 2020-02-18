@@ -1,5 +1,6 @@
 package ${package.Entity};
 
+import com.baomidou.mybatisplus.annotations.TableField;
 #foreach($pkg in ${table.importPackages})
 import ${pkg};
 #end
@@ -45,12 +46,13 @@ public class ${entity} implements Serializable {
 #if(${field.keyIdentityFlag})
 	@TableId(value="${field.name}", type= IdType.AUTO)
 #elseif(${field.convert})
-    @TableId("${field.name}")
+	@TableId("${field.name}")
 #end
-#elseif(${field.convert})
+#else
 	@TableField("${field.name}")
 #end
 	private ${field.propertyType} ${field.propertyName};
+
 #end
 
 #if(${entityColumnConstant})

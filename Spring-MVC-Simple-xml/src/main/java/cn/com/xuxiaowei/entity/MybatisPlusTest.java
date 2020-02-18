@@ -1,5 +1,6 @@
 package cn.com.xuxiaowei.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -27,8 +28,13 @@ public class MybatisPlusTest implements Serializable {
 
 	@TableId(value="test_id", type= IdType.AUTO)
 	private Long testId;
+
+	@TableField("test1")
 	private String test1;
+
+	@TableField("test2")
 	private String test2;
+
 
 	public static final String TEST_ID = "test_id";
 
