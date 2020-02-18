@@ -3,6 +3,8 @@ Spring-MVC-Simple-xml 项目配置。
 
 ## [Spring Framework Documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html)
 
+## [Spring Web Services Reference Documentation](https://docs.spring.io/spring-ws/docs/current/reference/index.html)
+
 ## [Spring Faces](https://docs.spring.io/autorepo/docs/webflow/current/reference/html/spring-faces.html)
 
 ## 使用 Apache Tomcat 7
@@ -10,10 +12,22 @@ Spring-MVC-Simple-xml 项目配置。
 ## 项目配置
 
 - 集成 Spring MVC 配置
-- JSF
+- 模板引擎
+    - Thymeleaf
+    - FreeMarker
+    - JSP
+    - JSF（Sun）
+- Spring Security
+    - Thymeleaf 集成 Security
+    - FreeMarker 集成 Security
+    - JSP 集成 Security
+    - JSF（Sun） 集成 Security
 - Hikari 连接池
 - MyBatis
 - Redis
+    - Session 共享
+    - Redis 注解
+    - Redis 集群配置
 - MySQL
 - log4j2
 - Slf4j
@@ -23,6 +37,8 @@ Spring-MVC-Simple-xml 项目配置。
     - 根据 URL 后缀名自动请求解析不同类型的数据
 
 ## 数据库
+
+- MySQL 5.7.24
 
 - Windows 设置
 ~~~
@@ -44,5 +60,5 @@ collation_server=utf8mb4_bin
 
 - 字符集
     - utf8mb4
-排序规则
+- 排序规则
     - utf8mb4_bin
