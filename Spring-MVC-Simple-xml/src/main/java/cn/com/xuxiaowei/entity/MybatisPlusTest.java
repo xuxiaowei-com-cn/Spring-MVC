@@ -1,13 +1,13 @@
 package cn.com.xuxiaowei.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * <p>
@@ -25,20 +25,15 @@ public class MybatisPlusTest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("test_id")
-    private Long testId;
+	@TableId(value="test_id", type= IdType.AUTO)
+	private Long testId;
+	private String test1;
+	private String test2;
 
-    @TableField("test1")
-    private String test1;
+	public static final String TEST_ID = "test_id";
 
-    @TableField("test2")
-    private String test2;
+	public static final String TEST1 = "test1";
 
-
-    public static final String TEST_ID = "test_id";
-
-    public static final String TEST1 = "test1";
-
-    public static final String TEST2 = "test2";
+	public static final String TEST2 = "test2";
 
 }

@@ -1,6 +1,5 @@
 package cn.com.xuxiaowei.controller;
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-02-18
  */
 @RestController
-@RequestMapping("/mybatis-plus-test")
+@RequestMapping("/mybatisPlusTest")
 public class MybatisPlusTestRestController {
-
+	
 }
-
