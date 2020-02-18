@@ -20,7 +20,18 @@
           p:dataSource-ref="dataSource"
           p:type-aliases-package="cn.com.xuxiaowei.entity"
           p:configuration-ref="mybatisConfiguration"
-          p:mapperLocations="classpath:mapper/*.xml"/>
+          p:mapperLocations="classpath:mapper/*.xml">
+
+        <property name="plugins">
+            <array>
+                <!-- 分页插件 -->
+                <!-- 设置方言 -->
+                <bean class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"
+                    p:dialectClazz="com.baomidou.mybatisplus.plugins.pagination.dialects.MySqlDialect"/>
+            </array>
+        </property>
+
+    </bean>
 
     <!--
         cache-enabled：缓存

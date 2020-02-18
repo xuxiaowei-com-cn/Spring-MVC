@@ -16,6 +16,8 @@
 package cn.com.xuxiaowei.configuration;
 
 import com.baomidou.mybatisplus.MybatisConfiguration;
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.pagination.dialects.MySqlDialect;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -70,6 +72,14 @@ public class MyBatisPlusConfiguration {
         MybatisSqlSessionFactoryBean mybatisSqlSessionFactory = new MybatisSqlSessionFactoryBean();
 
         mybatisSqlSessionFactory.setDataSource(dataSource);
+
+        // 分页插件
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        // 设置方言
+        paginationInterceptor.setDialectClazz(MySqlDialect.class.getName());
+
+        // 分页插件
+        mybatisSqlSessionFactory.setPlugins(new PaginationInterceptor[]{paginationInterceptor});
 
         // MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML 文件中可以直接使用类名，
         // 而不用使用全限定的类名（即 XML 中调用的时候不用包含包名）。

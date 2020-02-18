@@ -16,12 +16,15 @@
 package cn.com.xuxiaowei.service;
 
 import cn.com.xuxiaowei.entity.MybatisPlusTest;
+import com.baomidou.mybatisplus.plugins.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * MyBatis Plus 测试表 服务类 测试类
@@ -41,6 +44,18 @@ public class IMybatisPlusTestServiceTests {
     public void selectById() {
         MybatisPlusTest byId = iMybatisPlusTestService.selectById(1);
         log.info(String.valueOf(byId));
+    }
+
+    @Test
+    public void selectPage() {
+        Page<MybatisPlusTest> page = new Page<MybatisPlusTest>();
+        page.setSize(5);
+        page.setCurrent(1);
+        iMybatisPlusTestService.selectPage(page);
+        List<MybatisPlusTest> records = page.getRecords();
+        for (MybatisPlusTest record : records) {
+            log.info(String.valueOf(record));
+        }
     }
 
 }
