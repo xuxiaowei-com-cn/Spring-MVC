@@ -28,6 +28,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 
 /**
+ * MyBatis Plus 配置
+ *
  * @author xuxiaowei
  * @since 0.0.1
  */
