@@ -24,7 +24,16 @@
           p:type-enums-package="cn.com.xuxiaowei.enums"
           p:global-config-ref="globalConfig"
           p:configuration-ref="mybatisConfiguration"
-          p:mapperLocations="classpath:mapper/*.xml"/>
+          p:mapperLocations="classpath:mapper/*.xml">
+
+        <property name="plugins">
+            <array>
+                <!-- 分页插件 -->
+                <bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
+            </array>
+        </property>
+
+    </bean>
 
     <!--
         cache-enabled：缓存
