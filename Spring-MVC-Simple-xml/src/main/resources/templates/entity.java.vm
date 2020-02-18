@@ -44,20 +44,20 @@ public class ${entity} implements Serializable {
 #end
 #if(${field.keyFlag})
 #if(${field.keyIdentityFlag})
-	@TableId(value="${field.name}", type= IdType.AUTO)
+    @TableId(value = "${field.name}", type = IdType.AUTO)
 #elseif(${field.convert})
-	@TableId("${field.name}")
+    @TableId("${field.name}")
 #end
 #else
-	@TableField("${field.name}")
+    @TableField("${field.name}")
 #end
-	private ${field.propertyType} ${field.propertyName};
+    private ${field.propertyType} ${field.propertyName};
 
 #end
 
 #if(${entityColumnConstant})
 #foreach($field in ${table.fields})
-	public static final String ${field.name.toUpperCase()} = "${field.name}";
+    public static final String ${field.name.toUpperCase()} = "${field.name}";
 
 #end
 #end
