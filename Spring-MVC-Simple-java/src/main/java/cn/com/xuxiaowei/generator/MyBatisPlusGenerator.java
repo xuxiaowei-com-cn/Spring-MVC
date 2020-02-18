@@ -74,12 +74,6 @@ public class MyBatisPlusGenerator {
 
     /**
      * 数据库 密码
-     * <p>
-     * Oracle：
-     * 只读：Aluhisno1
-     * <p>
-     * SQLServer：
-     * qdsylis_2019
      */
     private String password = "root";
 
