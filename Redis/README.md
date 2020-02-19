@@ -143,7 +143,7 @@ ps -ef | grep redis
 ../src/redis-cli --cluster create 192.168.8.129:6001 192.168.8.129:6003 192.168.8.129:6005 --cluster-replicas 0
 ~~~
 
-# 查看集群
+# 检查集群
 ~~~
 ../src/redis-cli --cluster check 192.168.8.129:6001
 ~~~
