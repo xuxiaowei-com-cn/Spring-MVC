@@ -8,6 +8,9 @@ Spring-MVC-Simple-java 项目配置。
 ## [Spring Faces](https://docs.spring.io/autorepo/docs/webflow/current/reference/html/spring-faces.html)
 
 ## 使用 Apache Tomcat 7
+- 最低支持 Apache Tomcat 7
+- apache-tomcat-7.0.96 正常运行
+- apache-tomcat-7.0.100 .xhtml 不能正常显示
 
 ## 项目配置
 
