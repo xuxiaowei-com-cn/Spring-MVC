@@ -35,6 +35,8 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
 
     /**
      * 用于“根”应用程序上下文（非Web基础结构）配置。
+     *
+     * @see super#getRootConfigClasses()
      */
     @Override
     public Class<?>[] getRootConfigClasses() {
@@ -43,6 +45,8 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
 
     /**
      * 用于{@code DispatcherServlet}应用程序上下文（Spring MVC基础结构）配置。
+     *
+     * @see super#getServletConfigClasses()
      */
     @Override
     public Class<?>[] getServletConfigClasses() {
@@ -51,6 +55,8 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
 
     /**
      * 交付 Spring MVC 处理的 URL
+     *
+     * @see super#getServletMappings()
      */
     @Override
     public String[] getServletMappings() {
