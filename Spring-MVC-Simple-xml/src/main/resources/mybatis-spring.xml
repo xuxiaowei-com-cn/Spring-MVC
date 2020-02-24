@@ -77,7 +77,6 @@
     <!-- 通过使用逗号或分号分隔，你可以设置多个包。 -->
     <!-- 并且会在你所指定的包中递归搜索映射器。 -->
     <!-- 参见：http://mybatis.org/spring/zh/mappers.html -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="cn.com.xuxiaowei.mapper"/>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="cn.com.xuxiaowei.mapper"/>
 
 </beans>
