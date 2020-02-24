@@ -45,16 +45,6 @@
         <url-pattern>/ws/*</url-pattern>
     </servlet-mapping>
 
-    <!-- 测试 HttpServlet 配置 -->
-    <servlet>
-        <servlet-name>httpServletTest</servlet-name>
-        <servlet-class>cn.com.xuxiaowei.servlet.HttpServletTest</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>httpServletTest</servlet-name>
-        <url-pattern>/httpServletTest</url-pattern>
-    </servlet-mapping>
-
     <!-- Using Log4j 2 in Web Applications -->
     <!-- 在Web应用程序中使用Log4j 2 -->
     <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->
