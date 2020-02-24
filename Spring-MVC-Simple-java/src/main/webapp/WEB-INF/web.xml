@@ -67,6 +67,11 @@
         <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
     </listener>
 
+    <!-- 在 Listener 中获取 Bean -->
+    <listener>
+        <listener-class>cn.com.xuxiaowei.configuration.SpringServletContextListener</listener-class>
+    </listener>
+
     <filter>
         <filter-name>log4jServletFilter</filter-name>
         <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
