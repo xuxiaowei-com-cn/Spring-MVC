@@ -3,7 +3,6 @@ package cn.com.xuxiaowei.configuration;
 import cn.com.xuxiaowei.mapper.MybatisPlusTestMapper;
 import cn.com.xuxiaowei.service.ITestService;
 import cn.com.xuxiaowei.service.UserService;
-import cn.com.xuxiaowei.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
