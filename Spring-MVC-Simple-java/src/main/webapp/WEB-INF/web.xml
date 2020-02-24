@@ -55,11 +55,6 @@
         <url-pattern>/httpServletTest</url-pattern>
     </servlet-mapping>
 
-    <!-- 在 Listener 中获取 Bean -->
-    <listener>
-        <listener-class>cn.com.xuxiaowei.configuration.SpringServletContextListener</listener-class>
-    </listener>
-
     <!-- Using Log4j 2 in Web Applications -->
     <!-- 在Web应用程序中使用Log4j 2 -->
     <!-- 参见：http://logging.apache.org/log4j/2.x/manual/webapp.html -->
