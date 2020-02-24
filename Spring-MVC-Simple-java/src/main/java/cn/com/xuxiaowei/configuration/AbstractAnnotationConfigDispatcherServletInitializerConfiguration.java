@@ -29,11 +29,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-servlet-context-hierarchy">Context Hierarchy</a>上下文层次结构
  * @see <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-container-config">Servlet Config</a>Servlet配置
+ * @since 0.0.1
  */
 public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     /**
      * 用于“根”应用程序上下文（非Web基础结构）配置。
+     *
+     * @see super#getRootConfigClasses()
      */
     @Override
     public Class<?>[] getRootConfigClasses() {
@@ -42,6 +45,8 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
 
     /**
      * 用于{@code DispatcherServlet}应用程序上下文（Spring MVC基础结构）配置。
+     *
+     * @see super#getServletConfigClasses()
      */
     @Override
     public Class<?>[] getServletConfigClasses() {
@@ -50,6 +55,8 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
 
     /**
      * 交付 Spring MVC 处理的 URL
+     *
+     * @see super#getServletMappings()
      */
     @Override
     public String[] getServletMappings() {
