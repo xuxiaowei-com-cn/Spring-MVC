@@ -15,8 +15,10 @@
  */
 package cn.com.xuxiaowei.configuration;
 
-
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
 
 /**
  * 注册{@code DispatcherServlet}并使用基于Java的Spring配置
@@ -61,6 +63,16 @@ public class AbstractAnnotationConfigDispatcherServletInitializerConfiguration e
     @Override
     public String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    /**
+     * 注册一个 {@link ContextLoaderListener} 针对给定的servlet上下文。
+     *
+     * @see super#registerContextLoaderListener(ServletContext)
+     */
+    @Override
+    protected void registerContextLoaderListener(ServletContext servletContext) {
+        super.registerContextLoaderListener(servletContext);
     }
 
 }
