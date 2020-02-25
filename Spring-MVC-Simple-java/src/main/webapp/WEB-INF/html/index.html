@@ -45,11 +45,11 @@
 <hr>
 
 <h3>从接口中获取</h3>
-<h4 th:text="${#authentication.name}"></h4>
-<h4 th:text="${#authentication.credentials}"></h4>
-<h4 th:text="${#authentication.principal}"></h4>
-<h4 th:text="${#authentication.details}"></h4>
-<h4 th:text="${#authentication.authorities}"></h4>
+<h4 sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></h4>
+<h4 sec:authorize="isAuthenticated()" th:text="${#authentication.credentials}"></h4>
+<h4 sec:authorize="isAuthenticated()" th:text="${#authentication.principal}"></h4>
+<h4 sec:authorize="isAuthenticated()" th:text="${#authentication.details}"></h4>
+<h4 sec:authorize="isAuthenticated()" th:text="${#authentication.authorities}"></h4>
 
 <hr>
 
