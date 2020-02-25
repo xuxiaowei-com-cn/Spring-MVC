@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.web.service.impl;
 
 import cn.com.xuxiaowei.entity.Person;
 import cn.com.xuxiaowei.web.service.WebServiceTestService;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
@@ -27,6 +28,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Service
 public class WebServiceTestServiceImpl implements WebServiceTestService {
 
     /**
