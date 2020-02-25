@@ -31,5 +31,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MybatisPlusTestServiceImpl extends ServiceImpl<MybatisPlusTestMapper, MybatisPlusTest> implements IMybatisPlusTestService {
-	
+
 }
