@@ -46,7 +46,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 public class RedisSessionConfiguration {
 
     /**
-     *
+     * Redis 缓存管理
      */
     @Bean
     public RedisCacheManager redisCacheManager(RedisTemplate<?, ?> redisTemplate) {
