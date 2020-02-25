@@ -25,6 +25,8 @@ import java.io.Serializable;
 /**
  * 用户测试 XML Bean 转化
  * <p>
+ * {@link JacksonXmlRootElement#namespace()}：无效
+ * {@link JacksonXmlRootElement#localName()}：不可设置
  * 自定义父节点名称
  * 自定义命名空间
  *
