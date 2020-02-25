@@ -18,6 +18,8 @@ package cn.com.xuxiaowei.scheduler;
 import cn.com.xuxiaowei.properties.JdbcProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,8 @@ import org.springframework.stereotype.Component;
  * 定时器 测试类
  * <p>
  * 由于 {@link Scheduled} 使用了 Java 8 的 @Repeatable 注解，构建编译时，使用 JDK 6 可能会出现警告
+ * <p>
+ * 多线程执行
  *
  * @author xuxiaowei
  * @see <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html">Java 8 @Repeatable</a>
@@ -32,6 +36,8 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
+@EnableAsync
+@EnableScheduling
 public class SchedulerTest {
 
     /**
@@ -49,10 +55,12 @@ public class SchedulerTest {
 
     /**
      * 每 5 秒执行一次
+     * <p>
+     * Async
+     * Scheduled(cron = "0/5 * * * * *")
      */
-    @Scheduled(cron = "0/5 * * * * *")
     public void job() {
-        log.info(jdbcProperties.toString());
+        log.info("线程：{}，注入：{}", Thread.currentThread().getName(), jdbcProperties.toString());
     }
 
 }
