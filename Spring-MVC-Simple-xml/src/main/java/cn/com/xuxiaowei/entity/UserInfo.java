@@ -27,12 +27,14 @@ import java.io.Serializable;
  * <p>
  * {@link JacksonXmlRootElement#namespace()}：无效
  * {@link JacksonXmlRootElement#localName()}：不可设置
+ * 自定义父节点名称
+ * 自定义命名空间
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
 @Data
-@JacksonXmlRootElement
+@JacksonXmlRootElement(localName = "User", namespace = "http://www.xuxiaowei.com.cn")
 public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = 4191739916188118828L;
