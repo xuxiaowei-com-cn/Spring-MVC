@@ -23,6 +23,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 
 /**
  * Redis 单机版配置
+ * <p>
+ * {@link RedisSingleConfiguration} 与 {@link RedisClusterConfiguration} 使用一个
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -31,7 +33,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 public class RedisSingleConfiguration {
 
     /**
-     * Redis 属性
+     * Redis 单机版属性文件
      */
     private RedisSingleProperties redisSingleProperties;
 
