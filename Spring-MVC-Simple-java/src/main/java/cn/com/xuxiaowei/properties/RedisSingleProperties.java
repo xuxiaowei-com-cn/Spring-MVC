@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * 加载 Redis 属性文件
+ * 加载 Redis 单机版属性文件
  *
  * @author xuxiaowei
  * @since 0.0.1
