@@ -38,11 +38,11 @@ public class WebServiceConfiguration {
     /**
      * 注入 测试 WebService 服务类
      */
-    private WebServiceTestService webServicesTestService;
+    private WebServiceTestService webServiceTestService;
 
     @Autowired
-    public void setWebServicesTestService(WebServiceTestService webServicesTestService) {
-        this.webServicesTestService = webServicesTestService;
+    public void setWebServicesTestService(WebServiceTestService webServiceTestService) {
+        this.webServiceTestService = webServiceTestService;
     }
 
     /**
@@ -58,7 +58,7 @@ public class WebServiceConfiguration {
      */
     @Bean
     public Endpoint webServicesTestServiceEndpoint() {
-        EndpointImpl webServiceTestServiceImpl = new EndpointImpl(springBus(), webServicesTestService);
+        EndpointImpl webServiceTestServiceImpl = new EndpointImpl(springBus(), webServiceTestService);
         webServiceTestServiceImpl.publish("/webServiceTestService");
 
         // 进入 Handler 测试 拦截器
