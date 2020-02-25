@@ -1,5 +1,8 @@
 /**
- * 注销登录
+ *
+ *
+ * User: xuxiaowei
+ * Date: 2020-02-25
  */
 function logout(url) {
 
