@@ -1,7 +1,6 @@
 package cn.com.xuxiaowei.servlet;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +16,6 @@ import static cn.com.xuxiaowei.util.Constants.*;
  * @author xuxiaowei
  * @since 0.0.1
  */
-@WebServlet(urlPatterns = {"/httpServletTest"})
 public class HttpServletTest extends HttpServlet {
 
     @Override

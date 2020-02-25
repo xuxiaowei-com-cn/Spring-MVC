@@ -85,6 +85,16 @@
         <url-pattern>/patchca</url-pattern>
     </servlet-mapping>
 
+    <!-- 测试 HttpServlet 配置 -->
+    <servlet>
+        <servlet-name>httpServletTest</servlet-name>
+        <servlet-class>cn.com.xuxiaowei.servlet.HttpServletTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>httpServletTest</servlet-name>
+        <url-pattern>/httpServletTest</url-pattern>
+    </servlet-mapping>
+
     <!-- 日志 过滤器 -->
     <filter>
         <filter-name>logHttpFilter</filter-name>
