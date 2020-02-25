@@ -26,6 +26,12 @@ import java.nio.charset.Charset;
  * @see org.springframework.http.HttpHeaders spring-web，从 3.0 开始
  * @see com.google.common.net.HttpHeaders guava，从 11.0 开始
  * @see javax.servlet.http.HttpServletResponse
+ * @see org.springframework.web.context.support.XmlWebApplicationContext spring-web
+ * @see org.springframework.context.ApplicationContextAware spring-context，可获取 {@link org.springframework.context.ApplicationContext}，非常量相关
+ * @see org.springframework.web.util.JavaScriptUtils spring-web，从 1.1.1 开始，将JavaScript特殊字符转换为转义字符，非常量相关
+ * @see org.springframework.web.servlet.view.json.MappingJackson2JsonView spring-webmvc，从 3.1.2 开始
+ * @see org.thymeleaf.util.ContentTypeUtils thymeleaf，从 3.0.6 开始
+ * @see org.springframework.web.context.WebApplicationContext
  * @since 0.0.1
  */
 public final class Constants {
