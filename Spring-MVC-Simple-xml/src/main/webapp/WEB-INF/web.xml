@@ -48,7 +48,8 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
-    <!-- 将 Web 交付给 WebSecurity -->
+    <!-- 将 URL 交付给 Spring Security -->
+    <!-- 仅在 Spring Security 4 时使用 -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
