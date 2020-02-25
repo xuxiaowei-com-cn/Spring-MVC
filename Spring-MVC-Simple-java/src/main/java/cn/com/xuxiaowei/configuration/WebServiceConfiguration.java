@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.configuration;
 
+import cn.com.xuxiaowei.handlerinterceptor.WebServicesHandlerTestInterceptor;
 import cn.com.xuxiaowei.web.service.WebServiceTestService;
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;
@@ -34,6 +35,9 @@ import javax.xml.ws.Endpoint;
 @Configuration
 public class WebServiceConfiguration {
 
+    /**
+     * 注入 测试 WebService 服务类
+     */
     private WebServiceTestService webServiceTestService;
 
     @Autowired
@@ -50,13 +54,25 @@ public class WebServiceConfiguration {
     }
 
     /**
-     * 注册服务：用于测试的 用户 服务接口
+     * 注册服务：用于测试的 WebService
      */
     @Bean
-    public Endpoint testUser1ServiceEndpoint() {
-        EndpointImpl testUser1ServiceEndpointImpl = new EndpointImpl(springBus(), webServiceTestService);
-        testUser1ServiceEndpointImpl.publish("/webServiceTestService");
-        return testUser1ServiceEndpointImpl;
+    public Endpoint webServicesTestServiceEndpoint() {
+        EndpointImpl webServiceTestServiceImpl = new EndpointImpl(springBus(), webServiceTestService);
+        webServiceTestServiceImpl.publish("/webServiceTestService");
+
+        // 进入 Handler 测试 拦截器
+        webServiceTestServiceImpl.getInInterceptors().add(webServicesHandlerTestInterceptor());
+
+        return webServiceTestServiceImpl;
+    }
+
+    /**
+     * 将 WebService Handler 测试 拦截器 注册为 {@link Bean}
+     */
+    @Bean
+    public WebServicesHandlerTestInterceptor webServicesHandlerTestInterceptor() {
+        return new WebServicesHandlerTestInterceptor();
     }
 
 }
