@@ -15,6 +15,8 @@
  */
 package cn.com.xuxiaowei.servlet;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +33,7 @@ import static cn.com.xuxiaowei.util.Constants.*;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 public class HttpServletTest extends HttpServlet {
 
     @Override
