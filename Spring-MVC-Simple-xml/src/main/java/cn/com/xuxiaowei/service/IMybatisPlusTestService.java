@@ -27,5 +27,5 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2020-02-18
  */
 public interface IMybatisPlusTestService extends IService<MybatisPlusTest> {
-	
+
 }
