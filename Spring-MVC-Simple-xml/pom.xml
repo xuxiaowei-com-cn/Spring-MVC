@@ -22,13 +22,13 @@
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>5.2.3.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-        <spring-security.version>5.2.2.RELEASE</spring-security.version>
+        <spring-security.version>5.3.3.RELEASE</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
         <thymeleaf-spring5.version>3.0.11.RELEASE</thymeleaf-spring5.version>
@@ -41,42 +41,42 @@
         <thymeleaf-extras-springsecurity5.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity5.version>
 
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
-        <freemarker.version>2.3.29</freemarker.version>
+        <freemarker.version>2.3.30</freemarker.version>
 
         <!-- https://mvnrepository.com/artifact/jstl/jstl -->
         <jstl.version>1.2</jstl.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
-        <cxf.version>3.3.5</cxf.version>
+        <cxf.version>3.3.7</cxf.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <HikariCP.version>3.4.2</HikariCP.version>
+        <HikariCP.version>3.4.5</HikariCP.version>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
         <quartz.version>2.3.2</quartz.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-        <mybatis.version>3.5.4</mybatis.version>
+        <mybatis.version>3.5.5</mybatis.version>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-        <mybatis-spring.version>2.0.3</mybatis-spring.version>
+        <mybatis-spring.version>2.0.5</mybatis-spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
-        <spring-data-redis.version>2.2.4.RELEASE</spring-data-redis.version>
+        <spring-data-redis.version>2.3.1.RELEASE</spring-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
-        <spring-session-data-redis.version>2.2.1.RELEASE</spring-session-data-redis.version>
+        <spring-session-data-redis.version>2.3.0.RELEASE</spring-session-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-        <jedis.version>3.2.0</jedis.version>
+        <jedis.version>3.3.0</jedis.version>
 
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
-        <lettuce-core.version>5.2.1.RELEASE</lettuce-core.version>
+        <lettuce-core.version>5.3.1.RELEASE</lettuce-core.version>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <mysql.version>8.0.19</mysql.version>
+        <mysql.version>8.0.21</mysql.version>
 
         <!-- GitHub 图片验证码 Patchca 依赖 -->
         <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
@@ -85,7 +85,7 @@
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
-        <jackson-datatype.version>2.10.2</jackson-datatype.version>
+        <jackson-datatype.version>2.11.1</jackson-datatype.version>
 
         <!-- Apache Commons Codec 软件包包含各种格式的简单编码器和解码器，如Base64和Hexadecimal。 -->
         <!-- 除了这些广泛使用的编码器和解码器之外，编解码器包还维护一组语音编码实用程序。 -->
@@ -94,7 +94,7 @@
 
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
-        <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
         <velocity.version>1.7</velocity.version>
@@ -118,7 +118,7 @@
         <el-api.version>3.0.1-b06</el-api.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
-        <log4j-web.version>2.13.0</log4j-web.version>
+        <log4j-web.version>2.13.3</log4j-web.version>
 
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -127,7 +127,7 @@
 
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
-        <log4j-slf4j-impl.version>2.13.0</log4j-slf4j-impl.version>
+        <log4j-slf4j-impl.version>2.13.3</log4j-slf4j-impl.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <lombok.version>1.18.12</lombok.version>
