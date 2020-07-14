@@ -18,18 +18,19 @@
             ${basedir}/src/main/resources/mybatis/generatorConfig.xml
         </mybatis.generator.configurationFile>
 
-        <!-- JDK 6 最高支持 spring 版本为：4.3.26.RELEASE -->
+        <!-- JDK 6 最高支持 spring 版本为：4.3.27.RELEASE -->
         <!-- Spring MVC -->
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>4.3.26.RELEASE</spring.version>
+        <spring.version>4.3.27.RELEASE</spring.version>
 
+        <!-- JDK 6 最高支持 spring-security 版本为：4.2.17.RELEASE -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-        <spring-security.version>4.2.14.RELEASE</spring-security.version>
+        <spring-security.version>4.2.17.RELEASE</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
         <thymeleaf-spring4.version>3.0.11.RELEASE</thymeleaf-spring4.version>
@@ -39,6 +40,7 @@
         <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
         <thymeleaf-extras-springsecurity4.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity4.version>
 
+        <!-- JDK 6 最高支持 spring-security 版本为：2.3.29 -->
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <freemarker.version>2.3.29</freemarker.version>
 
@@ -50,6 +52,7 @@
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
         <cxf.version>3.0.16</cxf.version>
 
+        <!-- JDK 6 最高支持 HikariCP-java6 版本为：2.3.13 -->
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP-java6 -->
         <HikariCP-java6.version>2.3.13</HikariCP-java6.version>
 
@@ -78,9 +81,9 @@
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <jedis.version>2.9.0</jedis.version>
 
-        <!-- JDK 6 最高支持 mysql 版本为：5.1.48 -->
+        <!-- JDK 6 最高支持 mysql 版本为：5.1.49 -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <mysql.version>5.1.48</mysql.version>
+        <mysql.version>5.1.49</mysql.version>
 
         <!-- GitHub 图片验证码 Patchca 依赖 -->
         <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
