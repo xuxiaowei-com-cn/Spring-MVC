@@ -14,6 +14,9 @@ import java.util.UUID;
 
 /**
  * XML Bean 测试类
+ *
+ * @author xuxiaowei
+ * @since 0.0.1
  */
 @Slf4j
 @ExtendWith(SpringExtension.class)
