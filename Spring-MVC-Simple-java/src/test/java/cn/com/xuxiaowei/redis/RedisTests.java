@@ -3,13 +3,13 @@ package cn.com.xuxiaowei.redis;
 import cn.com.xuxiaowei.configuration.SpringContextConfiguration;
 import cn.com.xuxiaowei.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import redis.clients.jedis.Jedis;
 
@@ -23,7 +23,7 @@ import java.util.Set;
  * @since 0.0.1
  */
 @Slf4j
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {SpringContextConfiguration.class})
 @WebAppConfiguration
 public class RedisTests {

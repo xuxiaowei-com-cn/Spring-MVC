@@ -2,11 +2,10 @@ package cn.com.xuxiaowei.service;
 
 import cn.com.xuxiaowei.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
 import java.util.UUID;
@@ -18,7 +17,7 @@ import java.util.UUID;
  * @since 0.0.1
  */
 @Slf4j
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(value = {"classpath:spring-context.xml"})
 public class UserServiceTests {
 
