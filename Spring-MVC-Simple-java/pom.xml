@@ -18,12 +18,12 @@
             ${basedir}/src/main/resources/mybatis/generatorConfig.xml
         </mybatis.generator.configurationFile>
 
-        <!-- JDK 6 最高支持 spring 版本为：4.3.27.RELEASE -->
+        <!-- JDK 6 最高支持 spring 版本为：4.3.28.RELEASE -->
         <!-- Spring MVC -->
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>4.3.27.RELEASE</spring.version>
+        <spring.version>4.3.28.RELEASE</spring.version>
 
         <!-- JDK 6 最高支持 spring-security 版本为：4.2.17.RELEASE -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
@@ -89,9 +89,9 @@
         <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
         <patchca.version>0.0.1</patchca.version>
 
-        <!-- JDK 6 最高支持 jackson-databind 版本为：2.7.9.6 -->
+        <!-- JDK 6 最高支持 jackson-databind 版本为：2.7.9.7 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <jackson-databind.version>2.7.9.6</jackson-databind.version>
+        <jackson-databind.version>2.7.9.7</jackson-databind.version>
 
         <!-- JDK 6 最高支持 jackson-dataformat-xml 版本为：2.7.9 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
