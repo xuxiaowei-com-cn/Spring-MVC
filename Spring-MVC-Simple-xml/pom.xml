@@ -22,13 +22,13 @@
         <!-- Java 消息服务 -->
         <!-- 缓存、邮件、定时器、UI等等 -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <spring.version>5.2.8.RELEASE</spring.version>
+        <spring.version>5.3.2</spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-        <spring-security.version>5.3.3.RELEASE</spring-security.version>
+        <spring-security.version>5.4.2</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
         <thymeleaf-spring5.version>3.0.12.RELEASE</thymeleaf-spring5.version>
@@ -64,16 +64,16 @@
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
-        <spring-data-redis.version>2.3.2.RELEASE</spring-data-redis.version>
+        <spring-data-redis.version>2.4.2</spring-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
-        <spring-session-data-redis.version>2.3.0.RELEASE</spring-session-data-redis.version>
+        <spring-session-data-redis.version>2.4.1</spring-session-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <jedis.version>3.4.1</jedis.version>
 
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
-        <lettuce-core.version>5.3.2.RELEASE</lettuce-core.version>
+        <lettuce-core.version>6.0.1.RELEASE</lettuce-core.version>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.22</mysql.version>
