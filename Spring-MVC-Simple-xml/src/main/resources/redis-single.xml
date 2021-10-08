@@ -12,8 +12,12 @@
           class="org.springframework.data.redis.connection.RedisStandaloneConfiguration"
           p:hostName="${redis.host-name}"
           p:port="${redis.port}"
-          p:password="${redis.password}"
+          p:password-ref="redisPassword"
           p:database="${redis.database}"/>
+
+    <!-- Redis 密码 -->
+    <bean id="redisPassword" class="org.springframework.data.redis.connection.RedisPassword"
+          c:thePassword="${redis.password}"/>
 
     <!-- 连接池：LettuceConnectionFactory、JedisConnectionFactory 二选一 -->
 
