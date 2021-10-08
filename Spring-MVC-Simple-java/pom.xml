@@ -48,7 +48,7 @@
 
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
-        <cxf.version>3.4.2</cxf.version>
+        <cxf.version>3.4.5</cxf.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
         <HikariCP.version>3.4.5</HikariCP.version>
