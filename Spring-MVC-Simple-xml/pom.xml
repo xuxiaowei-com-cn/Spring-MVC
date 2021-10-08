@@ -65,13 +65,19 @@
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
-        <spring-data-redis.version>2.4.2</spring-data-redis.version>
+        <!--
+            在 spring-data-redis 2.4.4 中的 spring-data-keyvalue 2.4.4 中的 spring-data-commons 2.4.4 中，
+            方法 org.springframework.data.mapping.context.AbstractMappingContext#AbstractMappingContext() 中使用了：
+            org.springframework.core.NativeDetector，
+            而 org.springframework.core.NativeDetector 从 spring-core 5.3.10 才存在
+         -->
+        <spring-data-redis.version>2.4.3</spring-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
-        <spring-session-data-redis.version>2.4.1</spring-session-data-redis.version>
+        <spring-session-data-redis.version>2.5.2</spring-session-data-redis.version>
 
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-        <jedis.version>3.4.1</jedis.version>
+        <jedis.version>3.7.0</jedis.version>
 
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
         <lettuce-core.version>6.1.5.RELEASE</lettuce-core.version>
