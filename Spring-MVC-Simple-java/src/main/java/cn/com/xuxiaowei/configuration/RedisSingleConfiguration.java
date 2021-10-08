@@ -57,6 +57,9 @@ public class RedisSingleConfiguration {
         // 默认数据库：0
         redisStandaloneConfiguration.setDatabase(redisSingleProperties.getDatabase());
 
+        // 密码
+        redisStandaloneConfiguration.setPassword(redisSingleProperties.getPassword());
+
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }
 
