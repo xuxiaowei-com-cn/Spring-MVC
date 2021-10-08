@@ -51,7 +51,8 @@
         <cxf.version>3.4.5</cxf.version>
 
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <HikariCP.version>3.4.5</HikariCP.version>
+        <!-- 5.0.0：JDK 11 -->
+        <HikariCP.version>4.0.3</HikariCP.version>
 
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
         <!-- 使用 XML 配置时需要，使用 注解 配置时不需要 -->
