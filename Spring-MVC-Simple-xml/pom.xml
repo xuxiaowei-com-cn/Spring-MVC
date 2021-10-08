@@ -126,7 +126,7 @@
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
-        <slf4j-api.version>1.7.30</slf4j-api.version>
+        <slf4j-api.version>1.7.32</slf4j-api.version>
 
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
