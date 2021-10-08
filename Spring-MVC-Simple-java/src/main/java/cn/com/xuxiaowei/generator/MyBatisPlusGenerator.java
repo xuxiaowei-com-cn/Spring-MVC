@@ -23,12 +23,13 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
-import org.apache.commons.lang3.StringUtils;
+import lombok.Data;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * MyBatis Plus 代码生成器
@@ -36,6 +37,7 @@ import java.util.Scanner;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Data
 public class MyBatisPlusGenerator {
 
     /**
@@ -46,7 +48,7 @@ public class MyBatisPlusGenerator {
     /**
      * 作者
      */
-    private String author = "徐晓伟";
+    private String author;
 
     /**
      * 读取本地项目文件夹路径（Spring Boot）
@@ -56,56 +58,34 @@ public class MyBatisPlusGenerator {
     /**
      * 主文件夹
      */
-    private String main = projectPath + "/src/main";
+    private String main;
 
     /**
-     * java 文件的路径
+     * 获取 java 文件的路径
+     *
+     * @return 返回 java 文件的路径
      */
-    private String outputDir = main + "/java";
+    public String getOutputDir() {
+        main = projectPath + "/src/main";
+
+        return main + "/java";
+    }
 
     /**
-     * XML 文件夹
+     * 获取 XML 文件的路径
+     *
+     * @return 返回 XML 文件的路径
      */
-    private String mapper = main + "/resources/mapper/";
-
-    /**
-     * 数据库 地址
-     * <p>
-     * MySQL：
-     * jdbc:mysql://127.0.0.1:3306/spring-boot-api?useSSL=false&serverTimezone=GMT%2B8
-     * <p>
-     * Oracle：
-     * jdbc:oracle:thin:@192.168.8.128:1521/orcl
-     * <p>
-     * SQLServer：
-     * jdbc:sqlserver://127.0.0.1:1433;DatabaseName=DATA
-     */
-    private String url = "jdbc:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&serverTimezone=GMT%2B8";
-
-    /**
-     * 数据库 用户名
-     */
-    private String username = "root";
-
-    /**
-     * 数据库 密码
-     */
-    private String password = "root";
+    public String getMapper() {
+        return main + "/resources/mapper/"
+                // + subproject
+                + "/" + moduleName + "/";
+    }
 
     /**
      * 数据库 驱动名称
-     * <p>
-     * MySQL：
-     * com.mysql.jdbc.Driver 已过时，被弃用
-     * com.mysql.cj.jdbc.Driver 请使用此类（在 pom.xml 中删除 MySQL 的运行范围 <scope>runtime</scope>）
-     * <p>
-     * Oracle：
-     * oracle.jdbc.driver.OracleDriver
-     * <p>
-     * SQLServer：
-     * com.microsoft.sqlserver.jdbc.SQLServerDriver
      */
-    private String driverName = com.mysql.cj.jdbc.Driver.class.getName();
+    private String driverName = com.p6spy.engine.spy.P6SpyDriver.class.getName();
 
     /**
      * 自定义继承的Entity类全称，带包名
@@ -130,7 +110,17 @@ public class MyBatisPlusGenerator {
     /**
      * 逻辑删除属性名称
      */
-    private String logicDeleteFieldName = "deleted";
+    private String logicDeleteFieldName = "DELETED";
+
+    /**
+     * 默认模块名
+     */
+    private String moduleName = "";
+
+    /**
+     * 数据库序号
+     */
+    private int datasourceNum;
 
     public static void main(String[] args) {
 
@@ -141,9 +131,79 @@ public class MyBatisPlusGenerator {
     }
 
     /**
+     * 数据库
+     */
+    enum Datasource {
+
+        /**
+         * MySQL 开发
+         */
+        MySQL_Dev("jdbc:p6spy:mysql://127.0.0.1:3306/xuxiaowei?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=UTF-8",
+                "root", "root", "MySQL 开发 数据库 xuxiaowei"),
+
+        ;
+
+        /**
+         * 数据库连接串
+         */
+        private final String url;
+
+        /**
+         * 数据库用户名
+         */
+        private final String username;
+
+        /**
+         * 数据库密码
+         */
+        private final String password;
+
+        /**
+         * 数据库说明
+         */
+        private final String explain;
+
+        Datasource(String url, String username, String password, String explain) {
+            this.url = url;
+            this.username = username;
+            this.password = password;
+            this.explain = explain;
+        }
+
+    }
+
+    /**
      * 代码生成器
      */
-    private void getAutoGenerator() {
+    public void getAutoGenerator() {
+
+        Datasource[] values = Datasource.values();
+
+        for (int i = 0; i < values.length; i++) {
+            Datasource value = values[i];
+            System.out.printf("数据库序号：%s 数据库说明：%s 数据库连接串：%s 数据库用户名：%s%n",
+                    i, value.explain, value.url, value.username);
+        }
+
+        String datasource = scanner("请选择数据库序号");
+
+        try {
+            int integer = Integer.parseInt(datasource);
+
+            if (integer >= 0 && integer < values.length) {
+                datasourceNum = integer;
+            } else {
+                System.err.println("输入数据库序号不在有效范围内");
+                getAutoGenerator();
+                return;
+            }
+
+        } catch (Exception e) {
+            System.err.println("输入数据库序号不正确");
+            e.printStackTrace();
+            getAutoGenerator();
+            return;
+        }
 
         // 创建 代码生成器
         AutoGenerator autoGenerator = new AutoGenerator();
@@ -175,7 +235,7 @@ public class MyBatisPlusGenerator {
         };
 
         // 输出文件配置
-        List<FileOutConfig> fileOutConfigLists = getFileOutConfigList(packageConfig);
+        List<FileOutConfig> fileOutConfigLists = getFileOutConfigList();
 
         // 自定义配置 设置 自定义输出文件
         injectionConfig.setFileOutConfigList(fileOutConfigLists);
@@ -201,13 +261,15 @@ public class MyBatisPlusGenerator {
         // 设置 策略配置项
         StrategyConfig strategyConfig = getStrategyConfig(packageConfig);
 
+        // @Accessors(chain = true)
+        strategyConfig.setChainModel(true);
+
         // 数据库表配置
         autoGenerator.setStrategy(strategyConfig);
 
         // 模板引擎
         // FreemarkerTemplateEngine
         // VelocityTemplateEngine
-        autoGenerator.setTemplateEngine(new VelocityTemplateEngine());
 
         // 生成代码
         autoGenerator.execute();
@@ -217,10 +279,10 @@ public class MyBatisPlusGenerator {
     /**
      * 输出文件配置
      *
-     * @param packageConfig 跟包相关的配置项
      * @return 输出文件配置
+     * @see PackageConfig 跟包相关的配置项
      */
-    private List<FileOutConfig> getFileOutConfigList(PackageConfig packageConfig) {
+    private List<FileOutConfig> getFileOutConfigList() {
         // 如果模板引擎是 freemarker
         // String xmlPath = ConstVal.TEMPLATE_XML + ".ftl";
 
@@ -234,17 +296,12 @@ public class MyBatisPlusGenerator {
         fileOutConfigs.add(new FileOutConfig(xmlPath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
-
-                // 模块名
-                String moduleName = packageConfig.getModuleName();
-
-                // 模块名是否为空
-                if (moduleName == null) {
-                    moduleName = "";
-                }
-
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return mapper + moduleName + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                // 取消 Mapper XML DO 后缀名
+                String entityName = tableInfo.getEntityName();
+                return getMapper() + "/" + entityName
+                        // .substring(0, entityName.length() - 2)
+                        + "Mapper" + StringPool.DOT_XML;
             }
         });
 
@@ -262,15 +319,10 @@ public class MyBatisPlusGenerator {
         PackageConfig packageConfig = new PackageConfig();
 
         // 模块名
-        String moduleName = scanner("是否生成模块名：\n输入“-”时，忽略模块名");
+        moduleName = scanner("生成模块名");
 
-        // 忽略模块名的情况
-        String noModuleName = "-";
-
-        if (!noModuleName.equals(moduleName)) {
-            // 模块名
-            packageConfig.setModuleName(moduleName);
-        }
+        // 模块名
+        packageConfig.setModuleName(moduleName);
 
         // 设置 父包名
         packageConfig.setParent(parent);
@@ -288,8 +340,19 @@ public class MyBatisPlusGenerator {
         // java8 新的时间类型
         globalConfig.setDateType(DateType.TIME_PACK);
 
+        // scanner(String.format("子项目名(已默认前缀：%s)", parent))
+//        subproject = "passport";
+
+//        setMain(subproject);
+
+//        setParent(parent + "." + subproject);
+
         // 设置生成文件的输出目录
-        globalConfig.setOutputDir(outputDir);
+        globalConfig.setOutputDir(getOutputDir());
+
+        author = scanner("作者");
+
+//        mapper += parent;
 
         // 设置 作者
         globalConfig.setAuthor(author);
@@ -315,6 +378,8 @@ public class MyBatisPlusGenerator {
         // 设置 Controller 名
         globalConfig.setControllerName(controllerName);
 
+        // 设置 Entity 后缀名
+
         return globalConfig;
     }
 
@@ -325,14 +390,17 @@ public class MyBatisPlusGenerator {
 
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
 
+        Datasource[] values = Datasource.values();
+        Datasource value = values[datasourceNum];
+
         // 设置 数据库 地址
-        dataSourceConfig.setUrl(url);
+        dataSourceConfig.setUrl(value.url);
         // 设置 驱动名称
         dataSourceConfig.setDriverName(driverName);
         // 设置 数据库 用户名
-        dataSourceConfig.setUsername(username);
+        dataSourceConfig.setUsername(value.username);
         // 设置 数据库 密码
-        dataSourceConfig.setPassword(password);
+        dataSourceConfig.setPassword(value.password);
 
         return dataSourceConfig;
     }
@@ -359,6 +427,12 @@ public class MyBatisPlusGenerator {
         // 自定义继承的Entity类全称，带包名
         strategyConfig.setSuperEntityClass(superEntityClass);
 
+        // 自定义基础的Entity类，公共字段
+        Set<String> superEntityColumns = strategyConfig.getSuperEntityColumns();
+        for (String superEntityColumn : superEntityColumns) {
+            strategyConfig.setSuperEntityColumns(superEntityColumn);
+        }
+
         // 【实体】是否为lombok模型（默认 false）
         strategyConfig.setEntityLombokModel(true);
 
@@ -371,6 +445,7 @@ public class MyBatisPlusGenerator {
         // 是否生成实体时，生成字段注解
         strategyConfig.setEntityTableFieldAnnotationEnable(true);
 
+        // 逻辑删除属性名称
         strategyConfig.setLogicDeleteFieldName(logicDeleteFieldName);
 
         // 自定义继承的Controller类全称，带包名
@@ -388,7 +463,6 @@ public class MyBatisPlusGenerator {
         return strategyConfig;
     }
 
-
     /**
      * 读取控制台内容
      */
@@ -402,6 +476,15 @@ public class MyBatisPlusGenerator {
             }
         }
         throw new MybatisPlusException("请输入正确的" + tip + "！");
+    }
+
+    /**
+     * 设置 主文件夹
+     *
+     * @param subproject 子项目名
+     */
+    public void setMain(String subproject) {
+        this.main = projectPath + "/" + subproject + "/src/main";
     }
 
 }
