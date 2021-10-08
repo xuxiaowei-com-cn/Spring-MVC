@@ -74,7 +74,7 @@
         <jedis.version>3.4.1</jedis.version>
 
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
-        <lettuce-core.version>6.0.1.RELEASE</lettuce-core.version>
+        <lettuce-core.version>6.1.5.RELEASE</lettuce-core.version>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <mysql.version>8.0.26</mysql.version>
