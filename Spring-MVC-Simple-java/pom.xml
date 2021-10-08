@@ -41,7 +41,7 @@
         <thymeleaf-extras-springsecurity5.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity5.version>
 
         <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
-        <freemarker.version>2.3.30</freemarker.version>
+        <freemarker.version>2.3.31</freemarker.version>
 
         <!-- https://mvnrepository.com/artifact/jstl/jstl -->
         <jstl.version>1.2</jstl.version>
