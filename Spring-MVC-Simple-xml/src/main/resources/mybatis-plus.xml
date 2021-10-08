@@ -29,7 +29,15 @@
         <property name="plugins">
             <array>
                 <!-- 分页插件 -->
-                <bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
+                <bean class="com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor">
+                    <property name="interceptors">
+                        <set>
+                            <!-- 分页拦截器 -->
+                            <bean id="paginationInnerInterceptor"
+                                  class="com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor"/>
+                        </set>
+                    </property>
+                </bean>
             </array>
         </property>
 
