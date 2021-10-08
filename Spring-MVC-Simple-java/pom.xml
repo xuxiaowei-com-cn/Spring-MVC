@@ -134,7 +134,7 @@
         <log4j-slf4j-impl.version>2.14.0</log4j-slf4j-impl.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.22</lombok.version>
 
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <junit-jupiter-api.version>5.8.1</junit-jupiter-api.version>
