@@ -94,7 +94,9 @@
 
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
+        <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
+        <p6spy.version>3.9.1</p6spy.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
         <velocity.version>1.7</velocity.version>
@@ -351,7 +353,14 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>${mybatis-plus.version}</version>
+            <version>${mybatis-plus-generator.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>${p6spy.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
