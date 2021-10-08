@@ -130,7 +130,7 @@
 
         <!-- 用于支持：@Slf4j -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
-        <log4j-slf4j-impl.version>2.14.0</log4j-slf4j-impl.version>
+        <log4j-slf4j-impl.version>2.14.1</log4j-slf4j-impl.version>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <lombok.version>1.18.22</lombok.version>
