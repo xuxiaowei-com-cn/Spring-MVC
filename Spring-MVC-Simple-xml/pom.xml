@@ -31,7 +31,8 @@
         <spring-security.version>5.3.11.RELEASE</spring-security.version>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
-        <thymeleaf-spring5.version>3.0.12.RELEASE</thymeleaf-spring5.version>
+        <!-- https://github.com/advisories/GHSA-qcj6-jqrg-4wp2 -->
+        <thymeleaf-spring5.version>3.0.14.RELEASE</thymeleaf-spring5.version>
         <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-java8time -->
         <thymeleaf-extras-java8time.version>3.0.4.RELEASE</thymeleaf-extras-java8time.version>
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-testing -->
