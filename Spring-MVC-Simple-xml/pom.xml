@@ -84,7 +84,7 @@
         <lettuce-core.version>6.1.5.RELEASE</lettuce-core.version>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <mysql.version>8.0.26</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
 
         <!-- GitHub 图片验证码 Patchca 依赖 -->
         <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
